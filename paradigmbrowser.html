@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<html>
+<head>
+<style>
+body {background-color: black;}
+h1   {color: white;}
+</style>
+<script>
+
+// If you would like to add paradigms, do so by adding entries to the following dictionary
+var hiddenTags = {"vblex":["<inf>", "<past>", "<pres><p3><sg>"],
+      "vbser":["<inf>", "<past>", "<pres><p3><sg>"],
+      "prn":["<subj><p1><mf><sg>", "<subj><p1><mf><pl>", "<subj><p3><mf><pl>"],
+      "ij":["<ij>"]};
+
+
+$(document).ready(function () {
+  $(window).keypress(function (e) {
+    if (e.key === ' ' || e.key === 'Spacebar') {
+      e.preventDefault()
+      paradigm()
+    }
+  })
+})
+
+function addElement(languagesWithFirstTag, dictOfParadigmedWords) {
+  for(let i = 0; i < languagesWithFirstTag.length; i++){
+    if(languagesWithFirstTag[0].split('<')[0] in dictOfParadigmedWords){
+      dictEntryToIterate = dictOfParadigmedWords[languagesWithFirstTag[0].split('<')[0]]
+      for(let j = 0; j < dictEntryToIterate.length; j++){
+        document.getElementById('ParadigmText').value += dictEntryToIterate[j] + " ";
+      }
+    }
+  }
+}
+
+function paradigm() {
+
+  $(document).ready(function () {
+
+    var language = document.getElementById('Language').value;
+    var paradigmText = document.getElementById('ParadigmText').value;
+    var languagesWithFirstTag = ""
+    var dictOfParadigmedWords = {}
+
+    $.getJSON('https://beta.apertium.org/apy/analyze?lang='+language+'&q='+paradigmText,function(data,status) {
+
+      var arrOfWordsWithFirstTag = []
+      languagesWithFirstTag = data[0][0];
+
+      individualTypesOfWord = languagesWithFirstTag.split('/');
+
+      for(let i = 1; i < individualTypesOfWord.length; i++) {
+        arrOfWordsWithFirstTag.push(individualTypesOfWord[i].split('>')[0]+'>');
+      }
+
+      languagesWithFirstTag = arrOfWordsWithFirstTag.filter(onlyUnique);
+      console.log(languagesWithFirstTag)
+      document.getElementById('ParadigmText').value = "";
+
+      for (let j = 0; j < languagesWithFirstTag.length; j++) {
+        tag = languagesWithFirstTag[j].split('<')[1].split('>')[0];
+        if(tag in hiddenTags){
+          for(let k = 0; k < hiddenTags[tag].length; k++) {
+            $.getJSON('https://beta.apertium.org/apy/generate?lang='+language+'&q='+languagesWithFirstTag[j]+hiddenTags[tag][k],function(data,status) {
+              if(languagesWithFirstTag[j].split('<')[0] in dictOfParadigmedWords){
+                dictOfParadigmedWords[languagesWithFirstTag[j].split('<')[0]].push(data[0][0])
+              }else{
+                dictOfParadigmedWords[languagesWithFirstTag[j].split('<')[0]] = [data[0][0]]
+              }
+              if(k == hiddenTags[tag].length - 1 && j == languagesWithFirstTag.length - 1){
+                addElement(languagesWithFirstTag, dictOfParadigmedWords)
+              }
+            },'html');
+          }
+
+        }else{
+          dictOfParadigmedWords[languagesWithFirstTag[j].split('<')[0]] = [languagesWithFirstTag[j].split('<')[0]]
+        }
+      }
+
+    },'html');
+  });
+
+}
+
+function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+}
+
+</script>
+</head>
+
+<body>
+<h1>Apertium Paradigm Generator</h1>
+<input id="Language" placeholder="Language Code"> </input>
+<input id='ParadigmText' placeholder="Text to see Paradigms"></input>
+<button type="button" onclick="paradigm()">See Paradigms</button>
+</body>
+</html>
