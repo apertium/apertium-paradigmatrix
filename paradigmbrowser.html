@@ -24,16 +24,6 @@ $(document).ready(function () {
   })
 })
 
-function addElement(languagesWithFirstTag, dictOfParadigmedWords) {
-  for(let i = 0; i < languagesWithFirstTag.length; i++){
-    if(languagesWithFirstTag[0].split('<')[0] in dictOfParadigmedWords){
-      dictEntryToIterate = dictOfParadigmedWords[languagesWithFirstTag[0].split('<')[0]]
-      for(let j = 0; j < dictEntryToIterate.length; j++){
-        document.getElementById('ParadigmText').value += dictEntryToIterate[j] + " ";
-      }
-    }
-  }
-}
 
 function paradigm() {
 
@@ -69,9 +59,9 @@ function paradigm() {
               }else{
                 dictOfParadigmedWords[languagesWithFirstTag[j].split('<')[0]] = [data[0][0]]
               }
-              if(k == hiddenTags[tag].length - 1 && j == languagesWithFirstTag.length - 1){
-                addElement(languagesWithFirstTag, dictOfParadigmedWords)
-              }
+
+              document.getElementById('ParadigmText').value += data[0][0] + " ";
+
             },'html');
           }
 
