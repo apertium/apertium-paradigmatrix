@@ -9,10 +9,9 @@ h1   {color: white;}
 <script>
 
 // If you would like to add paradigms, do so by adding entries to the following dictionary
-var hiddenTags = {"vblex":["<inf>", "<past>", "<pres><p3><sg>"],
+var hiddenTags = {"vblex":["<inf>", "<past>", "<pres><p3><sg>", "<pii><p1><pl>", "<pii><p3><pl>", "<pii><p3><sg>"],
       "vbser":["<inf>", "<past>", "<pres><p3><sg>"],
-      "prn":["<subj><p1><mf><sg>", "<subj><p1><mf><pl>", "<subj><p3><mf><pl>"],
-      "ij":["<ij>"]};
+      "prn":["<subj><p1><mf><sg>", "<subj><p1><mf><pl>", "<subj><p3><mf><pl>"]};
 
 
 $(document).ready(function () {
@@ -60,7 +59,9 @@ function paradigm() {
                 dictOfParadigmedWords[languagesWithFirstTag[j].split('<')[0]] = [data[0][0]]
               }
 
-              document.getElementById('ParadigmText').value += data[0][0] + " ";
+              if(data[0][0].indexOf('#') == -1){
+                document.getElementById('ParadigmText').value += data[0][0] + " ";
+              }
 
             },'html');
           }
