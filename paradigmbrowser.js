@@ -17,11 +17,28 @@ function getTags(obj) {
     var tags = $(obj).data('tags').split('.');
     var completedString = "";
     for (let i = 0; i < tags.length; i++) {
-      if(tagsNotToAdd.indexOf(tags[i].trim()) > -1 == false){
-        completedString += "<" + tags[i] + ">";
-      }
+      completedString += "<" + tags[i] + ">";
     }
     hiddenTags.push(completedString);
+  }
+}
+
+function editTags(obj, find, change) {
+  if($(obj).data('tags') != undefined) {
+    var tags = $(obj).data('tags').split('.');
+    str = "<"
+    for(let x = 0; x < tags.length; x++) {
+      if(x < tags.length - 1) {
+        str += tags[x] + "><"
+      }else{
+        str += tags[x] + ">"
+      }
+    }
+
+    if(str == find){
+      $(obj).text(change);
+    }
+
   }
 }
 
@@ -30,107 +47,78 @@ function removeTheseTags(obj) {
     var tags = $(obj).data('remove-tags').split('.');
     var completedString = "";
     for (let i = 0; i < tags.length; i++) {
-      completedString += tags[i];
+      tagsNotToAdd.push(tags[i]);
     }
-    tagsNotToAdd.push(completedString);
   }
 }
 
+function runThruGettingTags(arr) {
+  $('#table tr').each(function(){
+    $(this).find('td').each(function(){
+      getTags(this);
+    })
+  })
+  for(let i = 0; i < arr.length; i++) {
+    $(arr[i]).each(function(){
+      getTags(this);
+    })
+  }
+}
+
+function runThruEditingNames(arr, hiddenTagsValue, updatedValue) {
+  $('#table tr').each(function(){
+    $(this).find('td').each(function(){
+      editTags(this, hiddenTagsValue, updatedValue)
+    })
+  })
+  for(let i = 0; i < arr.length; i++) {
+    $(arr[i]).each(function(){
+      editTags(this, hiddenTagsValue, updatedValue)
+    })
+  }
+}
 
 function paradigm() {
-
   $(document).ready(function () {
-
     var language = $('#Language').val();
     var paradigmText = $('#ParadigmText').val();
-
     var languagesWithFirstTag = ""
-    var dictOfParadigmedWords = {}
-
-    $('#table tr').each(function(){
-      $(this).find('td').each(function(){
-        removeTheseTags(this);
-      })
-    })
-
     $('p').each(function(){
       removeTheseTags(this);
     })
-
-    $('div').each(function(){
-      removeTheseTags(this);
-    })
-
-    $('body').each(function(){
-      removeTheseTags(this);
-    })
-
-    $('span').each(function(){
-      removeTheseTags(this);
-    })
-
     $.getJSON(encodeURI('https://beta.apertium.org/apy/analyze?lang='+language+'&q='+paradigmText),function(data,status) {
-      console.log('https://beta.apertium.org/apy/analyze?lang='+language+'&q='+paradigmText)
       var arrOfWordsWithFirstTag = []
       languagesWithFirstTag = data[0][0];
-      console.log(languagesWithFirstTag)
       individualTypesOfWord = languagesWithFirstTag.split('/');
-
       for(let i = 1; i < individualTypesOfWord.length; i++) {
-        arrOfWordsWithFirstTag.push(individualTypesOfWord[i].split('>')[0]+'>');
+        text = individualTypesOfWord[i].replace(new RegExp('><', 'g'), ".");
+        text = text.replace(new RegExp('<', 'g'), ".");
+        text = text.replace(new RegExp('>', 'g'), ".");
+        text = text.split(/[\s.]+/)
+        string = ""
+        for(let j = 1; j < text.length; j++){
+          if(text[j] != ""){
+            if(tagsNotToAdd.indexOf(text[j].trim()) > -1 == false){
+              if(string.includes("<" + text[j] + ">") == false){
+                string += "<" + text[j] + ">";
+              }
+            }
+          }
+        }
+        arrOfWordsWithFirstTag.push(individualTypesOfWord[i].split('<')[0]+string);
       }
-
-      languagesWithFirstTag = arrOfWordsWithFirstTag.filter(onlyUnique);
-
-      $('#ParadigmText').val($('#ParadigmText').val()+": ");
-
+      languagesWithFirstTag = arrOfWordsWithFirstTag;
       hiddenTags = []
-
-      $('#table tr').each(function(){
-        $(this).find('td').each(function(){
-          getTags(this);
-        })
-      })
-
-      $('p').each(function(){
-        getTags(this);
-      })
-
-      $('div').each(function(){
-        getTags(this);
-      })
-
-      $('body').each(function(){
-        getTags(this);
-      })
-
-      $('span').each(function(){
-        getTags(this);
-      })
-
+      runThruGettingTags(["body", "span", "div", "p"])
       for (let j = 0; j < languagesWithFirstTag.length; j++) {
-        tag = languagesWithFirstTag[j].split('<')[1].split('>')[0];
-        console.log(tag)
         for(let k = 0; k < hiddenTags.length; k++) {
           $.getJSON(encodeURI('https://beta.apertium.org/apy/generate?lang='+language+'&q='+languagesWithFirstTag[j]+hiddenTags[k]),function(data,status) {
-            //console.log('https://beta.apertium.org/apy/generate?lang='+language+'&q='+languagesWithFirstTag[j]+hiddenTags[k])
-            if(languagesWithFirstTag[j].split('<')[0] in dictOfParadigmedWords){
-              dictOfParadigmedWords[languagesWithFirstTag[j].split('<')[0]].push(data[0][0])
-            }else{
-              dictOfParadigmedWords[languagesWithFirstTag[j].split('<')[0]] = [data[0][0]]
-            }
-            if(data[0][0].indexOf('#') == -1){
-              $('#ParadigmText').val($('#ParadigmText').val() + data[0][0] + " ");
-            }
+            runThruEditingNames(["p", "div", "body", "span"], hiddenTags[k], data[0][0])
           },'html');
         }
-
       }
-
     },'html');
-
   });
-
 }
 
 function onlyUnique(value, index, self) {
