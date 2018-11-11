@@ -36,9 +36,10 @@ function editTags(obj, find, change) {
     }
 
     if(str == find){
-      $(obj).text(change);
+      if ((change.indexOf('#') > -1) == false) {
+        $(obj).text(change);
+      }
     }
-
   }
 }
 
