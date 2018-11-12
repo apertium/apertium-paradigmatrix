@@ -2,7 +2,7 @@
 var hiddenTags = []
 var tagsNotToAdd = []
 
-//Specify APY URL Here
+//Specify APY URL
 var APY_URL = 'https://beta.apertium.org/apy/'
 
 //Allows for Paradigm after you have typed the space bar
@@ -19,7 +19,6 @@ $(document).ready(function () {
 function getTags(obj) {
   if($(obj).data('tags') != undefined) {
 
-    $(obj).text("");
     var completedString = "";
 
     $.each($(obj).data('tags').split('.'), function(index, value) {
@@ -97,7 +96,7 @@ function paradigm() {
     //get values of the language and text to be paradigmed
     var language = $('#Language').val();
     var paradigmText = $('#ParadigmText').val();
-    var arrOfWordsWithWantedTags = ""
+    var languagesWithFirstTag = ""
 
     //go through all elements and see to remove all not
     $('*').each(function(){
@@ -106,20 +105,18 @@ function paradigm() {
 
     //get JSON from the analyze endpoint to see the different forms of the word
     $.getJSON(encodeURI(APY_URL + 'analyze?lang='+language+'&q='+paradigmText), function(data,status) {
-
-      var arrOfWordsWithWantedTags = []
-      arrOfWordsWithWantedTags = data[0][0];
-      forms = arrOfWordsWithWantedTags.split('/');
-
+      var arrOfWordsWithFirstTag = []
+      languagesWithFirstTag = data[0][0];
+      forms = languagesWithFirstTag.split('/');
       //iterate through all the forms of the word
       $.each($(forms), function(index, value) {
         if(index > 0) {
-
           //get the forms in array form
           text = value.replace(new RegExp('><', 'g'), ".");
           text = text.replace(new RegExp('<', 'g'), ".");
           text = text.replace(new RegExp('>', 'g'), ".");
           text = text.split(/[\s.]+/)
+
 
           string = ""
 
@@ -131,30 +128,28 @@ function paradigm() {
           });
 
           //get the form of the word so it is ready to be queryed to generate endpoint
-          arrOfWordsWithWantedTags.push(value.split('<')[0]+string);
-
+          arrOfWordsWithFirstTag.push(value.split('<')[0]+string);
+          languagesWithFirstTag = arrOfWordsWithFirstTag;
           //make sure that the hiddenTags variable does not add elements twice; clear the array
           hiddenTags = []
-
           //get all tags and store in hiddenTags Variable
           runThruGettingTags()
-
           //iterate through words with base tags and add the hidden tags on the html onto this
-          $.each($(arrOfWordsWithWantedTags), function(firstTagIndex, firstTag) {
+          $.each($(languagesWithFirstTag), function(firstTagIndex, firstTag) {
             $.each($(hiddenTags), function(hiddenTagIndex, hiddenTag) {
-
               //query generate endpoint so we can see the end values
               $.getJSON(encodeURI(APY_URL + 'generate?lang='+language+'&q='+firstTag+hiddenTag),function(data,status) {
-
                 //edit html values from the output of the APY
                 runThruEditingNames(hiddenTag, data[0][0])
               },'html');
-
             });
           });
 
         }
+
       });
+
+
     },'html');
   });
 
