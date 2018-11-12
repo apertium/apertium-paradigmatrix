@@ -17,10 +17,11 @@ $(document).ready(function () {
 
 //Function to get the tags given a jquery object
 function getTags(obj) {
+
   if($(obj).data('tags') != undefined) {
 
     var completedString = "";
-
+    $(obj).text("")
     $.each($(obj).data('tags').split('.'), function(index, value) {
       completedString += "<" + value + ">";
     });
