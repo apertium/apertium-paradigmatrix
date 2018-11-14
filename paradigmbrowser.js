@@ -105,7 +105,7 @@ function paradigm() {
     })
 
     //get JSON from the analyze endpoint to see the different forms of the word
-    $.getJSON(encodeURI(APY_URL + 'analyze?lang='+language+'&q='+paradigmText), function(data,status) {
+    $.getJSON(APY_URL + 'analyze?lang='+encodeURIComponent(language)+'&q='+encodeURIComponent(paradigmText), function(data,status) {
       var arrOfWordsWithFirstTag = []
       languagesWithFirstTag = data[0][0];
       forms = languagesWithFirstTag.split('/');
@@ -139,9 +139,9 @@ function paradigm() {
           $.each($(languagesWithFirstTag), function(firstTagIndex, firstTag) {
             $.each($(hiddenTags), function(hiddenTagIndex, hiddenTag) {
               //query generate endpoint so we can see the end values
-              $.getJSON(encodeURI(APY_URL + 'generate?lang='+language+'&q='+firstTag+hiddenTag),function(data,status) {
-                console.log(APY_URL + 'generate?lang='+language+'&q='+firstTag+hiddenTag)
+              $.getJSON(APY_URL + 'generate?lang='+encodeURIComponent(language)+'&q='+encodeURIComponent(firstTag+hiddenTag),function(data,status) {
                 //edit html values from the output of the APY
+                console.log(APY_URL + 'generate?lang='+encodeURIComponent(language)+'&q='+encodeURIComponent(firstTag+hiddenTag))
                 runThruEditingNames(hiddenTag, data[0][0])
               },'html');
             });
