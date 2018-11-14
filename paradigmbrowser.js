@@ -140,6 +140,7 @@ function paradigm() {
             $.each($(hiddenTags), function(hiddenTagIndex, hiddenTag) {
               //query generate endpoint so we can see the end values
               $.getJSON(encodeURI(APY_URL + 'generate?lang='+language+'&q='+firstTag+hiddenTag),function(data,status) {
+                console.log(APY_URL + 'generate?lang='+language+'&q='+firstTag+hiddenTag)
                 //edit html values from the output of the APY
                 runThruEditingNames(hiddenTag, data[0][0])
               },'html');
