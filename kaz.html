@@ -3,6 +3,14 @@
 <script src="paradigmbrowser.js" type="text/javascript"></script>
 
 <html>
+<style>
+	tr th:first-child {
+		text-align: right;
+	}
+	table {
+		margin-bottom: 2em;
+	}
+</style>
 <body id='body'>
 
 <h1>Apertium Paradigm Generator</h1>
@@ -14,43 +22,57 @@
 <input type="hidden" data-remove-tags="ger.nom"></input>
 
 Non-past:<br/>
-<table style="padding-bottom: 2em;">
-  <tr>
-    <td data-tags="aor.p1.sg"></td>
-    <td data-tags="aor.p1.pl"></td>
-  </tr>
-  <tr>
-    <td data-tags="aor.p2.sg"></td>
-    <td data-tags="aor.p2.pl"></td>
-  </tr>
-  <tr>
-    <td data-tags="aor.p2.frm.sg"></td>
-    <td data-tags="aor.p2.frm.pl"></td>
-  </tr>
-  <tr>
-    <td data-tags="aor.p3.sg"></td>
-    <td data-tags="aor.p3.pl"></td>
-  </tr>
+<table>
+	<tr>
+		<th></th><th>Singular</th><th>Plural</th>
+	</tr>
+	<tr>
+  		<th>First person</th>
+		<td data-tags="aor.p1.sg"></td>
+		<td data-tags="aor.p1.pl"></td>
+	</tr>
+	<tr>
+  		<th>Second person</th>
+		<td data-tags="aor.p2.sg"></td>
+		<td data-tags="aor.p2.pl"></td>
+	</tr>
+	<tr>
+		<th>Second person polite</th>
+		<td data-tags="aor.p2.frm.sg"></td>
+		<td data-tags="aor.p2.frm.pl"></td>
+	</tr>
+	<tr>
+		<th>Third person</th>
+		<td data-tags="aor.p3.sg"></td>
+		<td data-tags="aor.p3.pl"></td>
+	</tr>
 </table>
 
 Recent past:
 <table>
-  <tr>
-    <td data-tags="ifi.p1.sg"></td>
-    <td data-tags="ifi.p1.pl"></td>
-  </tr>
-  <tr>
-    <td data-tags="ifi.p2.sg"></td>
-    <td data-tags="ifi.p2.pl"></td>
-  </tr>
-  <tr>
-    <td data-tags="ifi.p2.frm.sg"></td>
-    <td data-tags="ifi.p2.frm.pl"></td>
-  </tr>
-  <tr>
-    <td data-tags="ifi.p3.sg"></td>
-    <td data-tags="ifi.p3.pl"></td>
-  </tr>
+	<tr>
+		<th></th><th>Singular</th><th>Plural</th>
+	</tr>
+	<tr>
+  		<th>First person</th>
+		<td data-tags="ifi.p1.sg"></td>
+		<td data-tags="ifi.p1.pl"></td>
+	</tr>
+	<tr>
+  		<th>Second person</th>
+		<td data-tags="ifi.p2.sg"></td>
+		<td data-tags="ifi.p2.pl"></td>
+	</tr>
+	<tr>
+		<th>Second person polite</th>
+		<td data-tags="ifi.p2.frm.sg"></td>
+		<td data-tags="ifi.p2.frm.pl"></td>
+	</tr>
+	<tr>
+		<th>Third person</th>
+		<td data-tags="ifi.p3.sg"></td>
+		<td data-tags="ifi.p3.pl"></td>
+	</tr>
 </table>
 
 
