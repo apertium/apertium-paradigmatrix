@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="paradigmbrowser.js" type="text/javascript"></script>
+
+<html>
+<body id='body'>
+
+<h1>Apertium Paradigm Generator</h1>
+<input id="Language" type="hidden" value="kaz" />
+<!-- input id="Language" placeholder="Language Code"> </input -->
+<input id='ParadigmText' placeholder="Text to see Paradigms"></input>
+<button type="button" onclick="paradigm()">See Paradigms</button><br />
+
+<input type="hidden" data-remove-tags="ger.nom"></input>
+
+Non-past:<br/>
+<table style="padding-bottom: 2em;">
+  <tr>
+    <td data-tags="aor.p1.sg"></td>
+    <td data-tags="aor.p1.pl"></td>
+  </tr>
+  <tr>
+    <td data-tags="aor.p2.sg"></td>
+    <td data-tags="aor.p2.pl"></td>
+  </tr>
+  <tr>
+    <td data-tags="aor.frm.p2.sg"></td>
+    <td data-tags="aor.frm.p2.pl"></td>
+  </tr>
+  <tr>
+    <td data-tags="aor.p3.sg"></td>
+    <td data-tags="aor.p3.pl"></td>
+  </tr>
+</table>
+
+Recent past:
+<table>
+  <tr>
+    <td data-tags="ifi.p1.sg"></td>
+    <td data-tags="ifi.p1.pl"></td>
+  </tr>
+  <tr>
+    <td data-tags="ifi.p2.sg"></td>
+    <td data-tags="ifi.p2.pl"></td>
+  </tr>
+  <tr>
+    <td data-tags="ifi.frm.p2.sg"></td>
+    <td data-tags="ifi.frm.p2.pl"></td>
+  </tr>
+  <tr>
+    <td data-tags="ifi.p3.sg"></td>
+    <td data-tags="ifi.p3.pl"></td>
+  </tr>
+</table>
+
+
+</body>
+</html>
