@@ -40,7 +40,6 @@ function editTags(obj, find, change) {
   if($(obj).data('tags') != undefined) {
     var tags = $(obj).data('tags').split('.');
 
-
     str = "<"
 
     $.each($(tags), function(index, value) {
@@ -82,11 +81,9 @@ function runThruGettingTags() {
 
 // Function to see all tags and edit
 function runThruEditingNames(hiddenTagsValue, updatedValue) {
-
   $("*").each(function(){
     editTags(this, hiddenTagsValue, updatedValue)
   });
-
 }
 
 //Function is called when button is pressed or when spacebar is pressed
@@ -111,13 +108,13 @@ function paradigm() {
       forms = languagesWithFirstTag.split('/');
       //iterate through all the forms of the word
       $.each($(forms), function(index, value) {
-        if(index > 0) {
+        //this is a temporary fix which should be changed when fixing #2
+        if(index == 1) {
           //get the forms in array form
           text = value.replace(new RegExp('><', 'g'), ".");
           text = text.replace(new RegExp('<', 'g'), ".");
           text = text.replace(new RegExp('>', 'g'), ".");
           text = text.split(/[\s.]+/)
-
 
           string = ""
 
@@ -127,7 +124,6 @@ function paradigm() {
               string += "<" + indString + ">";
             }
           });
-
           //get the form of the word so it is ready to be queryed to generate endpoint
           arrOfWordsWithFirstTag.push(value.split('<')[0]+string);
           languagesWithFirstTag = arrOfWordsWithFirstTag;
@@ -139,6 +135,7 @@ function paradigm() {
           $.each($(languagesWithFirstTag), function(firstTagIndex, firstTag) {
             $.each($(hiddenTags), function(hiddenTagIndex, hiddenTag) {
               //query generate endpoint so we can see the end values
+              console.log(hiddenTagIndex, firstTagIndex)
               $.getJSON(APY_URL + 'generate?lang='+encodeURIComponent(language)+'&q='+encodeURIComponent(firstTag+hiddenTag),function(data,status) {
                 //edit html values from the output of the APY
                 console.log(APY_URL + 'generate?lang='+encodeURIComponent(language)+'&q='+encodeURIComponent(firstTag+hiddenTag))
@@ -146,12 +143,8 @@ function paradigm() {
               },'html');
             });
           });
-
         }
-
       });
-
-
     },'html');
   });
 
