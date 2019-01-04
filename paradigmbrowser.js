@@ -135,7 +135,6 @@ function paradigm() {
           $.each($(languagesWithFirstTag), function(firstTagIndex, firstTag) {
             $.each($(hiddenTags), function(hiddenTagIndex, hiddenTag) {
               //query generate endpoint so we can see the end values
-              console.log(hiddenTagIndex, firstTagIndex)
               $.getJSON(APY_URL + 'generate?lang='+encodeURIComponent(language)+'&q='+encodeURIComponent(firstTag+hiddenTag),function(data,status) {
                 //edit html values from the output of the APY
                 console.log(APY_URL + 'generate?lang='+encodeURIComponent(language)+'&q='+encodeURIComponent(firstTag+hiddenTag))
