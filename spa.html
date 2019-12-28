@@ -23,6 +23,7 @@
 				font-family: arial, sans-serif;
 				border-collapse: collapse;
 				width: 100%;
+				table-layout: fixed;
 			}
 			td, th {
 				border: 1px solid black;
@@ -67,12 +68,12 @@
 		</style>
 	</head>
 	<body>
-		<h1 style="text-align: center; font-family: Ubuntu, sans-serif;">Apertium Paradigm Generator</h1>
+		<h1 style="text-align: center; font-family: Ubuntu, sans-serif;">Apertium Paradigm Generator - Spanish</h1>
 		<div class="row">
 			<div class="column" style="background-color: #bbb; margin-top: 20px; border-radius: 20px; text-align: center;">
 				<h2 style="font-family: Ubuntu, sans-serif;">Paradigm data</h2>
 				<label for="Language">Language code:</label>&nbsp;<input id="Language" type="text" value="spa" readonly/><br><br>
-				<label for="ParadigmText">Paradigm text:</label>&nbsp;&nbsp;&nbsp;&nbsp;<input id="ParadigmText" type="text" placeholder="Text to see paradigms..."/><br><br>
+				<label for="ParadigmText">Paradigm verb:</label>&nbsp;&nbsp;<input id="ParadigmText" type="text" placeholder="Verb to see paradigms..."/><br><br>
 				<button type="button" onclick="paradigm()">See paradigms</button><br>
 			</div>
 			<div class="column">
