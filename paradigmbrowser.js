@@ -133,14 +133,21 @@ function paradigm() {
           runThruGettingTags()
           //iterate through words with base tags and add the hidden tags on the html onto this
           $.each($(languagesWithFirstTag), function(firstTagIndex, firstTag) {
-            $.each($(hiddenTags), function(hiddenTagIndex, hiddenTag) {
-              //query generate endpoint so we can see the end values
-              $.getJSON(APY_URL + 'generate?lang='+encodeURIComponent(language)+'&q='+encodeURIComponent(firstTag+hiddenTag),function(data,status) {
-                //edit html values from the output of the APY
-                console.log(APY_URL + 'generate?lang='+encodeURIComponent(language)+'&q='+encodeURIComponent(firstTag+hiddenTag))
-                runThruEditingNames(hiddenTag, data[0][0])
-              },'html');
-            });
+            if(firstTag==="haber<vbhaver>" ||
+               firstTag==="ser<vbser>" ||
+               firstTag===paradigmText+"<vblex>") {
+              $.each($(hiddenTags), function(hiddenTagIndex, hiddenTag) {
+                //query generate endpoint so we can see the end values
+                $.getJSON(APY_URL + 'generate?lang='+encodeURIComponent(language)+'&q='+encodeURIComponent(firstTag+hiddenTag),function(data,status) {
+                  //edit html values from the output of the APY
+                  console.log(APY_URL + 'generate?lang='+encodeURIComponent(language)+'&q='+encodeURIComponent(firstTag+hiddenTag))
+                  runThruEditingNames(hiddenTag, data[0][0])
+                },'html');
+              });
+            } else {
+              alert("The text introduced is not a valid verb. Please, try another token.");
+              return 0;
+            }
           });
         }
       });
