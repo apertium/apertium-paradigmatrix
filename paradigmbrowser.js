@@ -133,7 +133,6 @@ function paradigm() {
           runThruGettingTags()
           //iterate through words with base tags and add the hidden tags on the html onto this
           $.each($(languagesWithFirstTag), function(firstTagIndex, firstTag) {
-            alert(isVerb(firstTag,paradigmText));
             if(isVerb(firstTag, paradigmText)) {
               $.each($(hiddenTags), function(hiddenTagIndex, hiddenTag) {
                 //query generate endpoint so we can see the end values
@@ -164,7 +163,6 @@ function isVerb(firstTag, paradigmText) {
 
   // try the different symbols until we find the actual one, unless it's not a verb
   $.each(verbSymbols, function(index, value) {
-    alert(paradigmText+"<"+value+">");
     if(firstTag===paradigmText+"<"+value+">") {
       dataIsVerb = true;
       return false;
