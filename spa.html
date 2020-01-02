@@ -74,7 +74,7 @@
 				<h2 style="font-family: Ubuntu, sans-serif;">Paradigm data</h2>
 				<label for="Language">Language code:</label>&nbsp;<input id="Language" type="text" value="spa" readonly/><br><br>
 				<label for="ParadigmText">Paradigm verb:</label>&nbsp;&nbsp;<input id="ParadigmText" type="text" placeholder="Verb to see paradigms..."/><br><br>
-				<button type="button" onclick="paradigm()">See paradigms</button><br>
+				<button type="button" onclick="paradigm()" id="seeParadigms">See paradigms</button><br>
 			</div>
 			<div class="column">
 				<h2 style="font-family: Ubuntu, sans-serif;">Quick navigation</h2>
@@ -665,5 +665,16 @@
 
 			&copy; <a href="https://apertium.org">Apertium</a>
 		</footer>
+		<!-- trigger button click on enter -->
+		<script type="text/javascript">
+			var paradigmTextInput = document.getElementById("ParadigmText");
+			paradigmTextInput.addEventListener("keyup", function(event) {
+				if(event.keyCode === 13) {
+					event.preventDefault();
+					document.getElementById("seeParadigms").click();
+					paradigmTextInput.value = "";
+				}
+			});
+		</script>
 	</body>
 </html>
