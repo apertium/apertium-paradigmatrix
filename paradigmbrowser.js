@@ -133,18 +133,40 @@ function paradigm() {
           runThruGettingTags()
           //iterate through words with base tags and add the hidden tags on the html onto this
           $.each($(languagesWithFirstTag), function(firstTagIndex, firstTag) {
-            $.each($(hiddenTags), function(hiddenTagIndex, hiddenTag) {
-              //query generate endpoint so we can see the end values
-              $.getJSON(APY_URL + 'generate?lang='+encodeURIComponent(language)+'&q='+encodeURIComponent(firstTag+hiddenTag),function(data,status) {
-                //edit html values from the output of the APY
-                console.log(APY_URL + 'generate?lang='+encodeURIComponent(language)+'&q='+encodeURIComponent(firstTag+hiddenTag))
-                runThruEditingNames(hiddenTag, data[0][0])
-              },'html');
-            });
+            if(isVerb(firstTag, paradigmText)) {
+              $.each($(hiddenTags), function(hiddenTagIndex, hiddenTag) {
+                //query generate endpoint so we can see the end values
+                $.getJSON(APY_URL + 'generate?lang='+encodeURIComponent(language)+'&q='+encodeURIComponent(firstTag+hiddenTag),function(data,status) {
+                  //edit html values from the output of the APY
+                  console.log(APY_URL + 'generate?lang='+encodeURIComponent(language)+'&q='+encodeURIComponent(firstTag+hiddenTag))
+                  runThruEditingNames(hiddenTag, data[0][0])
+                },'html');
+              });
+            } else {
+              alert("The text introduced is not a valid verb. Please, try another token.");
+              return 0;
+            }
           });
         }
       });
     },'html');
   });
 
+}
+
+function isVerb(firstTag, paradigmText) {
+  let dataIsVerb = false;
+
+  // symbols corresponding to verbs (http:/http://wiki.apertium.org/wiki/List_of_symbols#Part-of-speech_Categories)
+  // in case any verb symbol is missing, you can simply add it to the back of the array
+  let verbSymbols = ['vblex', 'v', 'vbmod', 'vbser', 'vbhaver', 'vbdo'];
+
+  // try the different symbols until we find the actual one, unless it's not a verb
+  $.each(verbSymbols, function(index, value) {
+    if(firstTag===paradigmText+"<"+value+">") {
+      dataIsVerb = true;
+      return false;
+    }
+  });
+  return dataIsVerb;
 }
