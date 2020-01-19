@@ -5,12 +5,14 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-		<script src="paradigmbrowser.js" type="text/javascript"></script>
 
-		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript"></script>
+		<script src="paradigmbrowser.js" type="text/javascript"></script>
+		<link rel="stylesheet" type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+
+		<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<style type="text/css">
 			#personal, #non-personal {
 				text-align: center;
@@ -117,7 +119,10 @@
 			</div>
 		</div>
 
-		<input type="hidden" data-remove-tags="inf"/>
+		<input type="hidden" id="alertmsg" data-msg="The text introduced is not a valid verb. Please, try another token." />
+		<div id="selection">
+		  <p>The text introduced is ambiguous. Please select the verb you wanted to enter:</p>
+		</div>
 
 		<div id="non-personal"><!-- non-personal forms / formas no personales -->
 			<h2>Non-personal forms</h2>
@@ -472,7 +477,7 @@
 					<h4>Past imperfect</h4>
 					<div align="center" class="alert alert-info" role="alert" style="width: 100%;">
 						<i class="fa fa-search"></i>&nbsp;
-						This tense has two possible structures. Only one of them is being displayed, as given by <a class="alert-link" href="https://github.com/apertium/apertium-apy">Apertium APY</a> (more information about this and other tenses: <a class="alert-link" href="https://www.rae.es/diccionario-panhispanico-de-dudas/apendices/modelos-de-conjugacion-verbal">rae.es</a>).
+						This tense has two possible structures. Only one of them is being displayed, as given by <a class="alert-link" href="//github.com/apertium/apertium-apy">Apertium APY</a> (more information about this and other tenses: <a class="alert-link" href="//www.rae.es/diccionario-panhispanico-de-dudas/apendices/modelos-de-conjugacion-verbal">rae.es</a>).
 					</div>
 					<table>
 						<tr>
@@ -526,8 +531,8 @@
 					-->
 					<div align="center" class="alert alert-warning" role="alert" style="width: 100%;">
 						<i class="fa fa-exclamation-triangle"></i>&nbsp;<b>Warning!</b><br>
-						<a class="alert-link" href="https://github.com/apertium/apertium-apy">Apertium APY</a> does not currently support the generation of future subjunctive forms.<br>
-						You can also manually generate them with the information given in the <a class="alert-link" href="https://www.rae.es/diccionario-panhispanico-de-dudas/apendices/modelos-de-conjugacion-verbal">rae.es page listed above</a> (Spanish) or in <a class="alert-link" href="https://www.spanishdict.com/guide/spanish-future-subjunctive">spanishdict.com</a> (English).<br>
+						<a class="alert-link" href="//github.com/apertium/apertium-apy">Apertium APY</a> does not currently support the generation of future subjunctive forms.<br>
+						You can also manually generate them with the information given in the <a class="alert-link" href="//www.rae.es/diccionario-panhispanico-de-dudas/apendices/modelos-de-conjugacion-verbal">rae.es page listed above</a> (Spanish) or in <a class="alert-link" href="//www.spanishdict.com/guide/spanish-future-subjunctive">spanishdict.com</a> (English).<br>
 						We apologize for this inconvenience.
 					</div>
 				</div>
@@ -659,11 +664,11 @@
 		<hr>
 
 		<footer>
-			<a href="https://github.com/apertium/apertium-paradigm-generator">Apertium Paradigm Generator</a><br>
+			<a href="//github.com/apertium/apertium-paradigm-generator">Apertium Paradigm Generator</a><br>
 			Alberto Navalón Lillo, 2019<br>
-			<a href="https://github.com/albertonl">GitHub</a>,&nbsp;<a href="mailto:albertonl.dev@gmail.com">albertonl.dev@gmail.com</a><br><br>
+			<a href="//github.com/albertonl">GitHub</a>,&nbsp;<a href="mailto:albertonl.dev@gmail.com">albertonl.dev@gmail.com</a><br><br>
 
-			&copy; <a href="https://apertium.org">Apertium</a>
+			&copy; <a href="//apertium.org">Apertium</a>
 		</footer>
 		<!-- trigger button click on enter -->
 		<script type="text/javascript">
