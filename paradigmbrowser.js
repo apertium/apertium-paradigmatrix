@@ -3,6 +3,15 @@ var hiddenTags = [];
 //Specify APY URL
 const APY_URL = "https://beta.apertium.org/apy/";
 
+// POS Categories. Keys are according to Universal Dependencies
+const POS_CATS = {
+  verb: ["vblex", "v", "vbmod", "vbser", "vbhaver", "vbdo", "vaux"],
+  noun: ["n"],
+  adj: ["adj"],
+  adv: ["adv", "preadv", "postadv"],
+  det: ["det"],
+  pron: ["prn"]
+}
 var selectionPrompt;
 //Allows for Paradigm after you have typed the space bar
 $(document).ready(function () {
@@ -94,18 +103,21 @@ function paradigm() {
     var language = $("#Language").val();
     var paradigmText = $("#ParadigmText").val();
     var alertMessage = $("#alertmsg").data("msg");
+    var posCat = $("#poscat").data("pos-category");
     var keepTags = [];
     if ($("#noremove").length) {
-      keepTags = $("#noremove").data("no-remove-tags").split(".");
+      keepTags = $("#noremove").data("no-remove-tags").split(",");
     }
+    keepTags = keepTags.map(s => s.trim()) //removes extra whitespace
 
     //get JSON from the analyze endpoint to see the different forms of the word
     $.getJSON(APY_URL + "analyze?lang=" + encodeURIComponent(language) + "&q=" + encodeURIComponent(paradigmText), function (data) {
       var forms = data[0][0].split("/");
-      var isDataVerb = false;
+      var isCorrectPOS = false;
       var validForms = [];
       //iterate through all the forms of the word
       $.each($(forms), function (index, value) {
+        if (index == 0) return //the first option is just the word itself
         //get the forms in array form
         var text = value.replace(new RegExp("><", "g"), ".");
         text = text.replace(new RegExp("<", "g"), ".");
@@ -119,12 +131,12 @@ function paradigm() {
         });
         //Check whether each form is a verb and whether it's already in validForms arr
         var inArr = validForms.some((f) => text.every((t, i) => (t) === f[i]));
-        if (isVerb(text[0] + "<" + text[1] + ">", text[0]) && !inArr) {
-          isDataVerb = true;
+        if (isPOSCat(text[1], posCat) && !inArr) {
+          isCorrectPOS = true;
           validForms.push(text); //already split for convenience
         }
       });
-      if (!isDataVerb) {
+      if (!isCorrectPOS) {
         alert(alertMessage);
         return false; //Stop running
       }
@@ -148,17 +160,7 @@ function paradigm() {
   });
 }
 
-function isVerb(firstTag, paradigmText) {
-  var dataIsVerb = false;
-  // symbols corresponding to verbs (http://wiki.apertium.org/wiki/List_of_symbols#Part-of-speech_Categories)
-  // in case any verb symbol is missing, you can simply add it to the back of the array
-  var verbSymbols = ["vblex", "v", "vbmod", "vbser", "vbhaver", "vbdo", "vaux"];
-  // try the different symbols until we find the actual one, unless it's not a verb
-  $.each(verbSymbols, function (index, value) {
-    if (firstTag === paradigmText + "<" + value + ">") {
-      dataIsVerb = true;
-      return false;
-    }
-  });
-  return dataIsVerb;
+function isPOSCat(tag, category) {
+  var catSymbols = POS_CATS[category.toLowerCase()]
+  return catSymbols.includes(tag);
 }
