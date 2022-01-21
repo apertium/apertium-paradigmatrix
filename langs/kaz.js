@@ -1,0 +1,71 @@
+function kaz_fin_vb(tgs, lab) {
+  return {
+    id: tgs.replaceAll('.', '-'),
+    label: lab,
+    tabcolgroups: [
+      {label: 'Affirmative', width: 2},
+      {label: 'Negative', width: 2}
+    ],
+    tabcols: ['Singular', 'Plural', 'Singular', 'Plural'],
+    tabrows: ['First person', 'Second person', 'Second person polite', 'Third person'],
+    tabdata: [
+      [{tags: tgs+'.p1.sg'}, {tags: tgs+'.p1.pl'},
+       {tags: 'neg.'+tgs+'.p1.sg'}, {tags: 'neg.'+tgs+'.p1.pl'}],
+      [{tags: tgs+'.p2.sg'}, {tags: tgs+'.p2.pl'},
+       {tags: 'neg.'+tgs+'.p2.sg'}, {tags: 'neg.'+tgs+'.p2.pl'}],
+      [{tags: tgs+'.p2.frm.sg'}, {tags: tgs+'.p2.frm.pl'},
+       {tags: 'neg.'+tgs+'.p2.frm.sg'}, {tags: 'neg.'+tgs+'.p2.frm.pl'}],
+      [{tags: tgs+'.p3.sg', width: 2}, {tags: 'neg.'+tgs+'.p1.sg', width: 2}]
+    ]
+  };
+}
+
+function add_kaz() {
+  return {
+    verb: [
+      {
+        id: 'inf',
+        label: 'Infinitives',
+        tabcols: ['Affirmative', 'Negative'],
+        tabdata: [
+          [{tags: 'prc_perf'}, {tags: 'neg.prc_perf'}],
+          [{tags: 'prc_impf'}, {tags: 'neg.prc_impf'}],
+          [{tags: 'prc_plan', width: 2}]
+        ]
+      },
+      {
+        id: 'ger',
+        label: 'Gerunds',
+        tabcols: ['Affirmative', 'Negative'],
+        tabdata: [
+          [{tags: 'ger.nom'}, {tags: 'neg.ger.nom'}],
+          [{tags: 'ger_past.nom'}, {tags: 'neg.ger_past.nom'}],
+          [{tags: 'gpr_fut.nom'}, {tags: 'neg.gpr_fut.nom'}],
+          [{tags: 'gpr_impf.nom'}, {tags: 'neg.gpr_impf.nom'}]
+        ]
+      },
+      kaz_fin_vb('aor', 'Non-past'),
+      kaz_fin_vb('ifi', 'Recent past'),
+      kaz_fin_vb('ifi.evid', 'Past evidential'),
+      kaz_fin_vb('past', 'Non-recent past'),
+      kaz_fin_vb('opt', 'Optative / imperative'),
+      kaz_fin_vb('gna_cond', 'Conditional'),
+      kaz_fin_vb('fut', '[descriptive word] Future'),
+      kaz_fin_vb('fut_plan', '[descriptive word] Future'),
+      kaz_fin_vb('pih', 'Past imperfective'),
+      {
+        'id': 'prc_vol',
+        'label': "Volitional infinitive",
+        tabcols: ["Singular", "Plural"],
+        tabrows: ["First person", "Second person", "Second person polite",
+                  "Third person"],
+        tabdata: [
+          [{tags: 'prc_vol.p1.sg'}, {tags: 'prc_vol.p1.pl'}],
+          [{tags: 'prc_vol.p2.sg'}, {tags: 'prc_vol.p2.pl'}],
+          [{tags: 'prc_vol.p2.frm.sg'}, {tags: 'prc_vol.p2.frm.pl'}],
+          [{tags: 'prc_vol.p3.sg', width: 2}]
+        ]
+      }
+    ]
+  };
+}
