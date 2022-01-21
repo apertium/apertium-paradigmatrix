@@ -11,7 +11,16 @@ const POS_CATS = {
   adv: ["adv", "preadv", "postadv"],
   det: ["det"],
   pron: ["prn"]
-}
+};
+
+const POS_NAMES = {
+  verb: "Verbs",
+  noun: "Nouns",
+  adj: "Adjectives",
+  adv: "Adverbs",
+  det: "Determiners",
+  pron: "Pronouns"
+};
 
 var LANGS = {
     grc: {name: "Ancient Greek", data: null, keeptags: []},
@@ -304,14 +313,14 @@ function set_lang() {
   let lang = $('#Language').val();
   if (lang != 'null') {
     load_lang(lang);
-    let pos = '<option value="null">';
-    Object.keys(LANGS[lang].data).sort().forEach(function(p) {
-      pos += '<option value="'+p+'">'+p+'</option>';
-    });
-    $('#POS').html(pos);
-    $('#POS').val('null');
+    $('#POS').html(
+      Object.keys(LANGS[lang].data).sort().map(function(p) {
+        return '<option value="'+p+'">'+POS_NAMES[p]+'</option>';
+      }).join('')
+    );
     $('#content').html('');
     $('#nav').html('');
+    set_pos();
   }
 }
 

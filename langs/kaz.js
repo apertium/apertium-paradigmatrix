@@ -48,7 +48,26 @@ function add_kaz() {
       kaz_fin_vb('ifi', 'Recent past'),
       kaz_fin_vb('ifi.evid', 'Past evidential'),
       kaz_fin_vb('past', 'Non-recent past'),
-      kaz_fin_vb('opt', 'Optative / imperative'),
+      {
+        id: 'opt',
+        label: 'Optative / imperative',
+        tabcolgroups: [
+          {label: 'Affirmative', width: 2},
+          {label: 'Negative', width: 2}
+        ],
+        tabcols: ['Singular', 'Plural', 'Singular', 'Plural'],
+        tabrows: ['First person', 'Second person', 'Second person polite',
+                  'Third person'],
+        tabdata: [
+          [{tags: 'opt.p1.sg'}, {tags: 'opt.p1.pl'},
+           {tags: 'neg.opt.p1.sg'}, {tags: 'neg.opt.p1.pl'}],
+          [{tags: 'imp.p2.sg'}, {tags: 'imp.p2.pl'},
+           {tags: 'neg.imp.p2.sg'}, {tags: 'neg.imp.p2.pl'}],
+          [{tags: 'imp.p2.frm.sg'}, {tags: 'imp.p2.frm.pl'},
+           {tags: 'neg.opt.p2.frm.sg'}, {tags: 'neg.opt.p2.frm.pl'}],
+          [{tags: 'opt.p3.sg', width: 2}, {tags: 'neg.opt.p1.sg', width: 2}]
+        ]
+      },
       kaz_fin_vb('gna_cond', 'Conditional'),
       kaz_fin_vb('fut', '[descriptive word] Future'),
       kaz_fin_vb('fut_plan', '[descriptive word] Future'),
