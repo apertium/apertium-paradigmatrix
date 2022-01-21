@@ -12,6 +12,13 @@ const POS_CATS = {
   det: ["det"],
   pron: ["prn"]
 }
+
+var LANGS = {
+    grc: {name: "Ancient Greek", data: null, keeptags: []},
+    kaz: {name: "Kazakh", data: null, keeptags: ['tv', 'iv']},
+    spa: {name: "Spanish", data: null, keeptags: []}
+};
+
 var selectionPrompt;
 //Allows for Paradigm after you have typed the space bar
 $(document).ready(function () {
@@ -103,12 +110,8 @@ function paradigm() {
     var language = $("#Language").val();
     var paradigmText = $("#ParadigmText").val();
     var alertMessage = $("#alertmsg").data("msg");
-    var posCat = $("#poscat").data("pos-category");
-    var keepTags = [];
-    if ($("#noremove").length) {
-      keepTags = $("#noremove").data("no-remove-tags").split(",");
-    }
-    keepTags = keepTags.map(s => s.trim()) //removes extra whitespace
+    var posCat = $('#POS').val();
+    var keepTags = LANGS[language].keeptags;
 
     //get JSON from the analyze endpoint to see the different forms of the word
     $.getJSON(APY_URL + "analyze?lang=" + encodeURIComponent(language) + "&q=" + encodeURIComponent(paradigmText), function (data) {
@@ -164,12 +167,6 @@ function isPOSCat(tag, category) {
   var catSymbols = POS_CATS[category.toLowerCase()]
   return catSymbols.includes(tag);
 }
-
-var LANGS = {
-  grc: {name: "Ancient Greek", data: null},
-  kaz: {name: "Kazakh", data: null},
-  spa: {name: "Spanish", data: null}
-};
 
 function blob2html(blob, depth, context) {
   let ret = '';
