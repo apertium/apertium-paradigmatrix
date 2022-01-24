@@ -25,8 +25,7 @@ const POS_NAMES = {
 var LANGS = {
     grc: {name: "Ancient Greek", data: null, keeptags: []},
     kaz: {name: "Kazakh", data: null, keeptags: ['tv', 'iv']},
-    hyw: {name: "Western Armenian", data: null, keeptags: ['tv', 'iv','inch','pass_listed','pass','caus','caus_listed',
-    'n','adj','adv','subst','np','ant','m','f','top','cog','al']},
+    hyw: {name: "Western Armenian", data: null, keeptags: ['tv', 'iv','inch','pass_listed','pass','caus','caus_listed','subst']},
     spa: {name: "Spanish", data: null, keeptags: []}
 };
 
