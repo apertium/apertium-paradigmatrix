@@ -125,7 +125,6 @@ function hyw_fin_vb_perf_past(verb_part_form, lab) {
       ]
   };
 }
-
 function hyw_noun_decline_bare(det_tag, lab) {
   return {
     /*id: det_tag.replaceAll('.', '-'),*/
@@ -168,7 +167,6 @@ function hyw_noun_decline_pl_poss(det_tag, lab) {
     ]
   };
 }
-
 
 function add_hyw() {
   return {
@@ -216,8 +214,7 @@ function add_hyw() {
          {pretxt: 'մի', tags: 'proh.p2.sg'},  {pretxt: 'մի', tags: 'proh.p2.pl'}]
         ]
       },
-    ]
-    ,
+    ],
     noun: [
       hyw_noun_decline_bare('', 'Simple noun'),
       hyw_noun_decline('def','Definite noun'),
@@ -226,8 +223,7 @@ function add_hyw() {
       hyw_noun_decline_pl_poss('px1sg','Noun with 1st person plural possessor'),
       hyw_noun_decline_pl_poss('px2sg', 'Noun with 2nd person plural possessor'),
       hyw_noun_decline_pl_poss('def','Noun with 3rd person plural possessor'),
-    ]
-    ,
+    ],
     adj: [
       hyw_noun_decline_bare('', 'Nominalized adjective'),
       hyw_noun_decline('def','Definite noun'),
@@ -237,6 +233,5 @@ function add_hyw() {
       hyw_noun_decline_pl_poss('px2sg', 'Noun with 2nd person plural possessor'),
       hyw_noun_decline_pl_poss('def','Noun with 3rd person plural possessor'),
     ]
-
   };
 }

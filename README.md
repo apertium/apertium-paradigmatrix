@@ -1,11 +1,14 @@
-# apertium-paradigm-generator
+# apertium-paradigmatrix
 
-Apertium Paradigm Generator
+![languages 3](https://img.shields.io/badge/languages-3-brightgreen.svg)
 
-![languages 2](https://img.shields.io/badge/languages-2-brightgreen.svg)
+This is a paradigm generator front-end for [Apertium APy](https://github.com/apertium/apertium-apy). Try it out at https://apertium.github.io/apertium-paradigmatrix/
 
-### List of released languages
+### Supported Languages
 
-- Kazakh (kaz.html)
-
-- Spanish (spa.html)
+| Code | Name | Parts of Speech |
+|------|------|-----------------|
+| `grc` | Ancient Greek | partial verbs |
+| `hyw` | Western Armenian | verbs |
+| `kaz` | Kazakh | verbs |
+| `spa` | Spanish | verbs |

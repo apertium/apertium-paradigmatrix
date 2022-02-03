@@ -113,6 +113,47 @@ function generateParadigms(correctForm, lang) {
   });
 }
 
+function tags2url(prefix, tags) {
+  return encodeURIComponent(tags.map(function(t) {
+    if (t.length == 0) {
+      return '^'+prefix+'$';
+    } else {
+      return '^'+prefix+'<'+t.split('.').join('><')+'>$';
+    }
+  }).join(''));
+}
+
+function generateMultiple(correctForm, lang) {
+  var prefix = correctForm[0] + '<' + correctForm.slice(1).join('><') + '>';
+  let tagNodes = [];
+  let tags = [];
+  $('*').each(function(key, obj) {
+    if ($(obj).data('tags') !== undefined) {
+      tagNodes.push(obj);
+      if (tags.indexOf($(obj).data('tags')) == -1) {
+        tags.push($(obj).data('tags'));
+      }
+    }
+  });
+  let STEP_SIZE = 5;
+  for (let i = 0; i < tags.length; i += STEP_SIZE) {
+    $.getJSON(APY_URL + 'generate?lang=' + encodeURIComponent(lang) + '&q=' + tags2url(prefix, tags.slice(i, i+STEP_SIZE)), function(data) {
+      data.forEach(function(d) {
+        let form = d[0];
+        if (form.length > 0 && form[0] == '#') {
+          return;
+        }
+        let tags = d[1].slice(prefix.length+2, d[1].length-2).split('><').join('.');
+        tagNodes.forEach(function(n) {
+          if ($(n).data('tags') == tags) {
+            $(n).text(form);
+          }
+        });
+      });
+    }, 'html');
+  }
+}
+
 //Function is called when button is pressed or when spacebar is pressed
 function paradigm() {
   $(document).ready(function () {
@@ -160,14 +201,16 @@ function paradigm() {
             text: form[0] + "<" + form.slice(1).join("><") + ">",
             click: function () {
               $(this).dialog("close");
-              generateParadigms(form, language);
+              //generateParadigms(form, language);
+              generateMultiple(form, language);
             }
           });
         });
         selectionPrompt.dialog("option", "buttons", buttons);
         selectionPrompt.dialog("open");
       } else {
-        generateParadigms(validForms[0], language);
+        //generateParadigms(validForms[0], language);
+        generateMultiple(validForms[0], language);
       }
     }, "html");
   });
