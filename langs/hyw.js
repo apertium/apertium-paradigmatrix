@@ -125,7 +125,48 @@ function hyw_fin_vb_perf_past(verb_part_form, lab) {
       ]
   };
 }
-
+function hyw_noun_decline_bare(det_tag, lab) {
+  return {
+    /*id: det_tag.replaceAll('.', '-'),*/
+    label: lab,
+        tabcols: ['Singular', 'Plural'],
+    tabrows: ['Nominative/Accusative', 'Dative/Genitive', 'Ablative',' Intstrumental'],
+    tabdata: [
+      [{tags: 'sg'}, {tags: 'pl'}],
+      [{tags: 'sg.dat_gen'}, {tags: 'pl.dat_gen'}],
+      [{tags: 'sg.abl'}, {tags: 'pl.abl'}],
+      [{tags: 'sg.ins'}, {tags: 'pl.ins'}],
+    ]
+  };
+}
+function hyw_noun_decline(det_tag, lab) {
+  return {
+    id: det_tag.replaceAll('.', '-'),
+    label: lab,
+        tabcols: ['Singular', 'Plural'],
+    tabrows: ['Nominative/Accusative', 'Dative/Genitive', 'Ablative',' Intstrumental'],
+    tabdata: [
+      [{tags: 'sg.'+det_tag}, {tags: 'pl.'+det_tag}],
+      [{tags: 'sg.dat_gen.'+det_tag}, {tags: 'pl.dat_gen.'+det_tag}],
+      [{tags: 'sg.abl.'+det_tag}, {tags: 'pl.abl.'+det_tag}],
+      [{tags: 'sg.ins.'+det_tag}, {tags: 'pl.ins.'+det_tag}],
+    ]
+  };
+}
+function hyw_noun_decline_pl_poss(det_tag, lab) {
+  return {
+    id: det_tag.replaceAll('.', '-'),
+    label: lab,
+        tabcols: ['Singular', 'Plural'],
+    tabrows: ['Nominative/Accusative', 'Dative/Genitive', 'Ablative',' Intstrumental'],
+    tabdata: [
+      [{tags: 'sg.pl_poss.'+det_tag}, {tags: 'pl.pl_poss.'+det_tag}],
+      [{tags: 'sg.pl_poss.dat_gen.'+det_tag}, {tags: 'pl.pl_poss.dat_gen.'+det_tag}],
+      [{tags: 'sg.pl_poss.abl.'+det_tag}, {tags: 'pl.pl_poss.abl.'+det_tag}],
+      [{tags: 'sg.ins.pl_poss.'+det_tag}, {tags: 'pl.ins.pl_poss.'+det_tag}],
+    ]
+  };
+}
 
 function add_hyw() {
   return {
@@ -173,6 +214,24 @@ function add_hyw() {
          {pretxt: 'մի', tags: 'proh.p2.sg'},  {pretxt: 'մի', tags: 'proh.p2.pl'}]
         ]
       },
+    ],
+    noun: [
+      hyw_noun_decline_bare('', 'Simple noun'),
+      hyw_noun_decline('def','Definite noun'),
+      hyw_noun_decline('px1sg','1st possessed noun'),
+      hyw_noun_decline('px2sg','2nd possessive noun'),
+      hyw_noun_decline_pl_poss('px1sg','Noun with 1st person plural possessor'),
+      hyw_noun_decline_pl_poss('px2sg', 'Noun with 2nd person plural possessor'),
+      hyw_noun_decline_pl_poss('def','Noun with 3rd person plural possessor'),
+    ],
+    adj: [
+      hyw_noun_decline_bare('', 'Nominalized adjective'),
+      hyw_noun_decline('def','Definite noun'),
+      hyw_noun_decline('px1sg','1st possessed noun'),
+      hyw_noun_decline('px2sg','2nd possessive noun'),
+      hyw_noun_decline_pl_poss('px1sg','Noun with 1st person plural possessor'),
+      hyw_noun_decline_pl_poss('px2sg', 'Noun with 2nd person plural possessor'),
+      hyw_noun_decline_pl_poss('def','Noun with 3rd person plural possessor'),
     ]
   };
 }
