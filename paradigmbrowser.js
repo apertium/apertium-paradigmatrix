@@ -7,6 +7,7 @@ const APY_URL = "https://beta.apertium.org/apy/";
 const POS_CATS = {
   verb: ["vblex", "v", "vbmod", "vbser", "vbhaver", "vbdo", "vaux"],
   noun: ["n"],
+  nounproper: ["np"],
   adj: ["adj"],
   adv: ["adv", "preadv", "postadv"],
   det: ["det"],
@@ -16,6 +17,7 @@ const POS_CATS = {
 const POS_NAMES = {
   verb: "Verbs",
   noun: "Nouns",
+  nounproper: "Proper nouns",
   adj: "Adjectives",
   adv: "Adverbs",
   det: "Determiners",
@@ -25,7 +27,7 @@ const POS_NAMES = {
 var LANGS = {
     grc: {name: "Ancient Greek", data: null, keeptags: []},
     kaz: {name: "Kazakh", data: null, keeptags: ['tv', 'iv']},
-    hyw: {name: "Western Armenian", data: null, keeptags: ['tv', 'iv','inch','pass_listed','pass','caus','caus_listed','subst']},
+    hyw: {name: "Western Armenian", data: null, keeptags: ['tv', 'iv','inch','pass_listed','pass','caus','caus_listed','subst','ant','m','f','al','cog','top']},
     spa: {name: "Spanish", data: null, keeptags: []}
 };
 
