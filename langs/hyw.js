@@ -223,7 +223,7 @@ function add_hyw() {
         tabdata: [
           [{tags: 'ger'}, {tags: 'ger.neg'}],
           [{tags: 'pprs'}, {tags: 'pprs.neg'}],
-          [{tags: 'perf'}, {tags: 'perf.neg'}],
+          [{tags: 'res'}, {tags: 'res.neg'}],
           [{tags: 'evid', width: 2}],
           [{tags: 'ger.fut_ptcp', width: 2}],
           [{tags: 'ger.pros_ptcp', width: 2}],
