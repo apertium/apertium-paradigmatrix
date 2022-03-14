@@ -210,7 +210,7 @@ function hyw_adj_decline_pl_poss(det_tag, lab) {
   };
 }
 
-function add_hyw() {
+function add_hyx_hyw() {
   return {
     verb: [
       {
