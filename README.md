@@ -9,6 +9,7 @@ This is a paradigm generator front-end for [Apertium APy](https://github.com/ape
 | Code | Name | Parts of Speech |
 |------|------|-----------------|
 | `grc` | Ancient Greek | partial verbs |
-| `hyw` | Western Armenian | verbs |
+| `hye` | Eastern Armenian | N/A |
+| `hyw` | Western Armenian | verbs, nouns |
 | `kaz` | Kazakh | verbs |
 | `spa` | Spanish | verbs |
