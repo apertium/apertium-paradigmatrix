@@ -59,7 +59,10 @@ function hyw_fin_vb_periphrasis_pres_chi(tense_tgs, mood_tgs, verb_part_form, la
       [{tags: tense_tgs+'.p2.sg.'+mood_tgs}, {tags: tense_tgs+'.p2.pl.'+mood_tgs},
        {pretxt: 'չես', tags: tense_tgs+'.'+verb_part_form}, {pretxt: 'չէք', tags: tense_tgs+'.'+verb_part_form}],
       [{tags: tense_tgs+'.p3.sg.'+mood_tgs}, {tags: tense_tgs+'.p3.pl.'+mood_tgs},
-       {pretxt: 'չի', tags: tense_tgs+'.'+verb_part_form}, {pretxt: 'չեն', tags: tense_tgs+'.'+verb_part_form}]
+       {pretxt: 'չի', tags: tense_tgs+'.'+verb_part_form}, {pretxt: 'չեն', tags: tense_tgs+'.'+verb_part_form}],
+         [ {pretext: '', tags: ''}, {pretext:'', tags: '' },
+       {pretxt: 'չ՚',tags: tense_tgs+'.'+verb_part_form},{pretext:'', tags: '' } ]
+
       ]
   };
 }
