@@ -1,5 +1,3 @@
-import * from './config.js';
-
 var selectionPrompt;
 //Allows for Paradigm after you have typed the space bar
 $(document).ready(function () {
