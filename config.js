@@ -16,6 +16,8 @@ const POS_CATS = {
 
 const POS_NAMES = {
   verb: "Verbs",
+  verb_iv: "Intransitive verbs",
+  verb_tv: "Transitive verbs",
   noun: "Nouns",
   nounproper: "Proper nouns",
   adj: "Adjectives",
@@ -23,6 +25,15 @@ const POS_NAMES = {
   det: "Determiners",
   pron: "Pronouns"
 };
+
+const POS_SUBCATS = {
+  kaz: {
+    verb: { 
+      verb_iv: ["v.iv"],
+      verb_tv: ["v.tv"]
+    }
+  }
+}
 
 var LANGS = {
     grc: {name: "Ancient Greek", data: null, keeptags: []},
