@@ -198,15 +198,6 @@ function paradigm() {
   });
 }
 
-function isPOSSuperCat(category, lg) {
-  if (POS_SUPERCATS[lg] !== undefined) {
-    //console.log(category);
-    return POS_SUPERCATS[lg][category.toLowerCase()] !== undefined ;
-  } else {
-    return false;
-  }
-}
-
 function getSubCat(lg, category, keptTags) {
   // first make sure subcats defined for lg
   if (POS_SUBCATS[lg] !== undefined) {
