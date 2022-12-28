@@ -154,36 +154,23 @@ function paradigm() {
         });
         firstTag = text[1];
         keptTags = text.slice(1).join('.');
+
         // make sure it's not already in the valid forms array
         var inArr = validForms.some((f) => text.every((t, i) => (t) === f[i]));
-        if (!inArr) {
-          //console.log("HERE3", keptTags);
-          /* if (isPOSSuperCat(keptTags, language)) {
-            console.log("HERE2", keptTags);
-            $.each($(POS_SUPERCATS[lg][POSCatforms]), function (index, value) {
-              if (POS_CATS[value].includes(keptTags)) {
-                isCorrectPOS = true;
-                validForms.push(text); //already split for convenience
-                console.log("HERE1", text);
-              }
-            }); */
-          if (POS_SUBCATS[language][posCat] !== undefined) {
+        // and that it's a form of the POS selected
+        if (!inArr && isPOSCat(firstTag, posCat)) {
+          // check whether we're dealing with a particular subcategory
+          if (POS_SUBCATS[language] !== undefined && POS_SUBCATS[language][posCat] !== undefined) {
             subCat = getSubCat(language, posCat, keptTags);
             // update paradigms
             update_template(language, subCat);
             isCorrectPOS = true;
             validForms.push(text); //already split for convenience
-          } else if (isPOSCat(text[1], posCat)) {
+          } else {
             isCorrectPOS = true;
             validForms.push(text); //already split for convenience
           }
         }
-        /* //Check whether each form is a verb and whether it's already in validForms arr
-        var inArr = validForms.some((f) => text.every((t, i) => (t) === f[i]));
-        if (isPOSCat(text[1], posCat) && !inArr) {
-          isCorrectPOS = true;
-          validForms.push(text); //already split for convenience
-        } */
       });
       if (!isCorrectPOS) {
         alert(alertMessage);
@@ -410,14 +397,6 @@ function set_lang() {
     let added = [];
     $('#POS').html(
       Object.keys(LANGS[lang].data).sort().map(function(p) {
-        /* $.each(POS_SUPERCATS[lang], function(index, value) {
-          //console.log(index, p, POS_SUPERCATS[lang] !== undefined, POS_SUPERCATS[lang][index].indexOf(p) >= -1, !$('#select-box').find("option:contains('"+p+"')").length);
-          if (POS_SUPERCATS[lang] !== undefined && POS_SUPERCATS[lang][index].indexOf(p) >= -1 && !$('#select-box').find("option:contains('"+p+"')").length) {
-            console.log(index, p, POS_NAMES[p]);
-            return '<option value="'+p+'">'+POS_NAMES[index]+'</option>';
-          }
-        }); */
-        //console.log(p, POS_SUPERCATS[lang] !== undefined, POS_SUPERCATS[lang][][p] !== undefined, !$('#select-box').find("option:contains('"+p+"')").length);
         // if the category isn't in the main list,
         // then assume it's a subcategory and get its category
         if (POS_CATS[p] === undefined) {
@@ -425,7 +404,6 @@ function set_lang() {
         } else {  // if it's in the list, then it's not a sub-category
           POS_MainCat = p;
         }
-        //if (!$('#POS').find("option:contains('"+POS_MainCat+"')").length) {
         // if we haven't already added the category, then add to list
         // this avoids adding categories with more than one subcategory multiple times
         if (!added.includes(POS_MainCat)) {
@@ -434,7 +412,6 @@ function set_lang() {
         }
       }).join('')
     );
-    console.log(LANGS[lang].data);
     $('#content').html('');
     $('#nav').html('');
     set_pos();
@@ -445,7 +422,7 @@ function set_pos() {
   let lang = $('#Language').val();
   let pos = $('#POS').val();
   // check whether we're dealing with a subcat
-  if (POS_SUBCATS[lang][pos] !== undefined) {
+  if (POS_SUBCATS[lang] !== undefined && POS_SUBCATS[lang][pos] !== undefined) {
     // if so, set pos to a random by default
     // FIXME: is this the right behaviour?
     pos = Object.keys(POS_SUBCATS[lang][pos])[0];
@@ -455,7 +432,6 @@ function set_pos() {
     $('#nav').html('');
     console.warn('No POS selected');
   } else {
-    //console.log(lang, pos);
     update_template(lang,pos);
   }
 }
