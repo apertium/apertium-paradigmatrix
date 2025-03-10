@@ -1,8 +1,8 @@
 var hiddenTags = [];
 
 //Specify APY URL
-//const APY_URL = "https://beta.apertium.org/apy/";
-const APY_URL = "http://localhost:2738/";
+const APY_URL = "https://beta.apertium.org/apy/";
+//const APY_URL = "http://localhost:2738/";
 
 // POS Categories. Keys are according to Universal Dependencies
 const POS_CATS = {
