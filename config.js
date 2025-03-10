@@ -48,8 +48,8 @@ const POS_SUBCATS = {
   },
   haa: {
     verb: { 
-      verb_ia: ["v.iv"],
-      verb_ti: ["v.tv"]
+      verb_iv: ["v.iv"],
+      verb_tv: ["v.tv"]
     }
   }
 }
