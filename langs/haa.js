@@ -189,3 +189,4 @@ function add_haa() {
       }
     ]
   }
+}
