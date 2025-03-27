@@ -16,13 +16,13 @@ function add_unm() {
       {title: 'Subject',
        text: 'Who is the doer of the action?',
        seq: 3,
-       values: [{label: 'I', tags: '<p1><sg>'},
-                {label: 'you (one person)', tags: '<p2><sg>'},
-                {label: 'he/she', tags: '<p3><sg>'},
-                {label: 'we (excluding you)', tags: '<p1><excl><pl>'},
-                {label: 'we (including you)', tags: '<p1><incl><pl>'},
-                {label: 'you all', tags: '<p2><pl>'},
-                {label: 'they', tags: '<p3><pl>'}
+       values: [{label: 'I', tags: '<s_1sg>'},
+                {label: 'you (one person)', tags: '<s_2sg>'},
+                {label: 'he/she', tags: '<s_3sg>'},
+                {label: 'we (excluding you)', tags: '<s_11pl>'},
+                {label: 'we (including you)', tags: '<s_12pl>'},
+                {label: 'you all', tags: '<s_2pl>'},
+                {label: 'they', tags: '<s_3pl>'}
                ]
       },
       {title: 'Negation',
@@ -45,13 +45,13 @@ function add_unm() {
       {title: 'Subject',
        text: 'Who is the doer of the action?',
        seq: 3,
-       values: [{label: 'I', tags: '<p1><sg>'},
-                {label: 'you (one person)', tags: '<p2><sg>'},
-                {label: 'he/she', tags: '<p3><sg>'},
-                {label: 'we (excluding you)', tags: '<p1><excl><pl>'},
-                {label: 'we (including you)', tags: '<p1><incl><pl>'},
-                {label: 'you all', tags: '<p2><pl>'},
-                {label: 'they', tags: '<p3><pl>'}
+       values: [{label: 'I', tags: '<s_1sg>'},
+                {label: 'you (one person)', tags: '<s_2sg>'},
+                {label: 'he/she', tags: '<s_3sg>'},
+                {label: 'we (excluding you)', tags: '<s_11pl>'},
+                {label: 'we (including you)', tags: '<s_12pl>'},
+                {label: 'you all', tags: '<s_2pl>'},
+                {label: 'they', tags: '<s_3pl>'}
                ]
       },
       {title: 'Object',
@@ -81,13 +81,13 @@ function add_unm() {
       {title: 'Subject',
        text: 'Who is the doer of the action?',
        seq: 3,
-       values: [{label: 'I', tags: '<p1><sg>'},
-                {label: 'you (one person)', tags: '<p2><sg>'},
-                {label: 'he/she', tags: '<p3><sg>'},
-                {label: 'we (excluding you)', tags: '<p1><excl><pl>'},
-                {label: 'we (including you)', tags: '<p1><incl><pl>'},
-                {label: 'you all', tags: '<p2><pl>'},
-                {label: 'they', tags: '<p3><pl>'}
+       values: [{label: 'I', tags: '<s_1sg>'},
+                {label: 'you (one person)', tags: '<s_2sg>'},
+                {label: 'he/she', tags: '<s_3sg>'},
+                {label: 'we (excluding you)', tags: '<s_11pl>'},
+                {label: 'we (including you)', tags: '<s_12pl>'},
+                {label: 'you all', tags: '<s_2pl>'},
+                {label: 'they', tags: '<s_3pl>'}
                ]
       },
       {title: 'Object',
