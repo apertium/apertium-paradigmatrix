@@ -8,9 +8,9 @@ function add_unm() {
       'be sick': {1: 'pals<v><iv><aa>', type: 'verb_ai'},
       'be sad': {1: 'shielìntàm<v><iv><aa>', type: 'verb_ai'},
       'bake bread': {1: 'ahponhe<v><iv><aa>', type: 'verb_ai'},
-      'give [to someone]': {1: 'mil<v><tv><nn>', type: 'verb_ta'},
-      'see [someone]': {1: 'new<v><tv><nn>', type: 'verb_ta'},
-      'help [someone]': {1: 'wichëm<v><tv><nn>', type: 'verb_ta'}
+      'give [to someone]': {1: 'mil<v><tv><aa>', type: 'verb_ta'},
+      'see [someone]': {1: 'new<v><tv><aa>', type: 'verb_ta'},
+      'help [someone]': {1: 'wichëm<v><tv><aa>', type: 'verb_ta'}
     },
     verb_ai: [
       {title: 'Subject',
@@ -91,9 +91,10 @@ function add_unm() {
                ]
       },
       {title: 'Object',
-       text: 'Who is the action done to?',
+       text: 'What is the action done to?',
        seq: 4,
-       values: [{label: 'it', tags: '<o_sg>'},
+       values: [{label: 'something', tags: ''},
+                {label: 'it', tags: '<o_sg>'},
                 {label: 'them', tags: '<o_pl>'}
                ]
       },
