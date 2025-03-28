@@ -57,7 +57,8 @@ function add_unm() {
       {title: 'Object',
        text: 'What is the action done to?',
        seq: 4,
-       values: [{label: 'it', tags: '<o_sg>'},
+       values: [{label: 'something', tags: ''},
+                {label: 'it', tags: '<o_sg>'},
                 {label: 'them', tags: '<o_pl>'}
                ]
       },
@@ -91,11 +92,12 @@ function add_unm() {
                ]
       },
       {title: 'Object',
-       text: 'What is the action done to?',
+       text: 'Who is the action done to?',
        seq: 4,
-       values: [{label: 'something', tags: ''},
-                {label: 'it', tags: '<o_sg>'},
-                {label: 'them', tags: '<o_pl>'}
+       values: [{label: 'me', tags: '<o_1sg>'},
+                {label: 'you', tags: '<o_2sg>'},
+                {label: 'him/her', tags: '<o_3sg>'},
+                {label: 'them', tags: '<o_3pl>'}
                ]
       },
       {title: 'Negation',
