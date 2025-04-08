@@ -17,7 +17,7 @@ function add_unm() {
         ]
       },
       {
-        id: 'ind',
+        id: 'ind.neg',
         label: 'Indicative (negative)',
         tabcols: ['Singular Object', 'Plural Object', 'Indefinite Object'],
         tabrows: ['First person sg subj', 'Second person sg subj', 'Third person sg subj', 'First person pl (excl) subj', 'First person pl (incl) subj', 'Second person pl subj', 'Third person pl subj' ],
@@ -61,7 +61,7 @@ function add_unm() {
         ]
       },
       {
-        id: 'ind',
+        id: 'ind.neg',
         label: 'Indicative (negative)',
         tabcols: ['Singular', 'Plural'],
         tabrows: ['First person', 'First person (incl)', 'Second person', 'Third person'],
