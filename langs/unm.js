@@ -17,6 +17,21 @@ function add_unm() {
         ]
       },
       {
+        id: 'ind',
+        label: 'Indicative (negative)',
+        tabcols: ['Singular Object', 'Plural Object', 'Indefinite Object'],
+        tabrows: ['First person sg subj', 'Second person sg subj', 'Third person sg subj', 'First person pl (excl) subj', 'First person pl (incl) subj', 'Second person pl subj', 'Third person pl subj' ],
+        tabdata: [
+          [{tags: 'neg.s_1sg.o_sg'}, {tags: 'neg.s_1sg.o_pl'}, {tags: 'neg.s_1sg'}],
+          [{tags: 'neg.s_2sg.o_sg'}, {tags: 'neg.s_2sg.o_pl'}, {tags: 'neg.s_2sg'}],
+          [{tags: 'neg.s_3sg.o_sg'}, {tags: 'neg.s_3sg.o_pl'}, {tags: 'neg.s_3sg'}],
+          [{tags: 'neg.s_11pl.o_sg'}, {tags: 'neg.s_11pl.o_pl'}, {tags: 'neg.s_11pl'}],
+          [{tags: 'neg.s_12pl.o_sg'}, {tags: 'neg.s_12pl.o_pl'}, {tags: 'neg.s_12pl'}],
+          [{tags: 'neg.s_2pl', width: 2}, {tags: 'neg.s_2pl'}],
+          [{tags: 'neg.s_3pl', width: 2}, {tags: 'neg.s_3pl'}]
+        ]
+      },
+      {
         id: 'subord',
         label: 'Subordinative',
         tabcols: ['Singular Object', 'Plural Object', 'Indefinite Object'],
