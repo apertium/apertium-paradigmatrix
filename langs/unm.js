@@ -61,6 +61,18 @@ function add_unm() {
         ]
       },
       {
+        id: 'ind',
+        label: 'Indicative (negative)',
+        tabcols: ['Singular', 'Plural'],
+        tabrows: ['First person', 'First person (incl)', 'Second person', 'Third person'],
+        tabdata: [
+          [{tags: 'neg.s_1sg'}, {tags: 'neg.s_11pl'}],
+          [{tags: ''}, {tags: 'neg.s_12pl'}],
+          [{tags: 'neg.s_2sg'}, {tags: 'neg.s_2pl'}],
+          [{tags: 'neg.s_3sg'}, {tags: 'neg.s_3pl'}]
+        ]
+      },
+      {
         id: 'subord',
         label: 'Subordinative',
         tabcols: ['Singular', 'Plural'],
