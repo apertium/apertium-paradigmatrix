@@ -1,3 +1,34 @@
+function get_tv_rows(language) {
+  if (language === "linguist") {
+    retunr ['1st person', '2nd person', '3rd person'];
+  } else if (language === "english") {
+    return ['First Person', 'Second Person', 'Third Person'];
+  } else if (language === "spanish") {
+    return ['Yo', 'Tú', 'Él/Ella/Usted'];
+  } else {
+    return ['1st person', '2nd person', '3rd person'];
+  }
+}
+
+function get_label(linguist, english, spanish) {
+  return {tabcols: ['Singular', 'Plural'],
+  tabrows: ['First person', 'Second person', 'Third person'],
+  linguist: linguist,
+  english: english,
+  spanish: spanish
+  };
+}
+
+const tv_row_heading = {
+  linguist: ['1st person', '2nd person', '3rd person'],
+  english: ['First Person', 'Second Person', 'Third Person'],
+  spanish: ['Yo', 'Tú', 'Él/Ella/Usted'] 
+} 
+
+function get(language) {
+  return tv_row_heading[language] || tv_row_heading['linguist'];
+}
+
 function spa_p123_sg_pl_table(label, prefix) {
   return {
     id: prefix,
