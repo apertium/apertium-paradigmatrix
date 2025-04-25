@@ -8,7 +8,43 @@ function spa_p123_sg_pl_table(label, prefix) {
       [{tags: prefix+".p1.sg"}, {tags: prefix+".p1.pl"}],
       [{tags: prefix+".p2.sg"}, {tags: prefix+".p2.pl"}],
       [{tags: prefix+".p3.sg"}, {tags: prefix+".p3.pl"}]
-    ]
+    ],
+    html: {
+      'linguist': `
+        <table class="paradigm-table">
+          <tr><th></th><th>${labels['sg']}</th><th>${labels['pl']}</th></tr>
+          <tr><th>${labels['p1']}</th>
+            <td data-tag="${prefix}.p1.sg"></td>
+            <td data-tag="${prefix}.p1.pl"></td>
+          </th></tr>
+          <tr><th>${labels['p2']}</th>
+            <td data-tag="${prefix}.p2.sg"></td>
+            <td data-tag="${prefix}.p2.pl"></td>
+          </th></tr>
+          <tr><th>${labels['p3']}</th>
+            <td data-tag="${prefix}.p3.sg"></td>
+            <td data-tag="${prefix}.p3.pl"></td>
+          </th></tr>
+        </table>`
+      "english": `
+        <table class="paradigm-table">
+          <tr><th>${labels['p1sg']}</th>
+            <td data-tag="${prefix}.p1.sg"></td>
+            <th>${labels['p1pl']}</th>
+            <td data-tag="${prefix}.p1.pl"></td>
+          </th></tr>
+          <tr><th>${labels['p2sg']}</th>
+            <td data-tag="${prefix}.p2.sg"></td>
+            <th>${labels['p2pl']}</th>
+            <td data-tag="${prefix}.p2.pl"></td>
+          </th></tr>
+          <tr><th>${labels['p3sg']}</th>
+            <td data-tag="${prefix}.p3.sg"></td>
+            <th>${labels['p3pl']}</th>
+            <td data-tag="${prefix}.p3.pl"></td>
+          </th></tr>
+        </table>`
+	 }
   };
 }
 
