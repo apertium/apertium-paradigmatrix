@@ -1,3 +1,21 @@
+labels = {
+   "english": {
+     "p1sg": "I",
+     "p2sg": "you",
+     "p3sg": "he/she/they, you (formal)",
+     "p1pl": "we",
+     "p2pl": "you all (Spain)",
+     "p3pl": "they, you all"
+   },
+   "linguist": {
+     "sg": "Singular",
+     "pl": "Plural",
+     "p1": "1st",
+     "p2": "2nd",
+     "p3": "3rd"
+   }
+}
+
 function spa_p123_sg_pl_table(label, prefix) {
   return {
     id: prefix,
@@ -12,35 +30,35 @@ function spa_p123_sg_pl_table(label, prefix) {
     html: {
       'linguist': `
         <table class="paradigm-table">
-          <tr><th></th><th>${labels['sg']}</th><th>${labels['pl']}</th></tr>
-          <tr><th>${labels['p1']}</th>
+          <tr><th></th><th>${labels['linguist']['sg']}</th><th>${labels['linguist']['pl']}</th></tr>
+          <tr><th>${labels['linguist']['p1']}</th>
             <td data-tag="${prefix}.p1.sg"></td>
             <td data-tag="${prefix}.p1.pl"></td>
           </th></tr>
-          <tr><th>${labels['p2']}</th>
+          <tr><th>${labels['linguist']['p2']}</th>
             <td data-tag="${prefix}.p2.sg"></td>
             <td data-tag="${prefix}.p2.pl"></td>
           </th></tr>
-          <tr><th>${labels['p3']}</th>
+          <tr><th>${labels['linguist']['p3']}</th>
             <td data-tag="${prefix}.p3.sg"></td>
             <td data-tag="${prefix}.p3.pl"></td>
           </th></tr>
         </table>`
       "english": `
         <table class="paradigm-table">
-          <tr><th>${labels['p1sg']}</th>
+          <tr><th>${labels['english']['p1sg']}</th>
             <td data-tag="${prefix}.p1.sg"></td>
-            <th>${labels['p1pl']}</th>
+            <th>${labels['english']['p1pl']}</th>
             <td data-tag="${prefix}.p1.pl"></td>
           </th></tr>
-          <tr><th>${labels['p2sg']}</th>
+          <tr><th>${labels['english']['p2sg']}</th>
             <td data-tag="${prefix}.p2.sg"></td>
-            <th>${labels['p2pl']}</th>
+            <th>${labels['english']['p2pl']}</th>
             <td data-tag="${prefix}.p2.pl"></td>
           </th></tr>
-          <tr><th>${labels['p3sg']}</th>
+          <tr><th>${labels['english']['p3sg']}</th>
             <td data-tag="${prefix}.p3.sg"></td>
-            <th>${labels['p3pl']}</th>
+            <th>${labels['english']['p3pl']}</th>
             <td data-tag="${prefix}.p3.pl"></td>
           </th></tr>
         </table>`
