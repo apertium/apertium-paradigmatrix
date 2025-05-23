@@ -1,3 +1,71 @@
+labels = {
+   "linguist": {
+     "sg": "Singular",
+     "pl": "Plural",
+     "p1": "1st",
+     "p2": "2nd",
+     "p3": "3rd"
+   },
+   "english": {
+     "p1sg": "I",
+     "p2sg": "you",
+     "p3sg": "he/she/they, you (formal)",
+     "p1pl": "we",
+     "p2pl": "you all (Spain)",
+     "p3pl": "they, you all"
+   }
+}
+
+function haa_p123_sg_pl_table(label, prefix) {
+  return {
+    id: prefix,
+    "label": label,
+    tabcols: ["Singular", "Plural"],
+    tabrows: ["First Person", "Second Person", "Third Person"],
+    tabdata: [
+      [{tags: prefix+".p1.sg"}, {tags: prefix+".p1.pl"}],
+      [{tags: prefix+".p2.sg"}, {tags: prefix+".p2.pl"}],
+      [{tags: prefix+".p3.sg"}, {tags: prefix+".p3.pl"}]
+    ],
+    html: {
+      'linguist': `
+        <table class="paradigm-table">
+          <tr><th></th><th>${labels['linguist']['sg']}</th><th>${labels['linguist']['pl']}</th></tr>
+          <tr><th>${labels['linguist']['p1']}</th>
+            <td data-tag="${prefix}.p1.sg"></td>
+            <td data-tag="${prefix}.p1.pl"></td>
+          </th></tr>
+          <tr><th>${labels['linguist']['p2']}</th>
+            <td data-tag="${prefix}.p2.sg"></td>
+            <td data-tag="${prefix}.p2.pl"></td>
+          </th></tr>
+          <tr><th>${labels['linguist']['p3']}</th>
+            <td data-tag="${prefix}.p3.sg"></td>
+            <td data-tag="${prefix}.p3.pl"></td>
+          </th></tr>
+        </table>`,
+      'english': `
+        <table class="paradigm-table">
+          <tr><th>${labels['english']['p1sg']}</th>
+            <td data-tag="${prefix}.p1.sg"></td>
+            <th>${labels['english']['p1pl']}</th>
+            <td data-tag="${prefix}.p1.pl"></td>
+          </th></tr>
+          <tr><th>${labels['english']['p2sg']}</th>
+            <td data-tag="${prefix}.p2.sg"></td>
+            <th>${labels['english']['p2pl']}</th>
+            <td data-tag="${prefix}.p2.pl"></td>
+          </th></tr>
+          <tr><th>${labels['english']['p3sg']}</th>
+            <td data-tag="${prefix}.p3.sg"></td>
+            <th>${labels['english']['p3pl']}</th>
+            <td data-tag="${prefix}.p3.pl"></td>
+          </th></tr>
+        </table>`
+	 }
+  };
+}
+
 function add_haa() {
   return {
     verb_iv: [
