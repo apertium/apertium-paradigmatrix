@@ -1,4 +1,4 @@
-labels = {
+let labels = {
    "english": {
      "p1sg": "I",
      "p2sg": "you",
@@ -13,7 +13,7 @@ labels = {
      "p1": "1st",
      "p2": "2nd",
      "p3": "3rd"
-   },
+   } /** ,
    "spanish": {
       "p1sg": "yo",
       "p2sg": "tú",
@@ -21,7 +21,7 @@ labels = {
       "p1pl": "nosotros/nosotras",
       "p2pl": "vosotros/vosotras",
       "p3pl": "ellos/ellas/ustedes"
-   }
+   } **/
 }
 
 function spa_p123_sg_pl_table(label, prefix) {
@@ -69,7 +69,8 @@ function spa_p123_sg_pl_table(label, prefix) {
             <th>${labels['english']['p3pl']}</th>
             <td data-tag="${prefix}.p3.pl"></td>
           </th></tr>
-        </table>`,
+        </table>` 
+		  /** ,
         'spanish':`
           <table class="paradigm-table">
             <tr><th>${labels['spanish']['p1sg']}</th>
@@ -88,6 +89,7 @@ function spa_p123_sg_pl_table(label, prefix) {
               <td data-tag="${prefix}.p3.pl"></td>
             </th></tr>
             </table>`
+		**/
 	 }
   };
 }

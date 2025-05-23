@@ -305,6 +305,10 @@ function blob2html(blob, depth, context) {
       ret += '<'+tag+' data-tags="'+blob.tags+'"></'+tag+'>';
     }
   }
+  if (blob.hasOwnProperty('html')) {
+	console.log(blob);
+	ret += blob.html.linguist;
+  }
   if (blob.hasOwnProperty('tablist')) {
     ret += '<table>';
     blob.tablist.forEach(function(l) {
