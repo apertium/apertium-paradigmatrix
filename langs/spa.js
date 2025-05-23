@@ -13,7 +13,7 @@ let labels = {
      "p1": "1st",
      "p2": "2nd",
      "p3": "3rd"
-   } /** ,
+   },
    "spanish": {
       "p1sg": "yo",
       "p2sg": "tú",
@@ -21,9 +21,9 @@ let labels = {
       "p1pl": "nosotros/nosotras",
       "p2pl": "vosotros/vosotras",
       "p3pl": "ellos/ellas/ustedes"
-   } **/
+   }
 }
-
+/** to-do: find out why the js is losing record of spanish for some reason */
 function spa_p123_sg_pl_table(label, prefix) {
   return {
     id: prefix,
@@ -69,9 +69,8 @@ function spa_p123_sg_pl_table(label, prefix) {
             <th>${labels['english']['p3pl']}</th>
             <td data-tag="${prefix}.p3.pl"></td>
           </th></tr>
-        </table>` 
-		  /** ,
-        'spanish':`
+        </table>`,
+        'spanish': `
           <table class="paradigm-table">
             <tr><th>${labels['spanish']['p1sg']}</th>
               <td data-tag="${prefix}.p1.sg"></td>
@@ -89,7 +88,6 @@ function spa_p123_sg_pl_table(label, prefix) {
               <td data-tag="${prefix}.p3.pl"></td>
             </th></tr>
             </table>`
-		**/
 	 }
   };
 }
