@@ -69,25 +69,25 @@ function spa_p123_sg_pl_table(label, prefix) {
             <th>${labels['english']['p3pl']}</th>
             <td data-tag="${prefix}.p3.pl"></td>
           </th></tr>
-        </table>`,
-        'spanish': `
-          <table class="paradigm-table">
-            <tr><th>${labels['spanish']['p1sg']}</th>
-              <td data-tag="${prefix}.p1.sg"></td>
-              <th>${labels['spanish']['p1pl']}</th>
-              <td data-tag="${prefix}.p1.pl"></td>
-            </th></tr>
-            <tr><th>${labels['spanish']['p2sg']}</th>
-              <td data-tag="${prefix}.p2.sg"></td>
-              <th>${labels['spanish']['p2pl']}</th>
-              <td data-tag="${prefix}.p2.pl"></td>
-            </th></tr>
-            <tr><th>${labels['spanish']['p3sg']}</th>
-              <td data-tag="${prefix}.p3.sg"></td>
-              <th>${labels['spanish']['p3pl']}</th>
-              <td data-tag="${prefix}.p3.pl"></td>
-            </th></tr>
-            </table>`
+         </table>` //,
+        // 'spanish': `
+        //   <table class="paradigm-table">
+        //     <tr><th>${labels['spanish']['p1sg']}</th>
+        //       <td data-tag="${prefix}.p1.sg"></td>
+        //       <th>${labels['spanish']['p1pl']}</th>
+        //       <td data-tag="${prefix}.p1.pl"></td>
+        //     </th></tr>
+        //     <tr><th>${labels['spanish']['p2sg']}</th>
+        //       <td data-tag="${prefix}.p2.sg"></td>
+        //       <th>${labels['spanish']['p2pl']}</th>
+        //       <td data-tag="${prefix}.p2.pl"></td>
+        //     </th></tr>
+        //     <tr><th>${labels['spanish']['p3sg']}</th>
+        //       <td data-tag="${prefix}.p3.sg"></td>
+        //       <th>${labels['spanish']['p3pl']}</th>
+        //       <td data-tag="${prefix}.p3.pl"></td>
+        //     </th></tr>
+        //     </table>`
 	 }
   };
 }
