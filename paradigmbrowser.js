@@ -307,7 +307,7 @@ function blob2html(blob, depth, context) {
   }
   if (blob.hasOwnProperty('html')) {
 	console.log(blob);
-	ret += blob.html.linguist; /** Also take a look at line 388 */
+	ret += blob.html.linguist;
   } else {
   if (blob.hasOwnProperty('tablist')) {
     ret += '<table>';
@@ -385,7 +385,7 @@ function blob2nav(blob) {
 
 function load_lang(lang) {
   if (LANGS[lang].data == null) {
-    LANGS[lang].data = window['add_'+lang]();  /** could this be the source of the error with spanish? Calls function add_spanish before labelsin spa.js are initialized, I think */
+    LANGS[lang].data = window['add_'+lang](); 
   }
 }
 
