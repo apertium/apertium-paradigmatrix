@@ -305,6 +305,10 @@ function blob2html(blob, depth, context) {
       ret += '<'+tag+' data-tags="'+blob.tags+'"></'+tag+'>';
     }
   }
+  if (blob.hasOwnProperty('html')) {
+	console.log(blob);
+	ret += blob.html.english;
+  } else {
   if (blob.hasOwnProperty('tablist')) {
     ret += '<table>';
     blob.tablist.forEach(function(l) {
@@ -351,7 +355,7 @@ function blob2html(blob, depth, context) {
       ret += '</tr>';
     }
     ret += '</table><br>';
-  }
+  } }
   if (blob.hasOwnProperty('id')) {
     ret += '</div>';
   }
