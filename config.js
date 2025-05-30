@@ -39,6 +39,17 @@ const POS_SUBCATS = {
       vaux: ["vaux"]
     }
   },
+  uum: {
+    verb: {
+      verb_iv: ["v.iv"],
+      verb_tv: ["v.tv"],
+      vaux: ["vaux"]
+    },
+    noun: {
+      noun: ["n"],
+      pnoun: ["np"]
+    }
+  },
   unm: {
     verb: { 
       verb_ia: ["v.iv.aa"],
@@ -70,5 +81,6 @@ var LANGS = {
     hyx_hye: {name: "Eastern Armenian", data: null, keeptags: ['tv', 'iv','inch','pass_listed','pass','caus','caus_listed','subst','ant','m','f','al','cog','top']},
     spa: {name: "Spanish", data: null, keeptags: []},
     unm: {name: "Lënape (Unami)", data: null, keeptags: ['iv', 'tv', 'aa', 'nn']},
-    haa: {name: "Hän", data: null, keeptags: ['iv', 'tv']}
+    haa: {name: "Hän", data: null, keeptags: ['iv', 'tv']},
+    uum: {name: "Urum", data: null, keeptags: ['tv', 'iv', '']}
 };
