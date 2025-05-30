@@ -1,4 +1,4 @@
-labels = {
+let haa_labels = {
    "linguist": {
      "sg": "Singular",
      "pl": "Plural",
@@ -30,35 +30,35 @@ function haa_p123_sg_pl_table(label, prefix) {
     html: {
       'linguist': `
         <table class="paradigm-table">
-          <tr><th></th><th>${labels['linguist']['sg']}</th><th>${labels['linguist']['pl']}</th></tr>
-          <tr><th>${labels['linguist']['p1']}</th>
+          <tr><th></th><th>${haa_labels['linguist']['sg']}</th><th>${haa_labels['linguist']['pl']}</th></tr>
+          <tr><th>${haa_labels['linguist']['p1']}</th>
             <td data-tag="${prefix}.p1.sg"></td>
             <td data-tag="${prefix}.p1.pl"></td>
           </th></tr>
-          <tr><th>${labels['linguist']['p2']}</th>
+          <tr><th>${haa_labels['linguist']['p2']}</th>
             <td data-tag="${prefix}.p2.sg"></td>
             <td data-tag="${prefix}.p2.pl"></td>
           </th></tr>
-          <tr><th>${labels['linguist']['p3']}</th>
+          <tr><th>${haa_labels['linguist']['p3']}</th>
             <td data-tag="${prefix}.p3.sg"></td>
             <td data-tag="${prefix}.p3.pl"></td>
           </th></tr>
         </table>`,
       'english': `
         <table class="paradigm-table">
-          <tr><th>${labels['english']['p1sg']}</th>
+          <tr><th>${haa_labels['english']['p1sg']}</th>
             <td data-tag="${prefix}.p1.sg"></td>
-            <th>${labels['english']['p1pl']}</th>
+            <th>${haa_labels['english']['p1pl']}</th>
             <td data-tag="${prefix}.p1.pl"></td>
           </th></tr>
-          <tr><th>${labels['english']['p2sg']}</th>
+          <tr><th>${haa_labels['english']['p2sg']}</th>
             <td data-tag="${prefix}.p2.sg"></td>
-            <th>${labels['english']['p2pl']}</th>
+            <th>${haa_labels['english']['p2pl']}</th>
             <td data-tag="${prefix}.p2.pl"></td>
           </th></tr>
-          <tr><th>${labels['english']['p3sg']}</th>
+          <tr><th>${haa_labels['english']['p3sg']}</th>
             <td data-tag="${prefix}.p3.sg"></td>
-            <th>${labels['english']['p3pl']}</th>
+            <th>${haa_labels['english']['p3pl']}</th>
             <td data-tag="${prefix}.p3.pl"></td>
           </th></tr>
         </table>`
