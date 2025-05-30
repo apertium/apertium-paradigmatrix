@@ -307,7 +307,7 @@ function blob2html(blob, depth, context) {
   }
   if (blob.hasOwnProperty('html')) {
 	console.log(blob);
-	ret += blob.html.english;
+	ret += blob.html.linguist;
   } else {
   if (blob.hasOwnProperty('tablist')) {
     ret += '<table>';
@@ -385,7 +385,7 @@ function blob2nav(blob) {
 
 function load_lang(lang) {
   if (LANGS[lang].data == null) {
-    LANGS[lang].data = window['add_'+lang]();
+    LANGS[lang].data = window['add_'+lang](); 
   }
 }
 

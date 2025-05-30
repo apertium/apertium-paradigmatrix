@@ -1,4 +1,4 @@
-let labels = {
+let spa_labels = {
    "english": {
      "p1sg": "I",
      "p2sg": "you",
@@ -22,8 +22,7 @@ let labels = {
       "p2pl": "vosotros/vosotras",
       "p3pl": "ellos/ellas/ustedes"
    }
-}
-/** to-do: find out why the js is losing record of spanish for some reason */
+} 
 function spa_p123_sg_pl_table(label, prefix) {
   return {
     id: prefix,
@@ -38,56 +37,56 @@ function spa_p123_sg_pl_table(label, prefix) {
     html: {
       'linguist': `
         <table class="paradigm-table">
-          <tr><th></th><th>${labels['linguist']['sg']}</th><th>${labels['linguist']['pl']}</th></tr>
-          <tr><th>${labels['linguist']['p1']}</th>
-            <td data-tag="${prefix}.p1.sg"></td>
-            <td data-tag="${prefix}.p1.pl"></td>
+          <tr><th></th><th>${spa_labels['linguist']['sg']}</th><th>${spa_labels['linguist']['pl']}</th></tr>
+          <tr><th>${spa_labels['linguist']['p1']}</th>
+            <td data-tags="${prefix}.p1.sg"></td>
+            <td data-tags="${prefix}.p1.pl"></td>
           </th></tr>
-          <tr><th>${labels['linguist']['p2']}</th>
-            <td data-tag="${prefix}.p2.sg"></td>
-            <td data-tag="${prefix}.p2.pl"></td>
+          <tr><th>${spa_labels['linguist']['p2']}</th>
+            <td data-tags="${prefix}.p2.sg"></td>
+            <td data-tags="${prefix}.p2.pl"></td>
           </th></tr>
-          <tr><th>${labels['linguist']['p3']}</th>
-            <td data-tag="${prefix}.p3.sg"></td>
-            <td data-tag="${prefix}.p3.pl"></td>
+          <tr><th>${spa_labels['linguist']['p3']}</th>
+            <td data-tags="${prefix}.p3.sg"></td>
+            <td data-tags="${prefix}.p3.pl"></td>
           </th></tr>
         </table>`,
       'english': `
         <table class="paradigm-table">
-          <tr><th>${labels['english']['p1sg']}</th>
-            <td data-tag="${prefix}.p1.sg"></td>
-            <th>${labels['english']['p1pl']}</th>
-            <td data-tag="${prefix}.p1.pl"></td>
+          <tr><th>${spa_labels['english']['p1sg']}</th>
+            <td data-tags="${prefix}.p1.sg"></td>
+            <th>${spa_labels['english']['p1pl']}</th>
+            <td data-tags="${prefix}.p1.pl"></td>
           </th></tr>
-          <tr><th>${labels['english']['p2sg']}</th>
-            <td data-tag="${prefix}.p2.sg"></td>
-            <th>${labels['english']['p2pl']}</th>
-            <td data-tag="${prefix}.p2.pl"></td>
+          <tr><th>${spa_labels['english']['p2sg']}</th>
+            <td data-tags="${prefix}.p2.sg"></td>
+            <th>${spa_labels['english']['p2pl']}</th>
+            <td data-tags="${prefix}.p2.pl"></td>
           </th></tr>
-          <tr><th>${labels['english']['p3sg']}</th>
-            <td data-tag="${prefix}.p3.sg"></td>
-            <th>${labels['english']['p3pl']}</th>
-            <td data-tag="${prefix}.p3.pl"></td>
+          <tr><th>${spa_labels['english']['p3sg']}</th>
+            <td data-tags="${prefix}.p3.sg"></td>
+            <th>${spa_labels['english']['p3pl']}</th>
+            <td data-tags="${prefix}.p3.pl"></td>
           </th></tr>
-         </table>` //,
-        // 'spanish': `
-        //   <table class="paradigm-table">
-        //     <tr><th>${labels['spanish']['p1sg']}</th>
-        //       <td data-tag="${prefix}.p1.sg"></td>
-        //       <th>${labels['spanish']['p1pl']}</th>
-        //       <td data-tag="${prefix}.p1.pl"></td>
-        //     </th></tr>
-        //     <tr><th>${labels['spanish']['p2sg']}</th>
-        //       <td data-tag="${prefix}.p2.sg"></td>
-        //       <th>${labels['spanish']['p2pl']}</th>
-        //       <td data-tag="${prefix}.p2.pl"></td>
-        //     </th></tr>
-        //     <tr><th>${labels['spanish']['p3sg']}</th>
-        //       <td data-tag="${prefix}.p3.sg"></td>
-        //       <th>${labels['spanish']['p3pl']}</th>
-        //       <td data-tag="${prefix}.p3.pl"></td>
-        //     </th></tr>
-        //     </table>`
+        </table>`,
+      'spanish': `
+        <table class="paradigm-table">
+           <tr><th>${spa_labels['spanish']['p1sg']}</th>
+            <td data-tags="${prefix}.p1.sg"></td>
+            <th>${spa_labels['spanish']['p1pl']}</th>
+            <td data-tags="${prefix}.p1.pl"></td>
+          </th></tr>
+          <tr><th>${spa_labels['spanish']['p2sg']}</th>
+            <td data-tags="${prefix}.p2.sg"></td>
+            <th>${spa_labels['spanish']['p2pl']}</th>
+            <td data-tags="${prefix}.p2.pl"></td>
+          </th></tr>
+          <tr><th>${spa_labels['spanish']['p3sg']}</th>
+            <td data-tags="${prefix}.p3.sg"></td>
+            <th>${spa_labels['spanish']['p3pl']}</th>
+            <td data-tags="${prefix}.p3.pl"></td>
+          </th></tr>
+          </table>`
 	 }
   };
 }
