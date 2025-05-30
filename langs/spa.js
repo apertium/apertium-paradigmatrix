@@ -23,7 +23,7 @@ let labels = {
       "p3pl": "ellos/ellas/ustedes"
    }
 }
-/** to-do: find out why the js is losing record of spanish for some reason */
+console.log(labels); /**All labes are tracked */
 function spa_p123_sg_pl_table(label, prefix) {
   return {
     id: prefix,
@@ -69,28 +69,29 @@ function spa_p123_sg_pl_table(label, prefix) {
             <th>${labels['english']['p3pl']}</th>
             <td data-tag="${prefix}.p3.pl"></td>
           </th></tr>
-         </table>` //,
-        // 'spanish': `
-        //   <table class="paradigm-table">
-        //     <tr><th>${labels['spanish']['p1sg']}</th>
-        //       <td data-tag="${prefix}.p1.sg"></td>
-        //       <th>${labels['spanish']['p1pl']}</th>
-        //       <td data-tag="${prefix}.p1.pl"></td>
-        //     </th></tr>
-        //     <tr><th>${labels['spanish']['p2sg']}</th>
-        //       <td data-tag="${prefix}.p2.sg"></td>
-        //       <th>${labels['spanish']['p2pl']}</th>
-        //       <td data-tag="${prefix}.p2.pl"></td>
-        //     </th></tr>
-        //     <tr><th>${labels['spanish']['p3sg']}</th>
-        //       <td data-tag="${prefix}.p3.sg"></td>
-        //       <th>${labels['spanish']['p3pl']}</th>
-        //       <td data-tag="${prefix}.p3.pl"></td>
-        //     </th></tr>
-        //     </table>`
+        </table>`,
+      'spanish': `
+        <table class="paradigm-table">
+           <tr><th>${labels['spanish']['p1sg']}</th>
+            <td data-tag="${prefix}.p1.sg"></td>
+            <th>${labels['spanish']['p1pl']}</th>
+            <td data-tag="${prefix}.p1.pl"></td>
+          </th></tr>
+          <tr><th>${labels['spanish']['p2sg']}</th>
+            <td data-tag="${prefix}.p2.sg"></td>
+            <th>${labels['spanish']['p2pl']}</th>
+            <td data-tag="${prefix}.p2.pl"></td>
+          </th></tr>
+          <tr><th>${labels['spanish']['p3sg']}</th>
+            <td data-tag="${prefix}.p3.sg"></td>
+            <th>${labels['spanish']['p3pl']}</th>
+            <td data-tag="${prefix}.p3.pl"></td>
+          </th></tr>
+          </table>`
 	 }
   };
 }
+console.log(labels); /**All labels are tracked */
 
 function spa_compound_tense(id, label, info, p1sg, p1pl, p2sg, p2pl, p3sg, p3pl) {
   return {
