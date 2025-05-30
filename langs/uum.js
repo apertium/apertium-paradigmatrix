@@ -2,11 +2,7 @@ function uum_fin_vb(tgs, lab) {
   return {
     id: tgs.replaceAll('.', '-'),
     label: lab,
-    tabcolgroups: [
-      {label: 'Affirmative', width: 1},
-      {label: 'Negative', width: 1}
-    ],
-    tabcols: ['Form', 'Form'],
+    tabcols: ['Affirmative', 'Negative'],
     tabrows: ['1st person singular', '1st person plural',
               '2nd person singular', '2nd person plural',
               '3rd person singular', '3rd person plural'],
@@ -45,11 +41,7 @@ function add_uum() {
       {
         id: 'imp',
         label: 'Imperative',
-        tabcolgroups: [
-          {label: 'Affirmative', width: 1},
-          {label: 'Negative', width: 1}
-        ],
-        tabcols: ['Form', 'Form'],
+        tabcols: ['Affirmative', 'Negative'],
         tabrows: ['1st person singular', '1st person plural',
                   '2nd person singular', '2nd person plural'],
         tabdata: [
@@ -87,11 +79,7 @@ function add_uum() {
       {
         id: 'imp',
         label: 'Imperative',
-        tabcolgroups: [
-          {label: 'Affirmative', width: 1},
-          {label: 'Negative', width: 1}
-        ],
-        tabcols: ['Form', 'Form'],
+        tabcols: ['Affirmative', 'Negative'],
         tabrows: ['1st person singular', '1st person plural',
                   '2nd person singular', '2nd person plural'],
         tabdata: [
