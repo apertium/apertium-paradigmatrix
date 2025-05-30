@@ -22,16 +22,28 @@ function add_uum() {
     vaux: [],
     verb_iv: [
       {
-        id: 'inf',
-        label: 'Infinitive',
-        tabcols: ['Affirmative', 'Negative'],
-        tabdata: [[{tags: 'inf'}, {tags: 'neg.tsg'}]]
-      },
-      {
-        id: 'pp',
-        label: 'Participle',
-        tabcols: ['Affirmative', 'Negative'],
-        tabdata: [[{tags: 'pp'}, {tags: 'neg.pp'}]]
+        id: 'nonfin',
+        label: 'Non-finite',
+        subcats: [ 
+          {
+            id: 'inf',
+            label: 'Infinitive',
+            tabcols: ['Affirmative', 'Negative'],
+            tabdata: [[{tags: 'inf'}, {tags: 'neg.tsg'}]]
+          },
+          {
+            id: 'pp',
+            label: 'Participle',
+            tabcols: ['Affirmative', 'Negative'],
+            tabdata: [[{tags: 'pp'}, {tags: 'neg.pp'}]]
+          },
+          {
+            id: 'tsg',
+            label: 'Converb',
+            tabcols: ['Affirmative', 'Negative'],
+            tabdata: [[{tags: 'tsg'}, {tags: 'neg.tsg'}]]
+          }
+        ]
       },
       uum_fin_vb('pres', 'Present'),
       uum_fin_vb('past', 'Past'),
@@ -50,12 +62,6 @@ function add_uum() {
           [{tags: 'imp.p2.sg'}, {tags: 'neg.imp.p2.sg'}],
           [{tags: 'imp.p2.pl'}, {tags: 'neg.imp.p2.pl'}]
         ]
-      },
-      {
-        id: 'tsg',
-        label: 'Transgressive',
-        tabcols: ['Affirmative', 'Negative'],
-        tabdata: [[{tags: 'tsg'}, {tags: 'neg.tsg'}]]
       }
     ],
     verb_tv: [
@@ -118,7 +124,7 @@ function add_uum() {
         id: 'noun-poss',
         label: 'Possession',
         tabcols: ['1sg', '2sg', '3sg', '1pl', '2pl', '3pl'],
-        tabrows: ['Nom', 'Acc', 'Dat', 'Loc', 'Gen', 'Abl', 'Ins', 'Term', 'Abe'],
+        tabrows: ['Nominative', 'Accusative', 'Dative', 'Locative', 'Genetive', 'Ablative', 'Instrumental', 'Terminative', 'Abessive'],
         tabdata: [
           [
             {tags: 'px1sg.nom'}, {tags: 'px2sg.nom'}, {tags: 'px3sg.nom'},
