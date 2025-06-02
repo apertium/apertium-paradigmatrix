@@ -307,7 +307,7 @@ function blob2html(blob, depth, context) {
   }
   if (blob.hasOwnProperty('html')) {
 	console.log(blob);
-	ret += blob.html.linguist;
+	ret += blob.html.english; // TODO: this is hardcoded
   } else {
   if (blob.hasOwnProperty('tablist')) {
     ret += '<table>';
