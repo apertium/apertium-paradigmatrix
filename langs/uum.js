@@ -1,3 +1,45 @@
+let uum_labels = {
+   "english": {
+     "p1sg": "I",
+     "p2sg": "you",
+     "p3sg": "he/she",
+     "p1pl": "we",
+     "p2pl": "you all",
+     "p3pl": "they"
+   },
+   "linguist": {
+     "sg": "Singular",
+     "pl": "Plural",
+     "p1": "1st",
+     "p2": "2nd",
+     "p3": "3rd"
+   },
+   "urum": {
+      "p1sg": "мен",
+      "p2sg": "сен",
+      "p3sg": "о",
+      "p1pl": "биз",
+      "p2pl": "сиз",
+      "p3pl": "олар"
+   },
+   "russian": {
+      "p1sg": "я",
+      "p2sg": "ты",
+      "p3sg": "он/она",
+      "p1pl": "мы",
+      "p2pl": "вы",
+      "p3pl": "они"
+   },
+   "ukrainian": {
+      "p1sg": "я",
+      "p2sg": "ти",
+      "p3sg": "він/вона",
+      "p1pl": "ми",
+      "p2pl": "ви",
+      "p3pl": "вони"
+   }
+} 
+
 function uum_fin_vb(tgs, lab) {
   return {
     id: tgs.replaceAll('.', '-'),
@@ -13,7 +55,55 @@ function uum_fin_vb(tgs, lab) {
       [{tags: tgs+'.p2.pl'}, {tags: 'neg.'+tgs+'.p2.pl'}],
       [{tags: tgs+'.p3.sg'}, {tags: 'neg.'+tgs+'.p3.sg'}],
       [{tags: tgs+'.p3.pl'}, {tags: 'neg.'+tgs+'.p3.pl'}]
-    ]
+    ],
+    html: {
+      'linguist': `
+        <table class="paradigm-table">
+          <tr><th></th><th>Affirmative</th><th>Negative</th></tr>
+          <tr><th>${uum_labels['linguist']['p1']} ${uum_labels['linguist']['sg']}</th>
+            <td data-tags="${tgs}.p1.sg"></td><td data-tags="neg.${tgs}.p1.sg"></td></tr>
+          <tr><th>${uum_labels['linguist']['p1']} ${uum_labels['linguist']['pl']}</th>
+            <td data-tags="${tgs}.p1.pl"></td><td data-tags="neg.${tgs}.p1.pl"></td></tr>
+          <tr><th>${uum_labels['linguist']['p2']} ${uum_labels['linguist']['sg']}</th>
+            <td data-tags="${tgs}.p2.sg"></td><td data-tags="neg.${tgs}.p2.sg"></td></tr>
+          <tr><th>${uum_labels['linguist']['p2']} ${uum_labels['linguist']['pl']}</th>
+            <td data-tags="${tgs}.p2.pl"></td><td data-tags="neg.${tgs}.p2.pl"></td></tr>
+          <tr><th>${uum_labels['linguist']['p3']} ${uum_labels['linguist']['sg']}</th>
+            <td data-tags="${tgs}.p3.sg"></td><td data-tags="neg.${tgs}.p3.sg"></td></tr>
+          <tr><th>${uum_labels['linguist']['p3']} ${uum_labels['linguist']['pl']}</th>
+            <td data-tags="${tgs}.p3.pl"></td><td data-tags="neg.${tgs}.p3.pl"></td></tr>
+        </table>`,
+      'english': `
+        <table class="paradigm-table">
+          <tr><th></th><th>Affirmative</th><th>Negative</th></tr>
+          <tr><th>${uum_labels['english']['p1sg']}</th><td data-tags="${tgs}.p1.sg"></td><td data-tags="neg.${tgs}.p1.sg"></td></tr>
+          <tr><th>${uum_labels['english']['p1pl']}</th><td data-tags="${tgs}.p1.pl"></td><td data-tags="neg.${tgs}.p1.pl"></td></tr>
+          <tr><th>${uum_labels['english']['p2sg']}</th><td data-tags="${tgs}.p2.sg"></td><td data-tags="neg.${tgs}.p2.sg"></td></tr>
+          <tr><th>${uum_labels['english']['p2pl']}</th><td data-tags="${tgs}.p2.pl"></td><td data-tags="neg.${tgs}.p2.pl"></td></tr>
+          <tr><th>${uum_labels['english']['p3sg']}</th><td data-tags="${tgs}.p3.sg"></td><td data-tags="neg.${tgs}.p3.sg"></td></tr>
+          <tr><th>${uum_labels['english']['p3pl']}</th><td data-tags="${tgs}.p3.pl"></td><td data-tags="neg.${tgs}.p3.pl"></td></tr>
+        </table>`,
+      'russian': `
+        <table class="paradigm-table">
+          <tr><th></th><th>Утвердительный</th><th>Отрицательный</th></tr>
+          <tr><th>${uum_labels['russian']['p1sg']}</th><td data-tags="${tgs}.p1.sg"></td><td data-tags="neg.${tgs}.p1.sg"></td></tr>
+          <tr><th>${uum_labels['russian']['p1pl']}</th><td data-tags="${tgs}.p1.pl"></td><td data-tags="neg.${tgs}.p1.pl"></td></tr>
+          <tr><th>${uum_labels['russian']['p2sg']}</th><td data-tags="${tgs}.p2.sg"></td><td data-tags="neg.${tgs}.p2.sg"></td></tr>
+          <tr><th>${uum_labels['russian']['p2pl']}</th><td data-tags="${tgs}.p2.pl"></td><td data-tags="neg.${tgs}.p2.pl"></td></tr>
+          <tr><th>${uum_labels['russian']['p3sg']}</th><td data-tags="${tgs}.p3.sg"></td><td data-tags="neg.${tgs}.p3.sg"></td></tr>
+          <tr><th>${uum_labels['russian']['p3pl']}</th><td data-tags="${tgs}.p3.pl"></td><td data-tags="neg.${tgs}.p3.pl"></td></tr>
+        </table>`,
+      'ukrainian': `
+        <table class="paradigm-table">
+          <tr><th></th><th>Стверджувальний</th><th>Заперечний</th></tr>
+          <tr><th>${uum_labels['ukrainian']['p1sg']}</th><td data-tags="${tgs}.p1.sg"></td><td data-tags="neg.${tgs}.p1.sg"></td></tr>
+          <tr><th>${uum_labels['ukrainian']['p1pl']}</th><td data-tags="${tgs}.p1.pl"></td><td data-tags="neg.${tgs}.p1.pl"></td></tr>
+          <tr><th>${uum_labels['ukrainian']['p2sg']}</th><td data-tags="${tgs}.p2.sg"></td><td data-tags="neg.${tgs}.p2.sg"></td></tr>
+          <tr><th>${uum_labels['ukrainian']['p2pl']}</th><td data-tags="${tgs}.p2.pl"></td><td data-tags="neg.${tgs}.p2.pl"></td></tr>
+          <tr><th>${uum_labels['ukrainian']['p3sg']}</th><td data-tags="${tgs}.p3.sg"></td><td data-tags="neg.${tgs}.p3.sg"></td></tr>
+          <tr><th>${uum_labels['ukrainian']['p3pl']}</th><td data-tags="${tgs}.p3.pl"></td><td data-tags="neg.${tgs}.p3.pl"></td></tr>
+        </table>`
+    }
   };
 }
 
@@ -22,28 +112,45 @@ function add_uum() {
     vaux: [],
     verb_iv: [
       {
-        id: 'nonfin',
-        label: 'Non-finite',
-        subcats: [ 
-          {
-            id: 'inf',
-            label: 'Infinitive',
-            tabcols: ['Affirmative', 'Negative'],
-            tabdata: [[{tags: 'inf'}, {tags: 'neg.tsg'}]]
-          },
-          {
-            id: 'pp',
-            label: 'Participle',
-            tabcols: ['Affirmative', 'Negative'],
-            tabdata: [[{tags: 'pp'}, {tags: 'neg.pp'}]]
-          },
-          {
-            id: 'tsg',
-            label: 'Converb',
-            tabcols: ['Affirmative', 'Negative'],
-            tabdata: [[{tags: 'tsg'}, {tags: 'neg.tsg'}]]
-          }
-        ]
+        id: 'non-personal',
+        label: 'Non-personal forms',
+        tabcols: ['Affirmative', 'Negative'],
+        tabrows: ['Infinitive', 'Participle', 'Converb'],
+        tabdata: [
+          [{ tags: 'inf' }, { tags: 'neg.inf' }],
+          [{ tags: 'pp' }, { tags: 'neg.pp' }],
+          [{ tags: 'tsg' }, { tags: 'neg.tsg' }]
+        ],
+        html: {
+          linguist: `
+            <table class="paradigm-table">
+              <tr><th></th><th>Affirmative</th><th>Negative</th></tr>
+              <tr><th>Infinitive</th><td data-tags="inf"></td><td data-tags="neg.inf"></td></tr>
+              <tr><th>Participle</th><td data-tags="pp"></td><td data-tags="neg.pp"></td></tr>
+              <tr><th>Converb</th><td data-tags="tsg"></td><td data-tags="neg.tsg"></td></tr>
+            </table>`,
+          english: `
+            <table class="paradigm-table">
+              <tr><th></th><th>Affirmative</th><th>Negative</th></tr>
+              <tr><th>Infinitive</th><td data-tags="inf"></td><td data-tags="neg.inf"></td></tr>
+              <tr><th>Participle</th><td data-tags="pp"></td><td data-tags="neg.pp"></td></tr>
+              <tr><th>Converb</th><td data-tags="tsg"></td><td data-tags="neg.tsg"></td></tr>
+            </table>`,
+          russian: `
+            <table class="paradigm-table">
+              <tr><th></th><th>Утвердительный</th><th>Отрицательный</th></tr>
+              <tr><th>Инфинитив</th><td data-tags="inf"></td><td data-tags="neg.inf"></td></tr>
+              <tr><th>Причастие</th><td data-tags="pp"></td><td data-tags="neg.pp"></td></tr>
+              <tr><th>Деепричастие</th><td data-tags="tsg"></td><td data-tags="neg.tsg"></td></tr>
+            </table>`,
+          ukrainian: `
+            <table class="paradigm-table">
+              <tr><th></th><th>Стверджувальний</th><th>Заперечний</th></tr>
+              <tr><th>Інфінітив</th><td data-tags="inf"></td><td data-tags="neg.inf"></td></tr>
+              <tr><th>Дієприкметник</th><td data-tags="pp"></td><td data-tags="neg.pp"></td></tr>
+              <tr><th>Дієприслівник</th><td data-tags="tsg"></td><td data-tags="neg.tsg"></td></tr>
+            </table>`
+        }
       },
       uum_fin_vb('pres', 'Present'),
       uum_fin_vb('past', 'Past'),
@@ -54,28 +161,83 @@ function add_uum() {
         id: 'imp',
         label: 'Imperative',
         tabcols: ['Affirmative', 'Negative'],
-        tabrows: ['1st person singular', '1st person plural',
-                  '2nd person singular', '2nd person plural'],
+        tabrows: [
+          '1st person singular',
+          '1st person plural',
+          '2nd person singular',
+          '2nd person plural'
+        ],
         tabdata: [
-          [{tags: 'imp.p1.sg'}, {tags: 'neg.imp.p1.sg'}],
-          [{tags: 'imp.p1.pl'}, {tags: 'neg.imp.p1.pl'}],
-          [{tags: 'imp.p2.sg'}, {tags: 'neg.imp.p2.sg'}],
-          [{tags: 'imp.p2.pl'}, {tags: 'neg.imp.p2.pl'}]
-        ]
+          [{ tags: 'imp.p1.sg' }, { tags: 'neg.imp.p1.sg' }],
+          [{ tags: 'imp.p1.pl' }, { tags: 'neg.imp.p1.pl' }],
+          [{ tags: 'imp.p2.sg' }, { tags: 'neg.imp.p2.sg' }],
+          [{ tags: 'imp.p2.pl' }, { tags: 'neg.imp.p2.pl' }]
+        ],
+        html: {
+          linguist: `<table class="paradigm-table"><tr><th></th><th>Affirmative</th><th>Negative</th></tr>
+                    <tr><th>1sg</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
+                    <tr><th>1pl</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
+                    <tr><th>2sg</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
+                    <tr><th>2pl</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr></table>`,
+          english: `<table class="paradigm-table"><tr><th></th><th>Affirmative</th><th>Negative</th></tr>
+                    <tr><th>I</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
+                    <tr><th>we</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
+                    <tr><th>you</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
+                    <tr><th>you all</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr></table>`,
+          russian: `<table class="paradigm-table"><tr><th></th><th>Утвердительный</th><th>Отрицательный</th></tr>
+                    <tr><th>я</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
+                    <tr><th>мы</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
+                    <tr><th>ты</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
+                    <tr><th>вы</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr></table>`,
+          ukrainian: `<table class="paradigm-table"><tr><th></th><th>Стверджувальний</th><th>Заперечний</th></tr>
+                      <tr><th>я</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
+                      <tr><th>ми</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
+                      <tr><th>ти</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
+                      <tr><th>ви</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr></table>`
+        }
       }
     ],
     verb_tv: [
       {
-        id: 'inf',
-        label: 'Infinitive',
+        id: 'non-personal',
+        label: 'Non-personal forms',
         tabcols: ['Affirmative', 'Negative'],
-        tabdata: [[{tags: 'inf'}, {tags: 'neg.tsg'}]]
-      },
-      {
-        id: 'pp',
-        label: 'Participle',
-        tabcols: ['Affirmative', 'Negative'],
-        tabdata: [[{tags: 'pp'}, {tags: 'neg.pp'}]]
+        tabrows: ['Infinitive', 'Participle', 'Converb'],
+        tabdata: [
+          [{ tags: 'inf' }, { tags: 'neg.inf' }],
+          [{ tags: 'pp' }, { tags: 'neg.pp' }],
+          [{ tags: 'tsg' }, { tags: 'neg.tsg' }]
+        ],
+        html: {
+          linguist: `
+            <table class="paradigm-table">
+              <tr><th></th><th>Affirmative</th><th>Negative</th></tr>
+              <tr><th>Infinitive</th><td data-tags="inf"></td><td data-tags="neg.inf"></td></tr>
+              <tr><th>Participle</th><td data-tags="pp"></td><td data-tags="neg.pp"></td></tr>
+              <tr><th>Converb</th><td data-tags="tsg"></td><td data-tags="neg.tsg"></td></tr>
+            </table>`,
+          english: `
+            <table class="paradigm-table">
+              <tr><th></th><th>Affirmative</th><th>Negative</th></tr>
+              <tr><th>Infinitive</th><td data-tags="inf"></td><td data-tags="neg.inf"></td></tr>
+              <tr><th>Participle</th><td data-tags="pp"></td><td data-tags="neg.pp"></td></tr>
+              <tr><th>Converb</th><td data-tags="tsg"></td><td data-tags="neg.tsg"></td></tr>
+            </table>`,
+          russian: `
+            <table class="paradigm-table">
+              <tr><th></th><th>Утвердительный</th><th>Отрицательный</th></tr>
+              <tr><th>Инфинитив</th><td data-tags="inf"></td><td data-tags="neg.inf"></td></tr>
+              <tr><th>Причастие</th><td data-tags="pp"></td><td data-tags="neg.pp"></td></tr>
+              <tr><th>Деепричастие</th><td data-tags="tsg"></td><td data-tags="neg.tsg"></td></tr>
+            </table>`,
+          ukrainian: `
+            <table class="paradigm-table">
+              <tr><th></th><th>Стверджувальний</th><th>Заперечний</th></tr>
+              <tr><th>Інфінітив</th><td data-tags="inf"></td><td data-tags="neg.inf"></td></tr>
+              <tr><th>Дієприкметник</th><td data-tags="pp"></td><td data-tags="neg.pp"></td></tr>
+              <tr><th>Дієприслівник</th><td data-tags="tsg"></td><td data-tags="neg.tsg"></td></tr>
+            </table>`
+        }
       },
       uum_fin_vb('pres', 'Present'),
       uum_fin_vb('past', 'Past'),
@@ -86,20 +248,40 @@ function add_uum() {
         id: 'imp',
         label: 'Imperative',
         tabcols: ['Affirmative', 'Negative'],
-        tabrows: ['1st person singular', '1st person plural',
-                  '2nd person singular', '2nd person plural'],
+        tabrows: [
+          '1st person singular',
+          '1st person plural',
+          '2nd person singular',
+          '2nd person plural'
+        ],
         tabdata: [
-          [{tags: 'imp.p1.sg'}, {tags: 'neg.imp.p1.sg'}],
-          [{tags: 'imp.p1.pl'}, {tags: 'neg.imp.p1.pl'}],
-          [{tags: 'imp.p2.sg'}, {tags: 'neg.imp.p2.sg'}],
-          [{tags: 'imp.p2.pl'}, {tags: 'neg.imp.p2.pl'}]
-        ]
-      },
-      {
-        id: 'tsg',
-        label: 'Transgressive',
-        tabcols: ['Affirmative', 'Negative'],
-        tabdata: [[{tags: 'tsg'}, {tags: 'neg.tsg'}]]
+          [{ tags: 'imp.p1.sg' }, { tags: 'neg.imp.p1.sg' }],
+          [{ tags: 'imp.p1.pl' }, { tags: 'neg.imp.p1.pl' }],
+          [{ tags: 'imp.p2.sg' }, { tags: 'neg.imp.p2.sg' }],
+          [{ tags: 'imp.p2.pl' }, { tags: 'neg.imp.p2.pl' }]
+        ],
+        html: {
+          linguist: `<table class="paradigm-table"><tr><th></th><th>Affirmative</th><th>Negative</th></tr>
+                    <tr><th>1sg</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
+                    <tr><th>1pl</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
+                    <tr><th>2sg</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
+                    <tr><th>2pl</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr></table>`,
+          english: `<table class="paradigm-table"><tr><th></th><th>Affirmative</th><th>Negative</th></tr>
+                    <tr><th>I</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
+                    <tr><th>we</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
+                    <tr><th>you</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
+                    <tr><th>you all</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr></table>`,
+          russian: `<table class="paradigm-table"><tr><th></th><th>Утвердительный</th><th>Отрицательный</th></tr>
+                    <tr><th>я</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
+                    <tr><th>мы</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
+                    <tr><th>ты</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
+                    <tr><th>вы</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr></table>`,
+          ukrainian: `<table class="paradigm-table"><tr><th></th><th>Стверджувальний</th><th>Заперечний</th></tr>
+                      <tr><th>я</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
+                      <tr><th>ми</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
+                      <tr><th>ти</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
+                      <tr><th>ви</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr></table>`
+        }
       }
     ],
     noun: [
