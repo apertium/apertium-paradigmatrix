@@ -366,7 +366,7 @@ function blob2nav(blob) {
   if (Array.isArray(blob)) {
     return '<ul>' + blob.map(blob2nav).join('') + '</ul>';
   } else if (blob.hasOwnProperty('id')) {
-    let ret = '<li><a href="'+blob.id+'">';
+    let ret = '<li><a href="#' + blob.id + '">';
     if (blob.hasOwnProperty('label')) {
       ret += blob.label;
     } else {
