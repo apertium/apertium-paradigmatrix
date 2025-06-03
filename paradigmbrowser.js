@@ -309,7 +309,6 @@ function blob2html(blob, depth, context) {
     console.log(blob);
     const mode = $('#Mode').val() || 'linguist';
     ret += blob.html[mode] || '';
-    console.log("hello world\n")
   } else {
   if (blob.hasOwnProperty('tablist')) {
     ret += '<table>';
