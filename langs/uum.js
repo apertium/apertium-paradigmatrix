@@ -1,44 +1,80 @@
 let uum_labels = {
-   "english": {
-     "p1sg": "I",
-     "p2sg": "you",
-     "p3sg": "he/she",
-     "p1pl": "we",
-     "p2pl": "you all",
-     "p3pl": "they"
-   },
-   "linguist": {
-     "sg": "Singular",
-     "pl": "Plural",
-     "p1": "1st",
-     "p2": "2nd",
-     "p3": "3rd"
-   },
-   "urum": {
-      "p1sg": "мен",
-      "p2sg": "сен",
-      "p3sg": "о",
-      "p1pl": "биз",
-      "p2pl": "сиз",
-      "p3pl": "олар"
-   },
-   "russian": {
-      "p1sg": "я",
-      "p2sg": "ты",
-      "p3sg": "он/она",
-      "p1pl": "мы",
-      "p2pl": "вы",
-      "p3pl": "они"
-   },
-   "ukrainian": {
-      "p1sg": "я",
-      "p2sg": "ти",
-      "p3sg": "він/вона",
-      "p1pl": "ми",
-      "p2pl": "ви",
-      "p3pl": "вони"
-   }
-} 
+  "english": {
+    "p1sg": "I",
+    "p2sg": "you",
+    "p3sg": "he/she",
+    "p1pl": "we",
+    "p2pl": "you all",
+    "p3pl": "they",
+    "cases": {
+      "nom": "Nominative",
+      "acc": "Accusative",
+      "dat": "Dative",
+      "loc": "Locative",
+      "gen": "Genitive",
+      "abl": "Ablative",
+      "ins": "Instrumental",
+      "term": "Terminative",
+      "abe": "Abessive"
+    }
+  },
+  "linguist": {
+    "sg": "Singular",
+    "pl": "Plural",
+    "p1": "1st",
+    "p2": "2nd",
+    "p3": "3rd",
+    "cases": {
+      "nom": "Nominative",
+      "acc": "Accusative",
+      "dat": "Dative",
+      "loc": "Locative",
+      "gen": "Genitive",
+      "abl": "Ablative",
+      "ins": "Instrumental",
+      "term": "Terminative",
+      "abe": "Abessive"
+    }
+  },
+  "russian": {
+    "p1sg": "я",
+    "p2sg": "ты",
+    "p3sg": "он/она",
+    "p1pl": "мы",
+    "p2pl": "вы",
+    "p3pl": "они",
+    "cases": {
+      "nom": "Именительный",
+      "acc": "Винительный",
+      "dat": "Дательный",
+      "loc": "Местный",
+      "gen": "Родительный",
+      "abl": "Исходный",
+      "ins": "Творительный",
+      "term": "Предел",
+      "abe": "Безналичный"
+    }
+  },
+  "ukrainian": {
+    "p1sg": "я",
+    "p2sg": "ти",
+    "p3sg": "він/вона",
+    "p1pl": "ми",
+    "p2pl": "ви",
+    "p3pl": "вони",
+    "cases": {
+      "nom": "Називний",
+      "acc": "Знахідний",
+      "dat": "Давальний",
+      "loc": "Місцевий",
+      "gen": "Родовий",
+      "abl": "Відмінок походження",
+      "ins": "Орудний",
+      "term": "Кінцевий",
+      "abe": "Безвідмінковий"
+    }
+  }
+}
 
 function uum_fin_vb(tgs, lab) {
   return {
@@ -332,7 +368,61 @@ function add_uum() {
           [{tags: 'ins'}, {tags: 'pl.ins'}],
           [{tags: 'term'}, {tags: 'pl.term'}],
           [{tags: 'abe'}, {tags: 'pl.abe'}]
-        ]
+        ],
+        html: {
+          linguist: `
+            <table class="paradigm-table">
+              <tr><th></th><th>Singular</th><th>Plural</th></tr>
+              <tr><th>${uum_labels["linguist"].cases.nom}</th><td data-tags="nom"></td><td data-tags="pl.nom"></td></tr>
+              <tr><th>${uum_labels["linguist"].cases.acc}</th><td data-tags="acc"></td><td data-tags="pl.acc"></td></tr>
+              <tr><th>${uum_labels["linguist"].cases.dat}</th><td data-tags="dat"></td><td data-tags="pl.dat"></td></tr>
+              <tr><th>${uum_labels["linguist"].cases.loc}</th><td data-tags="loc"></td><td data-tags="pl.loc"></td></tr>
+              <tr><th>${uum_labels["linguist"].cases.gen}</th><td data-tags="gen"></td><td data-tags="pl.gen"></td></tr>
+              <tr><th>${uum_labels["linguist"].cases.abl}</th><td data-tags="abl"></td><td data-tags="pl.abl"></td></tr>
+              <tr><th>${uum_labels["linguist"].cases.ins}</th><td data-tags="ins"></td><td data-tags="pl.ins"></td></tr>
+              <tr><th>${uum_labels["linguist"].cases.term}</th><td data-tags="term"></td><td data-tags="pl.term"></td></tr>
+              <tr><th>${uum_labels["linguist"].cases.abe}</th><td data-tags="abe"></td><td data-tags="pl.abe"></td></tr>
+            </table>`,
+          english: `
+            <table class="paradigm-table">
+              <tr><th></th><th>Singular</th><th>Plural</th></tr>
+              <tr><th>${uum_labels["english"].cases.nom}</th><td data-tags="nom"></td><td data-tags="pl.nom"></td></tr>
+              <tr><th>${uum_labels["english"].cases.acc}</th><td data-tags="acc"></td><td data-tags="pl.acc"></td></tr>
+              <tr><th>${uum_labels["english"].cases.dat}</th><td data-tags="dat"></td><td data-tags="pl.dat"></td></tr>
+              <tr><th>${uum_labels["english"].cases.loc}</th><td data-tags="loc"></td><td data-tags="pl.loc"></td></tr>
+              <tr><th>${uum_labels["english"].cases.gen}</th><td data-tags="gen"></td><td data-tags="pl.gen"></td></tr>
+              <tr><th>${uum_labels["english"].cases.abl}</th><td data-tags="abl"></td><td data-tags="pl.abl"></td></tr>
+              <tr><th>${uum_labels["english"].cases.ins}</th><td data-tags="ins"></td><td data-tags="pl.ins"></td></tr>
+              <tr><th>${uum_labels["english"].cases.term}</th><td data-tags="term"></td><td data-tags="pl.term"></td></tr>
+              <tr><th>${uum_labels["english"].cases.abe}</th><td data-tags="abe"></td><td data-tags="pl.abe"></td></tr>
+            </table>`,
+          russian: `
+            <table class="paradigm-table">
+              <tr><th></th><th>Единственное число</th><th>Множественное число</th></tr>
+              <tr><th>${uum_labels["russian"].cases.nom}</th><td data-tags="nom"></td><td data-tags="pl.nom"></td></tr>
+              <tr><th>${uum_labels["russian"].cases.acc}</th><td data-tags="acc"></td><td data-tags="pl.acc"></td></tr>
+              <tr><th>${uum_labels["russian"].cases.dat}</th><td data-tags="dat"></td><td data-tags="pl.dat"></td></tr>
+              <tr><th>${uum_labels["russian"].cases.loc}</th><td data-tags="loc"></td><td data-tags="pl.loc"></td></tr>
+              <tr><th>${uum_labels["russian"].cases.gen}</th><td data-tags="gen"></td><td data-tags="pl.gen"></td></tr>
+              <tr><th>${uum_labels["russian"].cases.abl}</th><td data-tags="abl"></td><td data-tags="pl.abl"></td></tr>
+              <tr><th>${uum_labels["russian"].cases.ins}</th><td data-tags="ins"></td><td data-tags="pl.ins"></td></tr>
+              <tr><th>${uum_labels["russian"].cases.term}</th><td data-tags="term"></td><td data-tags="pl.term"></td></tr>
+              <tr><th>${uum_labels["russian"].cases.abe}</th><td data-tags="abe"></td><td data-tags="pl.abe"></td></tr>
+            </table>`,
+          ukrainian: `
+            <table class="paradigm-table">
+              <tr><th></th><th>Однина</th><th>Множина</th></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.nom}</th><td data-tags="nom"></td><td data-tags="pl.nom"></td></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.acc}</th><td data-tags="acc"></td><td data-tags="pl.acc"></td></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.dat}</th><td data-tags="dat"></td><td data-tags="pl.dat"></td></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.loc}</th><td data-tags="loc"></td><td data-tags="pl.loc"></td></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.gen}</th><td data-tags="gen"></td><td data-tags="pl.gen"></td></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.abl}</th><td data-tags="abl"></td><td data-tags="pl.abl"></td></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.ins}</th><td data-tags="ins"></td><td data-tags="pl.ins"></td></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.term}</th><td data-tags="term"></td><td data-tags="pl.term"></td></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.abe}</th><td data-tags="abe"></td><td data-tags="pl.abe"></td></tr>
+            </table>`
+        }
       },
       {
         id: 'noun-poss',
@@ -376,7 +466,61 @@ function add_uum() {
             {tags: 'px1sg.abe'}, {tags: 'px2sg.abe'}, {tags: 'px3sg.abe'},
             {tags: 'px1pl.abe'}, {tags: 'px2pl.abe'}, {tags: 'px3pl.abe'}
           ]
-        ]
+        ],
+        html: {
+          'linguist': `
+            <table class="paradigm-table">
+              <tr><th></th><th>1sg</th><th>2sg</th><th>3sg</th><th>1pl</th><th>2pl</th><th>3pl</th></tr>
+              <tr><th>${uum_labels["linguist"].cases.nom}</th><td data-tags="px1sg.nom"></td><td data-tags="px2sg.nom"></td><td data-tags="px3sg.nom"></td><td data-tags="px1pl.nom"></td><td data-tags="px2pl.nom"></td><td data-tags="px3pl.nom"></td></tr>
+              <tr><th>${uum_labels["linguist"].cases.acc}</th><td data-tags="px1sg.acc"></td><td data-tags="px2sg.acc"></td><td data-tags="px3sg.acc"></td><td data-tags="px1pl.acc"></td><td data-tags="px2pl.acc"></td><td data-tags="px3pl.acc"></td></tr>
+              <tr><th>${uum_labels["linguist"].cases.dat}</th><td data-tags="px1sg.dat"></td><td data-tags="px2sg.dat"></td><td data-tags="px3sg.dat"></td><td data-tags="px1pl.dat"></td><td data-tags="px2pl.dat"></td><td data-tags="px3pl.dat"></td></tr>
+              <tr><th>${uum_labels["linguist"].cases.loc}</th><td data-tags="px1sg.loc"></td><td data-tags="px2sg.loc"></td><td data-tags="px3sg.loc"></td><td data-tags="px1pl.loc"></td><td data-tags="px2pl.loc"></td><td data-tags="px3pl.loc"></td></tr>
+              <tr><th>${uum_labels["linguist"].cases.gen}</th><td data-tags="px1sg.gen"></td><td data-tags="px2sg.gen"></td><td data-tags="px3sg.gen"></td><td data-tags="px1pl.gen"></td><td data-tags="px2pl.gen"></td><td data-tags="px3pl.gen"></td></tr>
+              <tr><th>${uum_labels["linguist"].cases.abl}</th><td data-tags="px1sg.abl"></td><td data-tags="px2sg.abl"></td><td data-tags="px3sg.abl"></td><td data-tags="px1pl.abl"></td><td data-tags="px2pl.abl"></td><td data-tags="px3pl.abl"></td></tr>
+              <tr><th>${uum_labels["linguist"].cases.ins}</th><td data-tags="px1sg.ins"></td><td data-tags="px2sg.ins"></td><td data-tags="px3sg.ins"></td><td data-tags="px1pl.ins"></td><td data-tags="px2pl.ins"></td><td data-tags="px3pl.ins"></td></tr>
+              <tr><th>${uum_labels["linguist"].cases.term}</th><td data-tags="px1sg.term"></td><td data-tags="px2sg.term"></td><td data-tags="px3sg.term"></td><td data-tags="px1pl.term"></td><td data-tags="px2pl.term"></td><td data-tags="px3pl.term"></td></tr>
+              <tr><th>${uum_labels["linguist"].cases.abe}</th><td data-tags="px1sg.abe"></td><td data-tags="px2sg.abe"></td><td data-tags="px3sg.abe"></td><td data-tags="px1pl.abe"></td><td data-tags="px2pl.abe"></td><td data-tags="px3pl.abe"></td></tr>
+            </table>`,
+          'english': `
+            <table class="paradigm-table">
+              <tr><th></th><th>my</th><th>your</th><th>his/her</th><th>our</th><th>your (pl)</th><th>their</th></tr>
+              <tr><th>${uum_labels["english"].cases.nom}</th><td data-tags="px1sg.nom"></td><td data-tags="px2sg.nom"></td><td data-tags="px3sg.nom"></td><td data-tags="px1pl.nom"></td><td data-tags="px2pl.nom"></td><td data-tags="px3pl.nom"></td></tr>
+              <tr><th>${uum_labels["english"].cases.acc}</th><td data-tags="px1sg.acc"></td><td data-tags="px2sg.acc"></td><td data-tags="px3sg.acc"></td><td data-tags="px1pl.acc"></td><td data-tags="px2pl.acc"></td><td data-tags="px3pl.acc"></td></tr>
+              <tr><th>${uum_labels["english"].cases.dat}</th><td data-tags="px1sg.dat"></td><td data-tags="px2sg.dat"></td><td data-tags="px3sg.dat"></td><td data-tags="px1pl.dat"></td><td data-tags="px2pl.dat"></td><td data-tags="px3pl.dat"></td></tr>
+              <tr><th>${uum_labels["english"].cases.loc}</th><td data-tags="px1sg.loc"></td><td data-tags="px2sg.loc"></td><td data-tags="px3sg.loc"></td><td data-tags="px1pl.loc"></td><td data-tags="px2pl.loc"></td><td data-tags="px3pl.loc"></td></tr>
+              <tr><th>${uum_labels["english"].cases.gen}</th><td data-tags="px1sg.gen"></td><td data-tags="px2sg.gen"></td><td data-tags="px3sg.gen"></td><td data-tags="px1pl.gen"></td><td data-tags="px2pl.gen"></td><td data-tags="px3pl.gen"></td></tr>
+              <tr><th>${uum_labels["english"].cases.abl}</th><td data-tags="px1sg.abl"></td><td data-tags="px2sg.abl"></td><td data-tags="px3sg.abl"></td><td data-tags="px1pl.abl"></td><td data-tags="px2pl.abl"></td><td data-tags="px3pl.abl"></td></tr>
+              <tr><th>${uum_labels["english"].cases.ins}</th><td data-tags="px1sg.ins"></td><td data-tags="px2sg.ins"></td><td data-tags="px3sg.ins"></td><td data-tags="px1pl.ins"></td><td data-tags="px2pl.ins"></td><td data-tags="px3pl.ins"></td></tr>
+              <tr><th>${uum_labels["english"].cases.term}</th><td data-tags="px1sg.term"></td><td data-tags="px2sg.term"></td><td data-tags="px3sg.term"></td><td data-tags="px1pl.term"></td><td data-tags="px2pl.term"></td><td data-tags="px3pl.term"></td></tr>
+              <tr><th>${uum_labels["english"].cases.abe}</th><td data-tags="px1sg.abe"></td><td data-tags="px2sg.abe"></td><td data-tags="px3sg.abe"></td><td data-tags="px1pl.abe"></td><td data-tags="px2pl.abe"></td><td data-tags="px3pl.abe"></td></tr>
+            </table>`,
+          'russian': `
+            <table class="paradigm-table">
+              <tr><th></th><th>мой</th><th>твой</th><th>его/её</th><th>наш</th><th>ваш</th><th>их</th></tr>
+              <tr><th>${uum_labels["russian"].cases.nom}</th><td data-tags="px1sg.nom"></td><td data-tags="px2sg.nom"></td><td data-tags="px3sg.nom"></td><td data-tags="px1pl.nom"></td><td data-tags="px2pl.nom"></td><td data-tags="px3pl.nom"></td></tr>
+              <tr><th>${uum_labels["russian"].cases.acc}</th><td data-tags="px1sg.acc"></td><td data-tags="px2sg.acc"></td><td data-tags="px3sg.acc"></td><td data-tags="px1pl.acc"></td><td data-tags="px2pl.acc"></td><td data-tags="px3pl.acc"></td></tr>
+              <tr><th>${uum_labels["russian"].cases.dat}</th><td data-tags="px1sg.dat"></td><td data-tags="px2sg.dat"></td><td data-tags="px3sg.dat"></td><td data-tags="px1pl.dat"></td><td data-tags="px2pl.dat"></td><td data-tags="px3pl.dat"></td></tr>
+              <tr><th>${uum_labels["russian"].cases.loc}</th><td data-tags="px1sg.loc"></td><td data-tags="px2sg.loc"></td><td data-tags="px3sg.loc"></td><td data-tags="px1pl.loc"></td><td data-tags="px2pl.loc"></td><td data-tags="px3pl.loc"></td></tr>
+              <tr><th>${uum_labels["russian"].cases.gen}</th><td data-tags="px1sg.gen"></td><td data-tags="px2sg.gen"></td><td data-tags="px3sg.gen"></td><td data-tags="px1pl.gen"></td><td data-tags="px2pl.gen"></td><td data-tags="px3pl.gen"></td></tr>
+              <tr><th>${uum_labels["russian"].cases.abl}</th><td data-tags="px1sg.abl"></td><td data-tags="px2sg.abl"></td><td data-tags="px3sg.abl"></td><td data-tags="px1pl.abl"></td><td data-tags="px2pl.abl"></td><td data-tags="px3pl.abl"></td></tr>
+              <tr><th>${uum_labels["russian"].cases.ins}</th><td data-tags="px1sg.ins"></td><td data-tags="px2sg.ins"></td><td data-tags="px3sg.ins"></td><td data-tags="px1pl.ins"></td><td data-tags="px2pl.ins"></td><td data-tags="px3pl.ins"></td></tr>
+              <tr><th>${uum_labels["russian"].cases.term}</th><td data-tags="px1sg.term"></td><td data-tags="px2sg.term"></td><td data-tags="px3sg.term"></td><td data-tags="px1pl.term"></td><td data-tags="px2pl.term"></td><td data-tags="px3pl.term"></td></tr>
+              <tr><th>${uum_labels["russian"].cases.abe}</th><td data-tags="px1sg.abe"></td><td data-tags="px2sg.abe"></td><td data-tags="px3sg.abe"></td><td data-tags="px1pl.abe"></td><td data-tags="px2pl.abe"></td><td data-tags="px3pl.abe"></td></tr>
+            </table>`,
+          'ukrainian': `
+            <table class="paradigm-table">
+              <tr><th></th><th>мій</th><th>твій</th><th>його/її</th><th>наш</th><th>ваш</th><th>їхній</th></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.nom}</th><td data-tags="px1sg.nom"></td><td data-tags="px2sg.nom"></td><td data-tags="px3sg.nom"></td><td data-tags="px1pl.nom"></td><td data-tags="px2pl.nom"></td><td data-tags="px3pl.nom"></td></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.acc}</th><td data-tags="px1sg.acc"></td><td data-tags="px2sg.acc"></td><td data-tags="px3sg.acc"></td><td data-tags="px1pl.acc"></td><td data-tags="px2pl.acc"></td><td data-tags="px3pl.acc"></td></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.dat}</th><td data-tags="px1sg.dat"></td><td data-tags="px2sg.dat"></td><td data-tags="px3sg.dat"></td><td data-tags="px1pl.dat"></td><td data-tags="px2pl.dat"></td><td data-tags="px3pl.dat"></td></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.loc}</th><td data-tags="px1sg.loc"></td><td data-tags="px2sg.loc"></td><td data-tags="px3sg.loc"></td><td data-tags="px1pl.loc"></td><td data-tags="px2pl.loc"></td><td data-tags="px3pl.loc"></td></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.gen}</th><td data-tags="px1sg.gen"></td><td data-tags="px2sg.gen"></td><td data-tags="px3sg.gen"></td><td data-tags="px1pl.gen"></td><td data-tags="px2pl.gen"></td><td data-tags="px3pl.gen"></td></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.abl}</th><td data-tags="px1sg.abl"></td><td data-tags="px2sg.abl"></td><td data-tags="px3sg.abl"></td><td data-tags="px1pl.abl"></td><td data-tags="px2pl.abl"></td><td data-tags="px3pl.abl"></td></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.ins}</th><td data-tags="px1sg.ins"></td><td data-tags="px2sg.ins"></td><td data-tags="px3sg.ins"></td><td data-tags="px1pl.ins"></td><td data-tags="px2pl.ins"></td><td data-tags="px3pl.ins"></td></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.term}</th><td data-tags="px1sg.term"></td><td data-tags="px2sg.term"></td><td data-tags="px3sg.term"></td><td data-tags="px1pl.term"></td><td data-tags="px2pl.term"></td><td data-tags="px3pl.term"></td></tr>
+              <tr><th>${uum_labels["ukrainian"].cases.abe}</th><td data-tags="px1sg.abe"></td><td data-tags="px2sg.abe"></td><td data-tags="px3sg.abe"></td><td data-tags="px1pl.abe"></td><td data-tags="px2pl.abe"></td><td data-tags="px3pl.abe"></td></tr>
+            </table>`
+        }
       }
     ]
   };
