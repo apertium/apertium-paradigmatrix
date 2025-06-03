@@ -309,6 +309,7 @@ function blob2html(blob, depth, context) {
     console.log(blob);
     const mode = $('#Mode').val() || 'linguist';
     ret += blob.html[mode] || '';
+    console.log("hello world\n")
   } else {
   if (blob.hasOwnProperty('tablist')) {
     ret += '<table>';
@@ -459,4 +460,11 @@ $(document).ready(function() {
   );
   $('#Language').change(set_lang);
   $('#POS').change(set_pos);
+  $('#Mode').change(function () {
+    let lang = $('#Language').val();
+    let pos = $('#POS').val();
+    if (lang && pos) {
+      set_pos();
+    }
+  });
 });
