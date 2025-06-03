@@ -246,3 +246,5 @@ function add_spa() {
     ]
   };
 }
+
+LANGS['spa'].labels = spa_labels;

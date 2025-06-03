@@ -525,3 +525,5 @@ function add_uum() {
     ]
   };
 }
+
+LANGS['uum'].labels = uum_labels;
