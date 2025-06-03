@@ -420,6 +420,8 @@ function set_lang() {
     $('#Mode').html(
       availableModes.map(m => `<option value="${m}">${m}</option>`).join('')
     );
+    let defaultMode = availableModes.includes('linguist') ? 'linguist' : availableModes[0];
+    $('#Mode').val(defaultMode).change();
   }
 }
 
