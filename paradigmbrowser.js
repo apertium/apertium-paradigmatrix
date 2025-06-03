@@ -306,8 +306,9 @@ function blob2html(blob, depth, context) {
     }
   }
   if (blob.hasOwnProperty('html')) {
-	console.log(blob);
-	ret += blob.html.english; // TODO: this is hardcoded
+    console.log(blob);
+    const mode = $('#Mode').val() || 'linguist';
+    ret += blob.html[mode] || '';
   } else {
   if (blob.hasOwnProperty('tablist')) {
     ret += '<table>';
@@ -414,6 +415,13 @@ function set_lang() {
     $('#content').html('');
     $('#nav').html('');
     set_pos();
+    // Add available modes to mode dropdown
+    const availableModes = Object.keys(LANGS[lang].labels || {});
+    $('#Mode').html(
+      availableModes.map(m => `<option value="${m}">${m}</option>`).join('')
+    );
+    let defaultMode = availableModes.includes('linguist') ? 'linguist' : availableModes[0];
+    $('#Mode').val(defaultMode).change();
   }
 }
 
@@ -453,4 +461,11 @@ $(document).ready(function() {
   );
   $('#Language').change(set_lang);
   $('#POS').change(set_pos);
+  $('#Mode').change(function () {
+    let lang = $('#Language').val();
+    let pos = $('#POS').val();
+    if (lang && pos) {
+      set_pos();
+    }
+  });
 });
