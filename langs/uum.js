@@ -27,8 +27,8 @@ let uum_labels = {
       "imp": "Imperative",
       "noun-cases": "Cases",
       "noun-poss": "Possession",
-      "noun-poss-sg": "Singular possessed noun",
-      "noun-poss-pl": "Plural possessed noun"
+      "noun-poss-sg": "Singular",
+      "noun-poss-pl": "Plural"
     },
     "poss-sg": {
       "p1sg": "1sg", "p2sg": "2sg", "p3sg": "3sg",
