@@ -1,5 +1,5 @@
 let uum_labels = {
-  "english": {
+  "English": {
     "p1sg": "I",
     "p2sg": "you",
     "p3sg": "he/she",
@@ -18,7 +18,7 @@ let uum_labels = {
       "abe": "Abessive"
     }
   },
-  "linguist": {
+  "Linguist": {
     "sg": "Singular",
     "pl": "Plural",
     "p1": "1st",
@@ -36,7 +36,7 @@ let uum_labels = {
       "abe": "Abessive"
     }
   },
-  "russian": {
+  "Russian": {
     "p1sg": "я",
     "p2sg": "ты",
     "p3sg": "он/она",
@@ -55,7 +55,7 @@ let uum_labels = {
       "abe": "Безналичный"
     }
   },
-  "ukrainian": {
+  "Ukrainian": {
     "p1sg": "я",
     "p2sg": "ти",
     "p3sg": "він/вона",
@@ -93,51 +93,51 @@ function uum_fin_vb(tgs, lab) {
       [{tags: tgs+'.p3.pl'}, {tags: 'neg.'+tgs+'.p3.pl'}]
     ],
     html: {
-      'linguist': `
+      'Linguist': `
         <table class="paradigm-table">
           <tr><th></th><th>Affirmative</th><th>Negative</th></tr>
-          <tr><th>${uum_labels['linguist']['p1']} ${uum_labels['linguist']['sg']}</th>
+          <tr><th>${uum_labels['Linguist']['p1']} ${uum_labels['Linguist']['sg']}</th>
             <td data-tags="${tgs}.p1.sg"></td><td data-tags="neg.${tgs}.p1.sg"></td></tr>
-          <tr><th>${uum_labels['linguist']['p1']} ${uum_labels['linguist']['pl']}</th>
+          <tr><th>${uum_labels['Linguist']['p1']} ${uum_labels['Linguist']['pl']}</th>
             <td data-tags="${tgs}.p1.pl"></td><td data-tags="neg.${tgs}.p1.pl"></td></tr>
-          <tr><th>${uum_labels['linguist']['p2']} ${uum_labels['linguist']['sg']}</th>
+          <tr><th>${uum_labels['Linguist']['p2']} ${uum_labels['Linguist']['sg']}</th>
             <td data-tags="${tgs}.p2.sg"></td><td data-tags="neg.${tgs}.p2.sg"></td></tr>
-          <tr><th>${uum_labels['linguist']['p2']} ${uum_labels['linguist']['pl']}</th>
+          <tr><th>${uum_labels['Linguist']['p2']} ${uum_labels['Linguist']['pl']}</th>
             <td data-tags="${tgs}.p2.pl"></td><td data-tags="neg.${tgs}.p2.pl"></td></tr>
-          <tr><th>${uum_labels['linguist']['p3']} ${uum_labels['linguist']['sg']}</th>
+          <tr><th>${uum_labels['Linguist']['p3']} ${uum_labels['Linguist']['sg']}</th>
             <td data-tags="${tgs}.p3.sg"></td><td data-tags="neg.${tgs}.p3.sg"></td></tr>
-          <tr><th>${uum_labels['linguist']['p3']} ${uum_labels['linguist']['pl']}</th>
+          <tr><th>${uum_labels['Linguist']['p3']} ${uum_labels['Linguist']['pl']}</th>
             <td data-tags="${tgs}.p3.pl"></td><td data-tags="neg.${tgs}.p3.pl"></td></tr>
         </table>`,
-      'english': `
+      'English': `
         <table class="paradigm-table">
           <tr><th></th><th>Affirmative</th><th>Negative</th></tr>
-          <tr><th>${uum_labels['english']['p1sg']}</th><td data-tags="${tgs}.p1.sg"></td><td data-tags="neg.${tgs}.p1.sg"></td></tr>
-          <tr><th>${uum_labels['english']['p1pl']}</th><td data-tags="${tgs}.p1.pl"></td><td data-tags="neg.${tgs}.p1.pl"></td></tr>
-          <tr><th>${uum_labels['english']['p2sg']}</th><td data-tags="${tgs}.p2.sg"></td><td data-tags="neg.${tgs}.p2.sg"></td></tr>
-          <tr><th>${uum_labels['english']['p2pl']}</th><td data-tags="${tgs}.p2.pl"></td><td data-tags="neg.${tgs}.p2.pl"></td></tr>
-          <tr><th>${uum_labels['english']['p3sg']}</th><td data-tags="${tgs}.p3.sg"></td><td data-tags="neg.${tgs}.p3.sg"></td></tr>
-          <tr><th>${uum_labels['english']['p3pl']}</th><td data-tags="${tgs}.p3.pl"></td><td data-tags="neg.${tgs}.p3.pl"></td></tr>
+          <tr><th>${uum_labels['English']['p1sg']}</th><td data-tags="${tgs}.p1.sg"></td><td data-tags="neg.${tgs}.p1.sg"></td></tr>
+          <tr><th>${uum_labels['English']['p1pl']}</th><td data-tags="${tgs}.p1.pl"></td><td data-tags="neg.${tgs}.p1.pl"></td></tr>
+          <tr><th>${uum_labels['English']['p2sg']}</th><td data-tags="${tgs}.p2.sg"></td><td data-tags="neg.${tgs}.p2.sg"></td></tr>
+          <tr><th>${uum_labels['English']['p2pl']}</th><td data-tags="${tgs}.p2.pl"></td><td data-tags="neg.${tgs}.p2.pl"></td></tr>
+          <tr><th>${uum_labels['English']['p3sg']}</th><td data-tags="${tgs}.p3.sg"></td><td data-tags="neg.${tgs}.p3.sg"></td></tr>
+          <tr><th>${uum_labels['English']['p3pl']}</th><td data-tags="${tgs}.p3.pl"></td><td data-tags="neg.${tgs}.p3.pl"></td></tr>
         </table>`,
-      'russian': `
+      'Russian': `
         <table class="paradigm-table">
           <tr><th></th><th>Утвердительный</th><th>Отрицательный</th></tr>
-          <tr><th>${uum_labels['russian']['p1sg']}</th><td data-tags="${tgs}.p1.sg"></td><td data-tags="neg.${tgs}.p1.sg"></td></tr>
-          <tr><th>${uum_labels['russian']['p1pl']}</th><td data-tags="${tgs}.p1.pl"></td><td data-tags="neg.${tgs}.p1.pl"></td></tr>
-          <tr><th>${uum_labels['russian']['p2sg']}</th><td data-tags="${tgs}.p2.sg"></td><td data-tags="neg.${tgs}.p2.sg"></td></tr>
-          <tr><th>${uum_labels['russian']['p2pl']}</th><td data-tags="${tgs}.p2.pl"></td><td data-tags="neg.${tgs}.p2.pl"></td></tr>
-          <tr><th>${uum_labels['russian']['p3sg']}</th><td data-tags="${tgs}.p3.sg"></td><td data-tags="neg.${tgs}.p3.sg"></td></tr>
-          <tr><th>${uum_labels['russian']['p3pl']}</th><td data-tags="${tgs}.p3.pl"></td><td data-tags="neg.${tgs}.p3.pl"></td></tr>
+          <tr><th>${uum_labels['Russian']['p1sg']}</th><td data-tags="${tgs}.p1.sg"></td><td data-tags="neg.${tgs}.p1.sg"></td></tr>
+          <tr><th>${uum_labels['Russian']['p1pl']}</th><td data-tags="${tgs}.p1.pl"></td><td data-tags="neg.${tgs}.p1.pl"></td></tr>
+          <tr><th>${uum_labels['Russian']['p2sg']}</th><td data-tags="${tgs}.p2.sg"></td><td data-tags="neg.${tgs}.p2.sg"></td></tr>
+          <tr><th>${uum_labels['Russian']['p2pl']}</th><td data-tags="${tgs}.p2.pl"></td><td data-tags="neg.${tgs}.p2.pl"></td></tr>
+          <tr><th>${uum_labels['Russian']['p3sg']}</th><td data-tags="${tgs}.p3.sg"></td><td data-tags="neg.${tgs}.p3.sg"></td></tr>
+          <tr><th>${uum_labels['Russian']['p3pl']}</th><td data-tags="${tgs}.p3.pl"></td><td data-tags="neg.${tgs}.p3.pl"></td></tr>
         </table>`,
-      'ukrainian': `
+      'Ukrainian': `
         <table class="paradigm-table">
           <tr><th></th><th>Стверджувальний</th><th>Заперечний</th></tr>
-          <tr><th>${uum_labels['ukrainian']['p1sg']}</th><td data-tags="${tgs}.p1.sg"></td><td data-tags="neg.${tgs}.p1.sg"></td></tr>
-          <tr><th>${uum_labels['ukrainian']['p1pl']}</th><td data-tags="${tgs}.p1.pl"></td><td data-tags="neg.${tgs}.p1.pl"></td></tr>
-          <tr><th>${uum_labels['ukrainian']['p2sg']}</th><td data-tags="${tgs}.p2.sg"></td><td data-tags="neg.${tgs}.p2.sg"></td></tr>
-          <tr><th>${uum_labels['ukrainian']['p2pl']}</th><td data-tags="${tgs}.p2.pl"></td><td data-tags="neg.${tgs}.p2.pl"></td></tr>
-          <tr><th>${uum_labels['ukrainian']['p3sg']}</th><td data-tags="${tgs}.p3.sg"></td><td data-tags="neg.${tgs}.p3.sg"></td></tr>
-          <tr><th>${uum_labels['ukrainian']['p3pl']}</th><td data-tags="${tgs}.p3.pl"></td><td data-tags="neg.${tgs}.p3.pl"></td></tr>
+          <tr><th>${uum_labels['Ukrainian']['p1sg']}</th><td data-tags="${tgs}.p1.sg"></td><td data-tags="neg.${tgs}.p1.sg"></td></tr>
+          <tr><th>${uum_labels['Ukrainian']['p1pl']}</th><td data-tags="${tgs}.p1.pl"></td><td data-tags="neg.${tgs}.p1.pl"></td></tr>
+          <tr><th>${uum_labels['Ukrainian']['p2sg']}</th><td data-tags="${tgs}.p2.sg"></td><td data-tags="neg.${tgs}.p2.sg"></td></tr>
+          <tr><th>${uum_labels['Ukrainian']['p2pl']}</th><td data-tags="${tgs}.p2.pl"></td><td data-tags="neg.${tgs}.p2.pl"></td></tr>
+          <tr><th>${uum_labels['Ukrainian']['p3sg']}</th><td data-tags="${tgs}.p3.sg"></td><td data-tags="neg.${tgs}.p3.sg"></td></tr>
+          <tr><th>${uum_labels['Ukrainian']['p3pl']}</th><td data-tags="${tgs}.p3.pl"></td><td data-tags="neg.${tgs}.p3.pl"></td></tr>
         </table>`
     }
   };
@@ -158,28 +158,28 @@ function add_uum() {
           [{ tags: 'tsg' }, { tags: 'neg.tsg' }]
         ],
         html: {
-          'linguist': `
+          'Linguist': `
             <table class="paradigm-table">
               <tr><th></th><th>Affirmative</th><th>Negative</th></tr>
               <tr><th>Infinitive</th><td data-tags="inf"></td><td data-tags="neg.inf"></td></tr>
               <tr><th>Participle</th><td data-tags="pp"></td><td data-tags="neg.pp"></td></tr>
               <tr><th>Converb</th><td data-tags="tsg"></td><td data-tags="neg.tsg"></td></tr>
             </table>`,
-          'english': `
+          'English': `
             <table class="paradigm-table">
               <tr><th></th><th>Affirmative</th><th>Negative</th></tr>
               <tr><th>Infinitive</th><td data-tags="inf"></td><td data-tags="neg.inf"></td></tr>
               <tr><th>Participle</th><td data-tags="pp"></td><td data-tags="neg.pp"></td></tr>
               <tr><th>Converb</th><td data-tags="tsg"></td><td data-tags="neg.tsg"></td></tr>
             </table>`,
-          'russian': `
+          'Russian': `
             <table class="paradigm-table">
               <tr><th></th><th>Утвердительный</th><th>Отрицательный</th></tr>
               <tr><th>Инфинитив</th><td data-tags="inf"></td><td data-tags="neg.inf"></td></tr>
               <tr><th>Причастие</th><td data-tags="pp"></td><td data-tags="neg.pp"></td></tr>
               <tr><th>Деепричастие</th><td data-tags="tsg"></td><td data-tags="neg.tsg"></td></tr>
             </table>`,
-          'ukrainian': `
+          'Ukrainian': `
             <table class="paradigm-table">
               <tr><th></th><th>Стверджувальний</th><th>Заперечний</th></tr>
               <tr><th>Інфінітив</th><td data-tags="inf"></td><td data-tags="neg.inf"></td></tr>
@@ -210,41 +210,41 @@ function add_uum() {
           [{ tags: 'imp.p2.pl' }, { tags: 'neg.imp.p2.pl' }]
         ],
         html: {
-          'linguist': `
+          'Linguist': `
             <table class="paradigm-table">
               <tr><th></th><th>Affirmative</th><th>Negative</th></tr>
-              <tr><th>${uum_labels["linguist"]["p1"]} ${uum_labels["linguist"]["sg"]}</th>
+              <tr><th>${uum_labels["Linguist"]["p1"]} ${uum_labels["Linguist"]["sg"]}</th>
                 <td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
-              <tr><th>${uum_labels["linguist"]["p1"]} ${uum_labels["linguist"]["pl"]}</th>
+              <tr><th>${uum_labels["Linguist"]["p1"]} ${uum_labels["Linguist"]["pl"]}</th>
                 <td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
-              <tr><th>${uum_labels["linguist"]["p2"]} ${uum_labels["linguist"]["sg"]}</th>
+              <tr><th>${uum_labels["Linguist"]["p2"]} ${uum_labels["Linguist"]["sg"]}</th>
                 <td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
-              <tr><th>${uum_labels["linguist"]["p2"]} ${uum_labels["linguist"]["pl"]}</th>
+              <tr><th>${uum_labels["Linguist"]["p2"]} ${uum_labels["Linguist"]["pl"]}</th>
                 <td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr>
             </table>`,
-          'english': `
+          'English': `
             <table class="paradigm-table">
               <tr><th></th><th>Affirmative</th><th>Negative</th></tr>
-              <tr><th>${uum_labels["english"]["p1sg"]}</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
-              <tr><th>${uum_labels["english"]["p1pl"]}</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
-              <tr><th>${uum_labels["english"]["p2sg"]}</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
-              <tr><th>${uum_labels["english"]["p2pl"]}</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr>
+              <tr><th>${uum_labels["English"]["p1sg"]}</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
+              <tr><th>${uum_labels["English"]["p1pl"]}</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
+              <tr><th>${uum_labels["English"]["p2sg"]}</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
+              <tr><th>${uum_labels["English"]["p2pl"]}</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr>
             </table>`,
-          'russian': `
+          'Russian': `
             <table class="paradigm-table">
               <tr><th></th><th>Утвердительный</th><th>Отрицательный</th></tr>
-              <tr><th>${uum_labels["russian"]["p1sg"]}</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
-              <tr><th>${uum_labels["russian"]["p1pl"]}</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
-              <tr><th>${uum_labels["russian"]["p2sg"]}</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
-              <tr><th>${uum_labels["russian"]["p2pl"]}</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr>
+              <tr><th>${uum_labels["Russian"]["p1sg"]}</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
+              <tr><th>${uum_labels["Russian"]["p1pl"]}</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
+              <tr><th>${uum_labels["Russian"]["p2sg"]}</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
+              <tr><th>${uum_labels["Russian"]["p2pl"]}</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr>
             </table>`,
-          'ukrainian': `
+          'Ukrainian': `
             <table class="paradigm-table">
               <tr><th></th><th>Стверджувальний</th><th>Заперечний</th></tr>
-              <tr><th>${uum_labels["ukrainian"]["p1sg"]}</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
-              <tr><th>${uum_labels["ukrainian"]["p1pl"]}</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
-              <tr><th>${uum_labels["ukrainian"]["p2sg"]}</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
-              <tr><th>${uum_labels["ukrainian"]["p2pl"]}</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr>
+              <tr><th>${uum_labels["Ukrainian"]["p1sg"]}</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
+              <tr><th>${uum_labels["Ukrainian"]["p1pl"]}</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
+              <tr><th>${uum_labels["Ukrainian"]["p2sg"]}</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
+              <tr><th>${uum_labels["Ukrainian"]["p2pl"]}</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr>
             </table>`
         }
       }
@@ -261,28 +261,28 @@ function add_uum() {
           [{ tags: 'tsg' }, { tags: 'neg.tsg' }]
         ],
         html: {
-          'linguist': `
+          'Linguist': `
             <table class="paradigm-table">
               <tr><th></th><th>Affirmative</th><th>Negative</th></tr>
               <tr><th>Infinitive</th><td data-tags="inf"></td><td data-tags="neg.inf"></td></tr>
               <tr><th>Participle</th><td data-tags="pp"></td><td data-tags="neg.pp"></td></tr>
               <tr><th>Converb</th><td data-tags="tsg"></td><td data-tags="neg.tsg"></td></tr>
             </table>`,
-          'english': `
+          'English': `
             <table class="paradigm-table">
               <tr><th></th><th>Affirmative</th><th>Negative</th></tr>
               <tr><th>Infinitive</th><td data-tags="inf"></td><td data-tags="neg.inf"></td></tr>
               <tr><th>Participle</th><td data-tags="pp"></td><td data-tags="neg.pp"></td></tr>
               <tr><th>Converb</th><td data-tags="tsg"></td><td data-tags="neg.tsg"></td></tr>
             </table>`,
-          'russian': `
+          'Russian': `
             <table class="paradigm-table">
               <tr><th></th><th>Утвердительный</th><th>Отрицательный</th></tr>
               <tr><th>Инфинитив</th><td data-tags="inf"></td><td data-tags="neg.inf"></td></tr>
               <tr><th>Причастие</th><td data-tags="pp"></td><td data-tags="neg.pp"></td></tr>
               <tr><th>Деепричастие</th><td data-tags="tsg"></td><td data-tags="neg.tsg"></td></tr>
             </table>`,
-          'ukrainian': `
+          'Ukrainian': `
             <table class="paradigm-table">
               <tr><th></th><th>Стверджувальний</th><th>Заперечний</th></tr>
               <tr><th>Інфінітив</th><td data-tags="inf"></td><td data-tags="neg.inf"></td></tr>
@@ -313,41 +313,41 @@ function add_uum() {
           [{ tags: 'imp.p2.pl' }, { tags: 'neg.imp.p2.pl' }]
         ],
         html: {
-          'linguist': `
+          'Linguist': `
             <table class="paradigm-table">
               <tr><th></th><th>Affirmative</th><th>Negative</th></tr>
-              <tr><th>${uum_labels["linguist"]["p1"]} ${uum_labels["linguist"]["sg"]}</th>
+              <tr><th>${uum_labels["Linguist"]["p1"]} ${uum_labels["Linguist"]["sg"]}</th>
                 <td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
-              <tr><th>${uum_labels["linguist"]["p1"]} ${uum_labels["linguist"]["pl"]}</th>
+              <tr><th>${uum_labels["Linguist"]["p1"]} ${uum_labels["Linguist"]["pl"]}</th>
                 <td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
-              <tr><th>${uum_labels["linguist"]["p2"]} ${uum_labels["linguist"]["sg"]}</th>
+              <tr><th>${uum_labels["Linguist"]["p2"]} ${uum_labels["Linguist"]["sg"]}</th>
                 <td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
-              <tr><th>${uum_labels["linguist"]["p2"]} ${uum_labels["linguist"]["pl"]}</th>
+              <tr><th>${uum_labels["Linguist"]["p2"]} ${uum_labels["Linguist"]["pl"]}</th>
                 <td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr>
             </table>`,
-          'english': `
+          'English': `
             <table class="paradigm-table">
               <tr><th></th><th>Affirmative</th><th>Negative</th></tr>
-              <tr><th>${uum_labels["english"]["p1sg"]}</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
-              <tr><th>${uum_labels["english"]["p1pl"]}</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
-              <tr><th>${uum_labels["english"]["p2sg"]}</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
-              <tr><th>${uum_labels["english"]["p2pl"]}</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr>
+              <tr><th>${uum_labels["English"]["p1sg"]}</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
+              <tr><th>${uum_labels["English"]["p1pl"]}</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
+              <tr><th>${uum_labels["English"]["p2sg"]}</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
+              <tr><th>${uum_labels["English"]["p2pl"]}</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr>
             </table>`,
-          'russian': `
+          'Russian': `
             <table class="paradigm-table">
               <tr><th></th><th>Утвердительный</th><th>Отрицательный</th></tr>
-              <tr><th>${uum_labels["russian"]["p1sg"]}</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
-              <tr><th>${uum_labels["russian"]["p1pl"]}</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
-              <tr><th>${uum_labels["russian"]["p2sg"]}</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
-              <tr><th>${uum_labels["russian"]["p2pl"]}</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr>
+              <tr><th>${uum_labels["Russian"]["p1sg"]}</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
+              <tr><th>${uum_labels["Russian"]["p1pl"]}</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
+              <tr><th>${uum_labels["Russian"]["p2sg"]}</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
+              <tr><th>${uum_labels["Russian"]["p2pl"]}</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr>
             </table>`,
-          'ukrainian': `
+          'Ukrainian': `
             <table class="paradigm-table">
               <tr><th></th><th>Стверджувальний</th><th>Заперечний</th></tr>
-              <tr><th>${uum_labels["ukrainian"]["p1sg"]}</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
-              <tr><th>${uum_labels["ukrainian"]["p1pl"]}</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
-              <tr><th>${uum_labels["ukrainian"]["p2sg"]}</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
-              <tr><th>${uum_labels["ukrainian"]["p2pl"]}</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr>
+              <tr><th>${uum_labels["Ukrainian"]["p1sg"]}</th><td data-tags="imp.p1.sg"></td><td data-tags="neg.imp.p1.sg"></td></tr>
+              <tr><th>${uum_labels["Ukrainian"]["p1pl"]}</th><td data-tags="imp.p1.pl"></td><td data-tags="neg.imp.p1.pl"></td></tr>
+              <tr><th>${uum_labels["Ukrainian"]["p2sg"]}</th><td data-tags="imp.p2.sg"></td><td data-tags="neg.imp.p2.sg"></td></tr>
+              <tr><th>${uum_labels["Ukrainian"]["p2pl"]}</th><td data-tags="imp.p2.pl"></td><td data-tags="neg.imp.p2.pl"></td></tr>
             </table>`
         }
       }
@@ -370,57 +370,57 @@ function add_uum() {
           [{tags: 'abe'}, {tags: 'pl.abe'}]
         ],
         html: {
-          linguist: `
+          Linguist: `
             <table class="paradigm-table">
               <tr><th></th><th>Singular</th><th>Plural</th></tr>
-              <tr><th>${uum_labels["linguist"].cases.nom}</th><td data-tags="nom"></td><td data-tags="pl.nom"></td></tr>
-              <tr><th>${uum_labels["linguist"].cases.acc}</th><td data-tags="acc"></td><td data-tags="pl.acc"></td></tr>
-              <tr><th>${uum_labels["linguist"].cases.dat}</th><td data-tags="dat"></td><td data-tags="pl.dat"></td></tr>
-              <tr><th>${uum_labels["linguist"].cases.loc}</th><td data-tags="loc"></td><td data-tags="pl.loc"></td></tr>
-              <tr><th>${uum_labels["linguist"].cases.gen}</th><td data-tags="gen"></td><td data-tags="pl.gen"></td></tr>
-              <tr><th>${uum_labels["linguist"].cases.abl}</th><td data-tags="abl"></td><td data-tags="pl.abl"></td></tr>
-              <tr><th>${uum_labels["linguist"].cases.ins}</th><td data-tags="ins"></td><td data-tags="pl.ins"></td></tr>
-              <tr><th>${uum_labels["linguist"].cases.term}</th><td data-tags="term"></td><td data-tags="pl.term"></td></tr>
-              <tr><th>${uum_labels["linguist"].cases.abe}</th><td data-tags="abe"></td><td data-tags="pl.abe"></td></tr>
+              <tr><th>${uum_labels["Linguist"].cases.nom}</th><td data-tags="nom"></td><td data-tags="pl.nom"></td></tr>
+              <tr><th>${uum_labels["Linguist"].cases.acc}</th><td data-tags="acc"></td><td data-tags="pl.acc"></td></tr>
+              <tr><th>${uum_labels["Linguist"].cases.dat}</th><td data-tags="dat"></td><td data-tags="pl.dat"></td></tr>
+              <tr><th>${uum_labels["Linguist"].cases.loc}</th><td data-tags="loc"></td><td data-tags="pl.loc"></td></tr>
+              <tr><th>${uum_labels["Linguist"].cases.gen}</th><td data-tags="gen"></td><td data-tags="pl.gen"></td></tr>
+              <tr><th>${uum_labels["Linguist"].cases.abl}</th><td data-tags="abl"></td><td data-tags="pl.abl"></td></tr>
+              <tr><th>${uum_labels["Linguist"].cases.ins}</th><td data-tags="ins"></td><td data-tags="pl.ins"></td></tr>
+              <tr><th>${uum_labels["Linguist"].cases.term}</th><td data-tags="term"></td><td data-tags="pl.term"></td></tr>
+              <tr><th>${uum_labels["Linguist"].cases.abe}</th><td data-tags="abe"></td><td data-tags="pl.abe"></td></tr>
             </table>`,
-          english: `
+          English: `
             <table class="paradigm-table">
               <tr><th></th><th>Singular</th><th>Plural</th></tr>
-              <tr><th>${uum_labels["english"].cases.nom}</th><td data-tags="nom"></td><td data-tags="pl.nom"></td></tr>
-              <tr><th>${uum_labels["english"].cases.acc}</th><td data-tags="acc"></td><td data-tags="pl.acc"></td></tr>
-              <tr><th>${uum_labels["english"].cases.dat}</th><td data-tags="dat"></td><td data-tags="pl.dat"></td></tr>
-              <tr><th>${uum_labels["english"].cases.loc}</th><td data-tags="loc"></td><td data-tags="pl.loc"></td></tr>
-              <tr><th>${uum_labels["english"].cases.gen}</th><td data-tags="gen"></td><td data-tags="pl.gen"></td></tr>
-              <tr><th>${uum_labels["english"].cases.abl}</th><td data-tags="abl"></td><td data-tags="pl.abl"></td></tr>
-              <tr><th>${uum_labels["english"].cases.ins}</th><td data-tags="ins"></td><td data-tags="pl.ins"></td></tr>
-              <tr><th>${uum_labels["english"].cases.term}</th><td data-tags="term"></td><td data-tags="pl.term"></td></tr>
-              <tr><th>${uum_labels["english"].cases.abe}</th><td data-tags="abe"></td><td data-tags="pl.abe"></td></tr>
+              <tr><th>${uum_labels["English"].cases.nom}</th><td data-tags="nom"></td><td data-tags="pl.nom"></td></tr>
+              <tr><th>${uum_labels["English"].cases.acc}</th><td data-tags="acc"></td><td data-tags="pl.acc"></td></tr>
+              <tr><th>${uum_labels["English"].cases.dat}</th><td data-tags="dat"></td><td data-tags="pl.dat"></td></tr>
+              <tr><th>${uum_labels["English"].cases.loc}</th><td data-tags="loc"></td><td data-tags="pl.loc"></td></tr>
+              <tr><th>${uum_labels["English"].cases.gen}</th><td data-tags="gen"></td><td data-tags="pl.gen"></td></tr>
+              <tr><th>${uum_labels["English"].cases.abl}</th><td data-tags="abl"></td><td data-tags="pl.abl"></td></tr>
+              <tr><th>${uum_labels["English"].cases.ins}</th><td data-tags="ins"></td><td data-tags="pl.ins"></td></tr>
+              <tr><th>${uum_labels["English"].cases.term}</th><td data-tags="term"></td><td data-tags="pl.term"></td></tr>
+              <tr><th>${uum_labels["English"].cases.abe}</th><td data-tags="abe"></td><td data-tags="pl.abe"></td></tr>
             </table>`,
-          russian: `
+          Russian: `
             <table class="paradigm-table">
               <tr><th></th><th>Единственное число</th><th>Множественное число</th></tr>
-              <tr><th>${uum_labels["russian"].cases.nom}</th><td data-tags="nom"></td><td data-tags="pl.nom"></td></tr>
-              <tr><th>${uum_labels["russian"].cases.acc}</th><td data-tags="acc"></td><td data-tags="pl.acc"></td></tr>
-              <tr><th>${uum_labels["russian"].cases.dat}</th><td data-tags="dat"></td><td data-tags="pl.dat"></td></tr>
-              <tr><th>${uum_labels["russian"].cases.loc}</th><td data-tags="loc"></td><td data-tags="pl.loc"></td></tr>
-              <tr><th>${uum_labels["russian"].cases.gen}</th><td data-tags="gen"></td><td data-tags="pl.gen"></td></tr>
-              <tr><th>${uum_labels["russian"].cases.abl}</th><td data-tags="abl"></td><td data-tags="pl.abl"></td></tr>
-              <tr><th>${uum_labels["russian"].cases.ins}</th><td data-tags="ins"></td><td data-tags="pl.ins"></td></tr>
-              <tr><th>${uum_labels["russian"].cases.term}</th><td data-tags="term"></td><td data-tags="pl.term"></td></tr>
-              <tr><th>${uum_labels["russian"].cases.abe}</th><td data-tags="abe"></td><td data-tags="pl.abe"></td></tr>
+              <tr><th>${uum_labels["Russian"].cases.nom}</th><td data-tags="nom"></td><td data-tags="pl.nom"></td></tr>
+              <tr><th>${uum_labels["Russian"].cases.acc}</th><td data-tags="acc"></td><td data-tags="pl.acc"></td></tr>
+              <tr><th>${uum_labels["Russian"].cases.dat}</th><td data-tags="dat"></td><td data-tags="pl.dat"></td></tr>
+              <tr><th>${uum_labels["Russian"].cases.loc}</th><td data-tags="loc"></td><td data-tags="pl.loc"></td></tr>
+              <tr><th>${uum_labels["Russian"].cases.gen}</th><td data-tags="gen"></td><td data-tags="pl.gen"></td></tr>
+              <tr><th>${uum_labels["Russian"].cases.abl}</th><td data-tags="abl"></td><td data-tags="pl.abl"></td></tr>
+              <tr><th>${uum_labels["Russian"].cases.ins}</th><td data-tags="ins"></td><td data-tags="pl.ins"></td></tr>
+              <tr><th>${uum_labels["Russian"].cases.term}</th><td data-tags="term"></td><td data-tags="pl.term"></td></tr>
+              <tr><th>${uum_labels["Russian"].cases.abe}</th><td data-tags="abe"></td><td data-tags="pl.abe"></td></tr>
             </table>`,
-          ukrainian: `
+          Ukrainian: `
             <table class="paradigm-table">
               <tr><th></th><th>Однина</th><th>Множина</th></tr>
-              <tr><th>${uum_labels["ukrainian"].cases.nom}</th><td data-tags="nom"></td><td data-tags="pl.nom"></td></tr>
-              <tr><th>${uum_labels["ukrainian"].cases.acc}</th><td data-tags="acc"></td><td data-tags="pl.acc"></td></tr>
-              <tr><th>${uum_labels["ukrainian"].cases.dat}</th><td data-tags="dat"></td><td data-tags="pl.dat"></td></tr>
-              <tr><th>${uum_labels["ukrainian"].cases.loc}</th><td data-tags="loc"></td><td data-tags="pl.loc"></td></tr>
-              <tr><th>${uum_labels["ukrainian"].cases.gen}</th><td data-tags="gen"></td><td data-tags="pl.gen"></td></tr>
-              <tr><th>${uum_labels["ukrainian"].cases.abl}</th><td data-tags="abl"></td><td data-tags="pl.abl"></td></tr>
-              <tr><th>${uum_labels["ukrainian"].cases.ins}</th><td data-tags="ins"></td><td data-tags="pl.ins"></td></tr>
-              <tr><th>${uum_labels["ukrainian"].cases.term}</th><td data-tags="term"></td><td data-tags="pl.term"></td></tr>
-              <tr><th>${uum_labels["ukrainian"].cases.abe}</th><td data-tags="abe"></td><td data-tags="pl.abe"></td></tr>
+              <tr><th>${uum_labels["Ukrainian"].cases.nom}</th><td data-tags="nom"></td><td data-tags="pl.nom"></td></tr>
+              <tr><th>${uum_labels["Ukrainian"].cases.acc}</th><td data-tags="acc"></td><td data-tags="pl.acc"></td></tr>
+              <tr><th>${uum_labels["Ukrainian"].cases.dat}</th><td data-tags="dat"></td><td data-tags="pl.dat"></td></tr>
+              <tr><th>${uum_labels["Ukrainian"].cases.loc}</th><td data-tags="loc"></td><td data-tags="pl.loc"></td></tr>
+              <tr><th>${uum_labels["Ukrainian"].cases.gen}</th><td data-tags="gen"></td><td data-tags="pl.gen"></td></tr>
+              <tr><th>${uum_labels["Ukrainian"].cases.abl}</th><td data-tags="abl"></td><td data-tags="pl.abl"></td></tr>
+              <tr><th>${uum_labels["Ukrainian"].cases.ins}</th><td data-tags="ins"></td><td data-tags="pl.ins"></td></tr>
+              <tr><th>${uum_labels["Ukrainian"].cases.term}</th><td data-tags="term"></td><td data-tags="pl.term"></td></tr>
+              <tr><th>${uum_labels["Ukrainian"].cases.abe}</th><td data-tags="abe"></td><td data-tags="pl.abe"></td></tr>
             </table>`
         }
       },
@@ -472,57 +472,57 @@ function add_uum() {
               ]
             ],
             html: {
-              'linguist': `
+              'Linguist': `
                 <table class="paradigm-table">
                   <tr><th></th><th>1sg</th><th>2sg</th><th>3sg</th><th>1pl</th><th>2pl</th><th>3pl</th></tr>
-                  <tr><th>${uum_labels["linguist"].cases.nom}</th><td data-tags="px1sg.nom"></td><td data-tags="px2sg.nom"></td><td data-tags="px3sg.nom"></td><td data-tags="px1pl.nom"></td><td data-tags="px2pl.nom"></td><td data-tags="px3pl.nom"></td></tr>
-                  <tr><th>${uum_labels["linguist"].cases.acc}</th><td data-tags="px1sg.acc"></td><td data-tags="px2sg.acc"></td><td data-tags="px3sg.acc"></td><td data-tags="px1pl.acc"></td><td data-tags="px2pl.acc"></td><td data-tags="px3pl.acc"></td></tr>
-                  <tr><th>${uum_labels["linguist"].cases.dat}</th><td data-tags="px1sg.dat"></td><td data-tags="px2sg.dat"></td><td data-tags="px3sg.dat"></td><td data-tags="px1pl.dat"></td><td data-tags="px2pl.dat"></td><td data-tags="px3pl.dat"></td></tr>
-                  <tr><th>${uum_labels["linguist"].cases.loc}</th><td data-tags="px1sg.loc"></td><td data-tags="px2sg.loc"></td><td data-tags="px3sg.loc"></td><td data-tags="px1pl.loc"></td><td data-tags="px2pl.loc"></td><td data-tags="px3pl.loc"></td></tr>
-                  <tr><th>${uum_labels["linguist"].cases.gen}</th><td data-tags="px1sg.gen"></td><td data-tags="px2sg.gen"></td><td data-tags="px3sg.gen"></td><td data-tags="px1pl.gen"></td><td data-tags="px2pl.gen"></td><td data-tags="px3pl.gen"></td></tr>
-                  <tr><th>${uum_labels["linguist"].cases.abl}</th><td data-tags="px1sg.abl"></td><td data-tags="px2sg.abl"></td><td data-tags="px3sg.abl"></td><td data-tags="px1pl.abl"></td><td data-tags="px2pl.abl"></td><td data-tags="px3pl.abl"></td></tr>
-                  <tr><th>${uum_labels["linguist"].cases.ins}</th><td data-tags="px1sg.ins"></td><td data-tags="px2sg.ins"></td><td data-tags="px3sg.ins"></td><td data-tags="px1pl.ins"></td><td data-tags="px2pl.ins"></td><td data-tags="px3pl.ins"></td></tr>
-                  <tr><th>${uum_labels["linguist"].cases.term}</th><td data-tags="px1sg.term"></td><td data-tags="px2sg.term"></td><td data-tags="px3sg.term"></td><td data-tags="px1pl.term"></td><td data-tags="px2pl.term"></td><td data-tags="px3pl.term"></td></tr>
-                  <tr><th>${uum_labels["linguist"].cases.abe}</th><td data-tags="px1sg.abe"></td><td data-tags="px2sg.abe"></td><td data-tags="px3sg.abe"></td><td data-tags="px1pl.abe"></td><td data-tags="px2pl.abe"></td><td data-tags="px3pl.abe"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.nom}</th><td data-tags="px1sg.nom"></td><td data-tags="px2sg.nom"></td><td data-tags="px3sg.nom"></td><td data-tags="px1pl.nom"></td><td data-tags="px2pl.nom"></td><td data-tags="px3pl.nom"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.acc}</th><td data-tags="px1sg.acc"></td><td data-tags="px2sg.acc"></td><td data-tags="px3sg.acc"></td><td data-tags="px1pl.acc"></td><td data-tags="px2pl.acc"></td><td data-tags="px3pl.acc"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.dat}</th><td data-tags="px1sg.dat"></td><td data-tags="px2sg.dat"></td><td data-tags="px3sg.dat"></td><td data-tags="px1pl.dat"></td><td data-tags="px2pl.dat"></td><td data-tags="px3pl.dat"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.loc}</th><td data-tags="px1sg.loc"></td><td data-tags="px2sg.loc"></td><td data-tags="px3sg.loc"></td><td data-tags="px1pl.loc"></td><td data-tags="px2pl.loc"></td><td data-tags="px3pl.loc"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.gen}</th><td data-tags="px1sg.gen"></td><td data-tags="px2sg.gen"></td><td data-tags="px3sg.gen"></td><td data-tags="px1pl.gen"></td><td data-tags="px2pl.gen"></td><td data-tags="px3pl.gen"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.abl}</th><td data-tags="px1sg.abl"></td><td data-tags="px2sg.abl"></td><td data-tags="px3sg.abl"></td><td data-tags="px1pl.abl"></td><td data-tags="px2pl.abl"></td><td data-tags="px3pl.abl"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.ins}</th><td data-tags="px1sg.ins"></td><td data-tags="px2sg.ins"></td><td data-tags="px3sg.ins"></td><td data-tags="px1pl.ins"></td><td data-tags="px2pl.ins"></td><td data-tags="px3pl.ins"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.term}</th><td data-tags="px1sg.term"></td><td data-tags="px2sg.term"></td><td data-tags="px3sg.term"></td><td data-tags="px1pl.term"></td><td data-tags="px2pl.term"></td><td data-tags="px3pl.term"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.abe}</th><td data-tags="px1sg.abe"></td><td data-tags="px2sg.abe"></td><td data-tags="px3sg.abe"></td><td data-tags="px1pl.abe"></td><td data-tags="px2pl.abe"></td><td data-tags="px3pl.abe"></td></tr>
                 </table>`,
-              'english': `
+              'English': `
                 <table class="paradigm-table">
                   <tr><th></th><th>my</th><th>your</th><th>his/her</th><th>our</th><th>your (pl)</th><th>their</th></tr>
-                  <tr><th>${uum_labels["english"].cases.nom}</th><td data-tags="px1sg.nom"></td><td data-tags="px2sg.nom"></td><td data-tags="px3sg.nom"></td><td data-tags="px1pl.nom"></td><td data-tags="px2pl.nom"></td><td data-tags="px3pl.nom"></td></tr>
-                  <tr><th>${uum_labels["english"].cases.acc}</th><td data-tags="px1sg.acc"></td><td data-tags="px2sg.acc"></td><td data-tags="px3sg.acc"></td><td data-tags="px1pl.acc"></td><td data-tags="px2pl.acc"></td><td data-tags="px3pl.acc"></td></tr>
-                  <tr><th>${uum_labels["english"].cases.dat}</th><td data-tags="px1sg.dat"></td><td data-tags="px2sg.dat"></td><td data-tags="px3sg.dat"></td><td data-tags="px1pl.dat"></td><td data-tags="px2pl.dat"></td><td data-tags="px3pl.dat"></td></tr>
-                  <tr><th>${uum_labels["english"].cases.loc}</th><td data-tags="px1sg.loc"></td><td data-tags="px2sg.loc"></td><td data-tags="px3sg.loc"></td><td data-tags="px1pl.loc"></td><td data-tags="px2pl.loc"></td><td data-tags="px3pl.loc"></td></tr>
-                  <tr><th>${uum_labels["english"].cases.gen}</th><td data-tags="px1sg.gen"></td><td data-tags="px2sg.gen"></td><td data-tags="px3sg.gen"></td><td data-tags="px1pl.gen"></td><td data-tags="px2pl.gen"></td><td data-tags="px3pl.gen"></td></tr>
-                  <tr><th>${uum_labels["english"].cases.abl}</th><td data-tags="px1sg.abl"></td><td data-tags="px2sg.abl"></td><td data-tags="px3sg.abl"></td><td data-tags="px1pl.abl"></td><td data-tags="px2pl.abl"></td><td data-tags="px3pl.abl"></td></tr>
-                  <tr><th>${uum_labels["english"].cases.ins}</th><td data-tags="px1sg.ins"></td><td data-tags="px2sg.ins"></td><td data-tags="px3sg.ins"></td><td data-tags="px1pl.ins"></td><td data-tags="px2pl.ins"></td><td data-tags="px3pl.ins"></td></tr>
-                  <tr><th>${uum_labels["english"].cases.term}</th><td data-tags="px1sg.term"></td><td data-tags="px2sg.term"></td><td data-tags="px3sg.term"></td><td data-tags="px1pl.term"></td><td data-tags="px2pl.term"></td><td data-tags="px3pl.term"></td></tr>
-                  <tr><th>${uum_labels["english"].cases.abe}</th><td data-tags="px1sg.abe"></td><td data-tags="px2sg.abe"></td><td data-tags="px3sg.abe"></td><td data-tags="px1pl.abe"></td><td data-tags="px2pl.abe"></td><td data-tags="px3pl.abe"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.nom}</th><td data-tags="px1sg.nom"></td><td data-tags="px2sg.nom"></td><td data-tags="px3sg.nom"></td><td data-tags="px1pl.nom"></td><td data-tags="px2pl.nom"></td><td data-tags="px3pl.nom"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.acc}</th><td data-tags="px1sg.acc"></td><td data-tags="px2sg.acc"></td><td data-tags="px3sg.acc"></td><td data-tags="px1pl.acc"></td><td data-tags="px2pl.acc"></td><td data-tags="px3pl.acc"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.dat}</th><td data-tags="px1sg.dat"></td><td data-tags="px2sg.dat"></td><td data-tags="px3sg.dat"></td><td data-tags="px1pl.dat"></td><td data-tags="px2pl.dat"></td><td data-tags="px3pl.dat"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.loc}</th><td data-tags="px1sg.loc"></td><td data-tags="px2sg.loc"></td><td data-tags="px3sg.loc"></td><td data-tags="px1pl.loc"></td><td data-tags="px2pl.loc"></td><td data-tags="px3pl.loc"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.gen}</th><td data-tags="px1sg.gen"></td><td data-tags="px2sg.gen"></td><td data-tags="px3sg.gen"></td><td data-tags="px1pl.gen"></td><td data-tags="px2pl.gen"></td><td data-tags="px3pl.gen"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.abl}</th><td data-tags="px1sg.abl"></td><td data-tags="px2sg.abl"></td><td data-tags="px3sg.abl"></td><td data-tags="px1pl.abl"></td><td data-tags="px2pl.abl"></td><td data-tags="px3pl.abl"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.ins}</th><td data-tags="px1sg.ins"></td><td data-tags="px2sg.ins"></td><td data-tags="px3sg.ins"></td><td data-tags="px1pl.ins"></td><td data-tags="px2pl.ins"></td><td data-tags="px3pl.ins"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.term}</th><td data-tags="px1sg.term"></td><td data-tags="px2sg.term"></td><td data-tags="px3sg.term"></td><td data-tags="px1pl.term"></td><td data-tags="px2pl.term"></td><td data-tags="px3pl.term"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.abe}</th><td data-tags="px1sg.abe"></td><td data-tags="px2sg.abe"></td><td data-tags="px3sg.abe"></td><td data-tags="px1pl.abe"></td><td data-tags="px2pl.abe"></td><td data-tags="px3pl.abe"></td></tr>
                 </table>`,
-              'russian': `
+              'Russian': `
                 <table class="paradigm-table">
                   <tr><th></th><th>мой</th><th>твой</th><th>его/её</th><th>наш</th><th>ваш</th><th>их</th></tr>
-                  <tr><th>${uum_labels["russian"].cases.nom}</th><td data-tags="px1sg.nom"></td><td data-tags="px2sg.nom"></td><td data-tags="px3sg.nom"></td><td data-tags="px1pl.nom"></td><td data-tags="px2pl.nom"></td><td data-tags="px3pl.nom"></td></tr>
-                  <tr><th>${uum_labels["russian"].cases.acc}</th><td data-tags="px1sg.acc"></td><td data-tags="px2sg.acc"></td><td data-tags="px3sg.acc"></td><td data-tags="px1pl.acc"></td><td data-tags="px2pl.acc"></td><td data-tags="px3pl.acc"></td></tr>
-                  <tr><th>${uum_labels["russian"].cases.dat}</th><td data-tags="px1sg.dat"></td><td data-tags="px2sg.dat"></td><td data-tags="px3sg.dat"></td><td data-tags="px1pl.dat"></td><td data-tags="px2pl.dat"></td><td data-tags="px3pl.dat"></td></tr>
-                  <tr><th>${uum_labels["russian"].cases.loc}</th><td data-tags="px1sg.loc"></td><td data-tags="px2sg.loc"></td><td data-tags="px3sg.loc"></td><td data-tags="px1pl.loc"></td><td data-tags="px2pl.loc"></td><td data-tags="px3pl.loc"></td></tr>
-                  <tr><th>${uum_labels["russian"].cases.gen}</th><td data-tags="px1sg.gen"></td><td data-tags="px2sg.gen"></td><td data-tags="px3sg.gen"></td><td data-tags="px1pl.gen"></td><td data-tags="px2pl.gen"></td><td data-tags="px3pl.gen"></td></tr>
-                  <tr><th>${uum_labels["russian"].cases.abl}</th><td data-tags="px1sg.abl"></td><td data-tags="px2sg.abl"></td><td data-tags="px3sg.abl"></td><td data-tags="px1pl.abl"></td><td data-tags="px2pl.abl"></td><td data-tags="px3pl.abl"></td></tr>
-                  <tr><th>${uum_labels["russian"].cases.ins}</th><td data-tags="px1sg.ins"></td><td data-tags="px2sg.ins"></td><td data-tags="px3sg.ins"></td><td data-tags="px1pl.ins"></td><td data-tags="px2pl.ins"></td><td data-tags="px3pl.ins"></td></tr>
-                  <tr><th>${uum_labels["russian"].cases.term}</th><td data-tags="px1sg.term"></td><td data-tags="px2sg.term"></td><td data-tags="px3sg.term"></td><td data-tags="px1pl.term"></td><td data-tags="px2pl.term"></td><td data-tags="px3pl.term"></td></tr>
-                  <tr><th>${uum_labels["russian"].cases.abe}</th><td data-tags="px1sg.abe"></td><td data-tags="px2sg.abe"></td><td data-tags="px3sg.abe"></td><td data-tags="px1pl.abe"></td><td data-tags="px2pl.abe"></td><td data-tags="px3pl.abe"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.nom}</th><td data-tags="px1sg.nom"></td><td data-tags="px2sg.nom"></td><td data-tags="px3sg.nom"></td><td data-tags="px1pl.nom"></td><td data-tags="px2pl.nom"></td><td data-tags="px3pl.nom"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.acc}</th><td data-tags="px1sg.acc"></td><td data-tags="px2sg.acc"></td><td data-tags="px3sg.acc"></td><td data-tags="px1pl.acc"></td><td data-tags="px2pl.acc"></td><td data-tags="px3pl.acc"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.dat}</th><td data-tags="px1sg.dat"></td><td data-tags="px2sg.dat"></td><td data-tags="px3sg.dat"></td><td data-tags="px1pl.dat"></td><td data-tags="px2pl.dat"></td><td data-tags="px3pl.dat"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.loc}</th><td data-tags="px1sg.loc"></td><td data-tags="px2sg.loc"></td><td data-tags="px3sg.loc"></td><td data-tags="px1pl.loc"></td><td data-tags="px2pl.loc"></td><td data-tags="px3pl.loc"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.gen}</th><td data-tags="px1sg.gen"></td><td data-tags="px2sg.gen"></td><td data-tags="px3sg.gen"></td><td data-tags="px1pl.gen"></td><td data-tags="px2pl.gen"></td><td data-tags="px3pl.gen"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.abl}</th><td data-tags="px1sg.abl"></td><td data-tags="px2sg.abl"></td><td data-tags="px3sg.abl"></td><td data-tags="px1pl.abl"></td><td data-tags="px2pl.abl"></td><td data-tags="px3pl.abl"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.ins}</th><td data-tags="px1sg.ins"></td><td data-tags="px2sg.ins"></td><td data-tags="px3sg.ins"></td><td data-tags="px1pl.ins"></td><td data-tags="px2pl.ins"></td><td data-tags="px3pl.ins"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.term}</th><td data-tags="px1sg.term"></td><td data-tags="px2sg.term"></td><td data-tags="px3sg.term"></td><td data-tags="px1pl.term"></td><td data-tags="px2pl.term"></td><td data-tags="px3pl.term"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.abe}</th><td data-tags="px1sg.abe"></td><td data-tags="px2sg.abe"></td><td data-tags="px3sg.abe"></td><td data-tags="px1pl.abe"></td><td data-tags="px2pl.abe"></td><td data-tags="px3pl.abe"></td></tr>
                 </table>`,
-              'ukrainian': `
+              'Ukrainian': `
                 <table class="paradigm-table">
                   <tr><th></th><th>мій</th><th>твій</th><th>його/її</th><th>наш</th><th>ваш</th><th>їхній</th></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.nom}</th><td data-tags="px1sg.nom"></td><td data-tags="px2sg.nom"></td><td data-tags="px3sg.nom"></td><td data-tags="px1pl.nom"></td><td data-tags="px2pl.nom"></td><td data-tags="px3pl.nom"></td></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.acc}</th><td data-tags="px1sg.acc"></td><td data-tags="px2sg.acc"></td><td data-tags="px3sg.acc"></td><td data-tags="px1pl.acc"></td><td data-tags="px2pl.acc"></td><td data-tags="px3pl.acc"></td></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.dat}</th><td data-tags="px1sg.dat"></td><td data-tags="px2sg.dat"></td><td data-tags="px3sg.dat"></td><td data-tags="px1pl.dat"></td><td data-tags="px2pl.dat"></td><td data-tags="px3pl.dat"></td></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.loc}</th><td data-tags="px1sg.loc"></td><td data-tags="px2sg.loc"></td><td data-tags="px3sg.loc"></td><td data-tags="px1pl.loc"></td><td data-tags="px2pl.loc"></td><td data-tags="px3pl.loc"></td></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.gen}</th><td data-tags="px1sg.gen"></td><td data-tags="px2sg.gen"></td><td data-tags="px3sg.gen"></td><td data-tags="px1pl.gen"></td><td data-tags="px2pl.gen"></td><td data-tags="px3pl.gen"></td></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.abl}</th><td data-tags="px1sg.abl"></td><td data-tags="px2sg.abl"></td><td data-tags="px3sg.abl"></td><td data-tags="px1pl.abl"></td><td data-tags="px2pl.abl"></td><td data-tags="px3pl.abl"></td></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.ins}</th><td data-tags="px1sg.ins"></td><td data-tags="px2sg.ins"></td><td data-tags="px3sg.ins"></td><td data-tags="px1pl.ins"></td><td data-tags="px2pl.ins"></td><td data-tags="px3pl.ins"></td></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.term}</th><td data-tags="px1sg.term"></td><td data-tags="px2sg.term"></td><td data-tags="px3sg.term"></td><td data-tags="px1pl.term"></td><td data-tags="px2pl.term"></td><td data-tags="px3pl.term"></td></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.abe}</th><td data-tags="px1sg.abe"></td><td data-tags="px2sg.abe"></td><td data-tags="px3sg.abe"></td><td data-tags="px1pl.abe"></td><td data-tags="px2pl.abe"></td><td data-tags="px3pl.abe"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.nom}</th><td data-tags="px1sg.nom"></td><td data-tags="px2sg.nom"></td><td data-tags="px3sg.nom"></td><td data-tags="px1pl.nom"></td><td data-tags="px2pl.nom"></td><td data-tags="px3pl.nom"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.acc}</th><td data-tags="px1sg.acc"></td><td data-tags="px2sg.acc"></td><td data-tags="px3sg.acc"></td><td data-tags="px1pl.acc"></td><td data-tags="px2pl.acc"></td><td data-tags="px3pl.acc"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.dat}</th><td data-tags="px1sg.dat"></td><td data-tags="px2sg.dat"></td><td data-tags="px3sg.dat"></td><td data-tags="px1pl.dat"></td><td data-tags="px2pl.dat"></td><td data-tags="px3pl.dat"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.loc}</th><td data-tags="px1sg.loc"></td><td data-tags="px2sg.loc"></td><td data-tags="px3sg.loc"></td><td data-tags="px1pl.loc"></td><td data-tags="px2pl.loc"></td><td data-tags="px3pl.loc"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.gen}</th><td data-tags="px1sg.gen"></td><td data-tags="px2sg.gen"></td><td data-tags="px3sg.gen"></td><td data-tags="px1pl.gen"></td><td data-tags="px2pl.gen"></td><td data-tags="px3pl.gen"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.abl}</th><td data-tags="px1sg.abl"></td><td data-tags="px2sg.abl"></td><td data-tags="px3sg.abl"></td><td data-tags="px1pl.abl"></td><td data-tags="px2pl.abl"></td><td data-tags="px3pl.abl"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.ins}</th><td data-tags="px1sg.ins"></td><td data-tags="px2sg.ins"></td><td data-tags="px3sg.ins"></td><td data-tags="px1pl.ins"></td><td data-tags="px2pl.ins"></td><td data-tags="px3pl.ins"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.term}</th><td data-tags="px1sg.term"></td><td data-tags="px2sg.term"></td><td data-tags="px3sg.term"></td><td data-tags="px1pl.term"></td><td data-tags="px2pl.term"></td><td data-tags="px3pl.term"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.abe}</th><td data-tags="px1sg.abe"></td><td data-tags="px2sg.abe"></td><td data-tags="px3sg.abe"></td><td data-tags="px1pl.abe"></td><td data-tags="px2pl.abe"></td><td data-tags="px3pl.abe"></td></tr>
                 </table>`
             }
           },
@@ -570,57 +570,57 @@ function add_uum() {
               ]
             ],
             html: {
-              'linguist': `
+              'Linguist': `
                 <table class="paradigm-table">
                   <tr><th></th><th>1sg</th><th>2sg</th><th>3sg</th><th>1pl</th><th>2pl</th><th>3pl</th></tr>
-                  <tr><th>${uum_labels["linguist"].cases.nom}</th><td data-tags="pl.px1sg.nom"></td><td data-tags="pl.px2sg.nom"></td><td data-tags="pl.px3sg.nom"></td><td data-tags="pl.px1pl.nom"></td><td data-tags="pl.px2pl.nom"></td><td data-tags="pl.px3pl.nom"></td></tr>
-                  <tr><th>${uum_labels["linguist"].cases.acc}</th><td data-tags="pl.px1sg.acc"></td><td data-tags="pl.px2sg.acc"></td><td data-tags="pl.px3sg.acc"></td><td data-tags="pl.px1pl.acc"></td><td data-tags="pl.px2pl.acc"></td><td data-tags="pl.px3pl.acc"></td></tr>
-                  <tr><th>${uum_labels["linguist"].cases.dat}</th><td data-tags="pl.px1sg.dat"></td><td data-tags="pl.px2sg.dat"></td><td data-tags="pl.px3sg.dat"></td><td data-tags="pl.px1pl.dat"></td><td data-tags="pl.px2pl.dat"></td><td data-tags="pl.px3pl.dat"></td></tr>
-                  <tr><th>${uum_labels["linguist"].cases.loc}</th><td data-tags="pl.px1sg.loc"></td><td data-tags="pl.px2sg.loc"></td><td data-tags="pl.px3sg.loc"></td><td data-tags="pl.px1pl.loc"></td><td data-tags="pl.px2pl.loc"></td><td data-tags="pl.px3pl.loc"></td></tr>
-                  <tr><th>${uum_labels["linguist"].cases.gen}</th><td data-tags="pl.px1sg.gen"></td><td data-tags="pl.px2sg.gen"></td><td data-tags="pl.px3sg.gen"></td><td data-tags="pl.px1pl.gen"></td><td data-tags="pl.px2pl.gen"></td><td data-tags="pl.px3pl.gen"></td></tr>
-                  <tr><th>${uum_labels["linguist"].cases.abl}</th><td data-tags="pl.px1sg.abl"></td><td data-tags="pl.px2sg.abl"></td><td data-tags="pl.px3sg.abl"></td><td data-tags="pl.px1pl.abl"></td><td data-tags="pl.px2pl.abl"></td><td data-tags="pl.px3pl.abl"></td></tr>
-                  <tr><th>${uum_labels["linguist"].cases.ins}</th><td data-tags="pl.px1sg.ins"></td><td data-tags="pl.px2sg.ins"></td><td data-tags="pl.px3sg.ins"></td><td data-tags="pl.px1pl.ins"></td><td data-tags="pl.px2pl.ins"></td><td data-tags="pl.px3pl.ins"></td></tr>
-                  <tr><th>${uum_labels["linguist"].cases.term}</th><td data-tags="pl.px1sg.term"></td><td data-tags="pl.px2sg.term"></td><td data-tags="pl.px3sg.term"></td><td data-tags="pl.px1pl.term"></td><td data-tags="pl.px2pl.term"></td><td data-tags="pl.px3pl.term"></td></tr>
-                  <tr><th>${uum_labels["linguist"].cases.abe}</th><td data-tags="pl.px1sg.abe"></td><td data-tags="pl.px2sg.abe"></td><td data-tags="pl.px3sg.abe"></td><td data-tags="pl.px1pl.abe"></td><td data-tags="pl.px2pl.abe"></td><td data-tags="pl.px3pl.abe"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.nom}</th><td data-tags="pl.px1sg.nom"></td><td data-tags="pl.px2sg.nom"></td><td data-tags="pl.px3sg.nom"></td><td data-tags="pl.px1pl.nom"></td><td data-tags="pl.px2pl.nom"></td><td data-tags="pl.px3pl.nom"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.acc}</th><td data-tags="pl.px1sg.acc"></td><td data-tags="pl.px2sg.acc"></td><td data-tags="pl.px3sg.acc"></td><td data-tags="pl.px1pl.acc"></td><td data-tags="pl.px2pl.acc"></td><td data-tags="pl.px3pl.acc"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.dat}</th><td data-tags="pl.px1sg.dat"></td><td data-tags="pl.px2sg.dat"></td><td data-tags="pl.px3sg.dat"></td><td data-tags="pl.px1pl.dat"></td><td data-tags="pl.px2pl.dat"></td><td data-tags="pl.px3pl.dat"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.loc}</th><td data-tags="pl.px1sg.loc"></td><td data-tags="pl.px2sg.loc"></td><td data-tags="pl.px3sg.loc"></td><td data-tags="pl.px1pl.loc"></td><td data-tags="pl.px2pl.loc"></td><td data-tags="pl.px3pl.loc"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.gen}</th><td data-tags="pl.px1sg.gen"></td><td data-tags="pl.px2sg.gen"></td><td data-tags="pl.px3sg.gen"></td><td data-tags="pl.px1pl.gen"></td><td data-tags="pl.px2pl.gen"></td><td data-tags="pl.px3pl.gen"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.abl}</th><td data-tags="pl.px1sg.abl"></td><td data-tags="pl.px2sg.abl"></td><td data-tags="pl.px3sg.abl"></td><td data-tags="pl.px1pl.abl"></td><td data-tags="pl.px2pl.abl"></td><td data-tags="pl.px3pl.abl"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.ins}</th><td data-tags="pl.px1sg.ins"></td><td data-tags="pl.px2sg.ins"></td><td data-tags="pl.px3sg.ins"></td><td data-tags="pl.px1pl.ins"></td><td data-tags="pl.px2pl.ins"></td><td data-tags="pl.px3pl.ins"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.term}</th><td data-tags="pl.px1sg.term"></td><td data-tags="pl.px2sg.term"></td><td data-tags="pl.px3sg.term"></td><td data-tags="pl.px1pl.term"></td><td data-tags="pl.px2pl.term"></td><td data-tags="pl.px3pl.term"></td></tr>
+                  <tr><th>${uum_labels["Linguist"].cases.abe}</th><td data-tags="pl.px1sg.abe"></td><td data-tags="pl.px2sg.abe"></td><td data-tags="pl.px3sg.abe"></td><td data-tags="pl.px1pl.abe"></td><td data-tags="pl.px2pl.abe"></td><td data-tags="pl.px3pl.abe"></td></tr>
                 </table>`,
-              'english': `
+              'English': `
                 <table class="paradigm-table">
                   <tr><th></th><th>my</th><th>your</th><th>his/her</th><th>our</th><th>your (pl)</th><th>their</th></tr>
-                  <tr><th>${uum_labels["english"].cases.nom}</th><td data-tags="pl.px1sg.nom"></td><td data-tags="pl.px2sg.nom"></td><td data-tags="pl.px3sg.nom"></td><td data-tags="pl.px1pl.nom"></td><td data-tags="pl.px2pl.nom"></td><td data-tags="pl.px3pl.nom"></td></tr>
-                  <tr><th>${uum_labels["english"].cases.acc}</th><td data-tags="pl.px1sg.acc"></td><td data-tags="pl.px2sg.acc"></td><td data-tags="pl.px3sg.acc"></td><td data-tags="pl.px1pl.acc"></td><td data-tags="pl.px2pl.acc"></td><td data-tags="pl.px3pl.acc"></td></tr>
-                  <tr><th>${uum_labels["english"].cases.dat}</th><td data-tags="pl.px1sg.dat"></td><td data-tags="pl.px2sg.dat"></td><td data-tags="pl.px3sg.dat"></td><td data-tags="pl.px1pl.dat"></td><td data-tags="pl.px2pl.dat"></td><td data-tags="pl.px3pl.dat"></td></tr>
-                  <tr><th>${uum_labels["english"].cases.loc}</th><td data-tags="pl.px1sg.loc"></td><td data-tags="pl.px2sg.loc"></td><td data-tags="pl.px3sg.loc"></td><td data-tags="pl.px1pl.loc"></td><td data-tags="pl.px2pl.loc"></td><td data-tags="pl.px3pl.loc"></td></tr>
-                  <tr><th>${uum_labels["english"].cases.gen}</th><td data-tags="pl.px1sg.gen"></td><td data-tags="pl.px2sg.gen"></td><td data-tags="pl.px3sg.gen"></td><td data-tags="pl.px1pl.gen"></td><td data-tags="pl.px2pl.gen"></td><td data-tags="pl.px3pl.gen"></td></tr>
-                  <tr><th>${uum_labels["english"].cases.abl}</th><td data-tags="pl.px1sg.abl"></td><td data-tags="pl.px2sg.abl"></td><td data-tags="pl.px3sg.abl"></td><td data-tags="pl.px1pl.abl"></td><td data-tags="pl.px2pl.abl"></td><td data-tags="pl.px3pl.abl"></td></tr>
-                  <tr><th>${uum_labels["english"].cases.ins}</th><td data-tags="pl.px1sg.ins"></td><td data-tags="pl.px2sg.ins"></td><td data-tags="pl.px3sg.ins"></td><td data-tags="pl.px1pl.ins"></td><td data-tags="pl.px2pl.ins"></td><td data-tags="pl.px3pl.ins"></td></tr>
-                  <tr><th>${uum_labels["english"].cases.term}</th><td data-tags="pl.px1sg.term"></td><td data-tags="pl.px2sg.term"></td><td data-tags="pl.px3sg.term"></td><td data-tags="pl.px1pl.term"></td><td data-tags="pl.px2pl.term"></td><td data-tags="pl.px3pl.term"></td></tr>
-                  <tr><th>${uum_labels["english"].cases.abe}</th><td data-tags="pl.px1sg.abe"></td><td data-tags="pl.px2sg.abe"></td><td data-tags="pl.px3sg.abe"></td><td data-tags="pl.px1pl.abe"></td><td data-tags="pl.px2pl.abe"></td><td data-tags="pl.px3pl.abe"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.nom}</th><td data-tags="pl.px1sg.nom"></td><td data-tags="pl.px2sg.nom"></td><td data-tags="pl.px3sg.nom"></td><td data-tags="pl.px1pl.nom"></td><td data-tags="pl.px2pl.nom"></td><td data-tags="pl.px3pl.nom"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.acc}</th><td data-tags="pl.px1sg.acc"></td><td data-tags="pl.px2sg.acc"></td><td data-tags="pl.px3sg.acc"></td><td data-tags="pl.px1pl.acc"></td><td data-tags="pl.px2pl.acc"></td><td data-tags="pl.px3pl.acc"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.dat}</th><td data-tags="pl.px1sg.dat"></td><td data-tags="pl.px2sg.dat"></td><td data-tags="pl.px3sg.dat"></td><td data-tags="pl.px1pl.dat"></td><td data-tags="pl.px2pl.dat"></td><td data-tags="pl.px3pl.dat"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.loc}</th><td data-tags="pl.px1sg.loc"></td><td data-tags="pl.px2sg.loc"></td><td data-tags="pl.px3sg.loc"></td><td data-tags="pl.px1pl.loc"></td><td data-tags="pl.px2pl.loc"></td><td data-tags="pl.px3pl.loc"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.gen}</th><td data-tags="pl.px1sg.gen"></td><td data-tags="pl.px2sg.gen"></td><td data-tags="pl.px3sg.gen"></td><td data-tags="pl.px1pl.gen"></td><td data-tags="pl.px2pl.gen"></td><td data-tags="pl.px3pl.gen"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.abl}</th><td data-tags="pl.px1sg.abl"></td><td data-tags="pl.px2sg.abl"></td><td data-tags="pl.px3sg.abl"></td><td data-tags="pl.px1pl.abl"></td><td data-tags="pl.px2pl.abl"></td><td data-tags="pl.px3pl.abl"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.ins}</th><td data-tags="pl.px1sg.ins"></td><td data-tags="pl.px2sg.ins"></td><td data-tags="pl.px3sg.ins"></td><td data-tags="pl.px1pl.ins"></td><td data-tags="pl.px2pl.ins"></td><td data-tags="pl.px3pl.ins"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.term}</th><td data-tags="pl.px1sg.term"></td><td data-tags="pl.px2sg.term"></td><td data-tags="pl.px3sg.term"></td><td data-tags="pl.px1pl.term"></td><td data-tags="pl.px2pl.term"></td><td data-tags="pl.px3pl.term"></td></tr>
+                  <tr><th>${uum_labels["English"].cases.abe}</th><td data-tags="pl.px1sg.abe"></td><td data-tags="pl.px2sg.abe"></td><td data-tags="pl.px3sg.abe"></td><td data-tags="pl.px1pl.abe"></td><td data-tags="pl.px2pl.abe"></td><td data-tags="pl.px3pl.abe"></td></tr>
                 </table>`,
-              'russian': `
+              'Russian': `
                 <table class="paradigm-table">
                   <tr><th></th><th>мои</th><th>твои</th><th>его/её</th><th>наши</th><th>ваши</th><th>их</th></tr>
-                  <tr><th>${uum_labels["russian"].cases.nom}</th><td data-tags="pl.px1sg.nom"></td><td data-tags="pl.px2sg.nom"></td><td data-tags="pl.px3sg.nom"></td><td data-tags="pl.px1pl.nom"></td><td data-tags="pl.px2pl.nom"></td><td data-tags="pl.px3pl.nom"></td></tr>
-                  <tr><th>${uum_labels["russian"].cases.acc}</th><td data-tags="pl.px1sg.acc"></td><td data-tags="pl.px2sg.acc"></td><td data-tags="pl.px3sg.acc"></td><td data-tags="pl.px1pl.acc"></td><td data-tags="pl.px2pl.acc"></td><td data-tags="pl.px3pl.acc"></td></tr>
-                  <tr><th>${uum_labels["russian"].cases.dat}</th><td data-tags="pl.px1sg.dat"></td><td data-tags="pl.px2sg.dat"></td><td data-tags="pl.px3sg.dat"></td><td data-tags="pl.px1pl.dat"></td><td data-tags="pl.px2pl.dat"></td><td data-tags="pl.px3pl.dat"></td></tr>
-                  <tr><th>${uum_labels["russian"].cases.loc}</th><td data-tags="pl.px1sg.loc"></td><td data-tags="pl.px2sg.loc"></td><td data-tags="pl.px3sg.loc"></td><td data-tags="pl.px1pl.loc"></td><td data-tags="pl.px2pl.loc"></td><td data-tags="pl.px3pl.loc"></td></tr>
-                  <tr><th>${uum_labels["russian"].cases.gen}</th><td data-tags="pl.px1sg.gen"></td><td data-tags="pl.px2sg.gen"></td><td data-tags="pl.px3sg.gen"></td><td data-tags="pl.px1pl.gen"></td><td data-tags="pl.px2pl.gen"></td><td data-tags="pl.px3pl.gen"></td></tr>
-                  <tr><th>${uum_labels["russian"].cases.abl}</th><td data-tags="pl.px1sg.abl"></td><td data-tags="pl.px2sg.abl"></td><td data-tags="pl.px3sg.abl"></td><td data-tags="pl.px1pl.abl"></td><td data-tags="pl.px2pl.abl"></td><td data-tags="pl.px3pl.abl"></td></tr>
-                  <tr><th>${uum_labels["russian"].cases.ins}</th><td data-tags="pl.px1sg.ins"></td><td data-tags="pl.px2sg.ins"></td><td data-tags="pl.px3sg.ins"></td><td data-tags="pl.px1pl.ins"></td><td data-tags="pl.px2pl.ins"></td><td data-tags="pl.px3pl.ins"></td></tr>
-                  <tr><th>${uum_labels["russian"].cases.term}</th><td data-tags="pl.px1sg.term"></td><td data-tags="pl.px2sg.term"></td><td data-tags="pl.px3sg.term"></td><td data-tags="pl.px1pl.term"></td><td data-tags="pl.px2pl.term"></td><td data-tags="pl.px3pl.term"></td></tr>
-                  <tr><th>${uum_labels["russian"].cases.abe}</th><td data-tags="pl.px1sg.abe"></td><td data-tags="pl.px2sg.abe"></td><td data-tags="pl.px3sg.abe"></td><td data-tags="pl.px1pl.abe"></td><td data-tags="pl.px2pl.abe"></td><td data-tags="pl.px3pl.abe"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.nom}</th><td data-tags="pl.px1sg.nom"></td><td data-tags="pl.px2sg.nom"></td><td data-tags="pl.px3sg.nom"></td><td data-tags="pl.px1pl.nom"></td><td data-tags="pl.px2pl.nom"></td><td data-tags="pl.px3pl.nom"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.acc}</th><td data-tags="pl.px1sg.acc"></td><td data-tags="pl.px2sg.acc"></td><td data-tags="pl.px3sg.acc"></td><td data-tags="pl.px1pl.acc"></td><td data-tags="pl.px2pl.acc"></td><td data-tags="pl.px3pl.acc"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.dat}</th><td data-tags="pl.px1sg.dat"></td><td data-tags="pl.px2sg.dat"></td><td data-tags="pl.px3sg.dat"></td><td data-tags="pl.px1pl.dat"></td><td data-tags="pl.px2pl.dat"></td><td data-tags="pl.px3pl.dat"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.loc}</th><td data-tags="pl.px1sg.loc"></td><td data-tags="pl.px2sg.loc"></td><td data-tags="pl.px3sg.loc"></td><td data-tags="pl.px1pl.loc"></td><td data-tags="pl.px2pl.loc"></td><td data-tags="pl.px3pl.loc"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.gen}</th><td data-tags="pl.px1sg.gen"></td><td data-tags="pl.px2sg.gen"></td><td data-tags="pl.px3sg.gen"></td><td data-tags="pl.px1pl.gen"></td><td data-tags="pl.px2pl.gen"></td><td data-tags="pl.px3pl.gen"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.abl}</th><td data-tags="pl.px1sg.abl"></td><td data-tags="pl.px2sg.abl"></td><td data-tags="pl.px3sg.abl"></td><td data-tags="pl.px1pl.abl"></td><td data-tags="pl.px2pl.abl"></td><td data-tags="pl.px3pl.abl"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.ins}</th><td data-tags="pl.px1sg.ins"></td><td data-tags="pl.px2sg.ins"></td><td data-tags="pl.px3sg.ins"></td><td data-tags="pl.px1pl.ins"></td><td data-tags="pl.px2pl.ins"></td><td data-tags="pl.px3pl.ins"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.term}</th><td data-tags="pl.px1sg.term"></td><td data-tags="pl.px2sg.term"></td><td data-tags="pl.px3sg.term"></td><td data-tags="pl.px1pl.term"></td><td data-tags="pl.px2pl.term"></td><td data-tags="pl.px3pl.term"></td></tr>
+                  <tr><th>${uum_labels["Russian"].cases.abe}</th><td data-tags="pl.px1sg.abe"></td><td data-tags="pl.px2sg.abe"></td><td data-tags="pl.px3sg.abe"></td><td data-tags="pl.px1pl.abe"></td><td data-tags="pl.px2pl.abe"></td><td data-tags="pl.px3pl.abe"></td></tr>
                 </table>`,
-              'ukrainian': `
+              'Ukrainian': `
                 <table class="paradigm-table">
                   <tr><th></th><th>мої</th><th>твої</th><th>його/її</th><th>наші</th><th>ваші</th><th>їхні</th></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.nom}</th><td data-tags="pl.px1sg.nom"></td><td data-tags="pl.px2sg.nom"></td><td data-tags="pl.px3sg.nom"></td><td data-tags="pl.px1pl.nom"></td><td data-tags="pl.px2pl.nom"></td><td data-tags="pl.px3pl.nom"></td></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.acc}</th><td data-tags="pl.px1sg.acc"></td><td data-tags="pl.px2sg.acc"></td><td data-tags="pl.px3sg.acc"></td><td data-tags="pl.px1pl.acc"></td><td data-tags="pl.px2pl.acc"></td><td data-tags="pl.px3pl.acc"></td></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.dat}</th><td data-tags="pl.px1sg.dat"></td><td data-tags="pl.px2sg.dat"></td><td data-tags="pl.px3sg.dat"></td><td data-tags="pl.px1pl.dat"></td><td data-tags="pl.px2pl.dat"></td><td data-tags="pl.px3pl.dat"></td></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.loc}</th><td data-tags="pl.px1sg.loc"></td><td data-tags="pl.px2sg.loc"></td><td data-tags="pl.px3sg.loc"></td><td data-tags="pl.px1pl.loc"></td><td data-tags="pl.px2pl.loc"></td><td data-tags="pl.px3pl.loc"></td></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.gen}</th><td data-tags="pl.px1sg.gen"></td><td data-tags="pl.px2sg.gen"></td><td data-tags="pl.px3sg.gen"></td><td data-tags="pl.px1pl.gen"></td><td data-tags="pl.px2pl.gen"></td><td data-tags="pl.px3pl.gen"></td></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.abl}</th><td data-tags="pl.px1sg.abl"></td><td data-tags="pl.px2sg.abl"></td><td data-tags="pl.px3sg.abl"></td><td data-tags="pl.px1pl.abl"></td><td data-tags="pl.px2pl.abl"></td><td data-tags="pl.px3pl.abl"></td></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.ins}</th><td data-tags="pl.px1sg.ins"></td><td data-tags="pl.px2sg.ins"></td><td data-tags="pl.px3sg.ins"></td><td data-tags="pl.px1pl.ins"></td><td data-tags="pl.px2pl.ins"></td><td data-tags="pl.px3pl.ins"></td></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.term}</th><td data-tags="pl.px1sg.term"></td><td data-tags="pl.px2sg.term"></td><td data-tags="pl.px3sg.term"></td><td data-tags="pl.px1pl.term"></td><td data-tags="pl.px2pl.term"></td><td data-tags="pl.px3pl.term"></td></tr>
-                  <tr><th>${uum_labels["ukrainian"].cases.abe}</th><td data-tags="pl.px1sg.abe"></td><td data-tags="pl.px2sg.abe"></td><td data-tags="pl.px3sg.abe"></td><td data-tags="pl.px1pl.abe"></td><td data-tags="pl.px2pl.abe"></td><td data-tags="pl.px3pl.abe"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.nom}</th><td data-tags="pl.px1sg.nom"></td><td data-tags="pl.px2sg.nom"></td><td data-tags="pl.px3sg.nom"></td><td data-tags="pl.px1pl.nom"></td><td data-tags="pl.px2pl.nom"></td><td data-tags="pl.px3pl.nom"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.acc}</th><td data-tags="pl.px1sg.acc"></td><td data-tags="pl.px2sg.acc"></td><td data-tags="pl.px3sg.acc"></td><td data-tags="pl.px1pl.acc"></td><td data-tags="pl.px2pl.acc"></td><td data-tags="pl.px3pl.acc"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.dat}</th><td data-tags="pl.px1sg.dat"></td><td data-tags="pl.px2sg.dat"></td><td data-tags="pl.px3sg.dat"></td><td data-tags="pl.px1pl.dat"></td><td data-tags="pl.px2pl.dat"></td><td data-tags="pl.px3pl.dat"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.loc}</th><td data-tags="pl.px1sg.loc"></td><td data-tags="pl.px2sg.loc"></td><td data-tags="pl.px3sg.loc"></td><td data-tags="pl.px1pl.loc"></td><td data-tags="pl.px2pl.loc"></td><td data-tags="pl.px3pl.loc"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.gen}</th><td data-tags="pl.px1sg.gen"></td><td data-tags="pl.px2sg.gen"></td><td data-tags="pl.px3sg.gen"></td><td data-tags="pl.px1pl.gen"></td><td data-tags="pl.px2pl.gen"></td><td data-tags="pl.px3pl.gen"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.abl}</th><td data-tags="pl.px1sg.abl"></td><td data-tags="pl.px2sg.abl"></td><td data-tags="pl.px3sg.abl"></td><td data-tags="pl.px1pl.abl"></td><td data-tags="pl.px2pl.abl"></td><td data-tags="pl.px3pl.abl"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.ins}</th><td data-tags="pl.px1sg.ins"></td><td data-tags="pl.px2sg.ins"></td><td data-tags="pl.px3sg.ins"></td><td data-tags="pl.px1pl.ins"></td><td data-tags="pl.px2pl.ins"></td><td data-tags="pl.px3pl.ins"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.term}</th><td data-tags="pl.px1sg.term"></td><td data-tags="pl.px2sg.term"></td><td data-tags="pl.px3sg.term"></td><td data-tags="pl.px1pl.term"></td><td data-tags="pl.px2pl.term"></td><td data-tags="pl.px3pl.term"></td></tr>
+                  <tr><th>${uum_labels["Ukrainian"].cases.abe}</th><td data-tags="pl.px1sg.abe"></td><td data-tags="pl.px2sg.abe"></td><td data-tags="pl.px3sg.abe"></td><td data-tags="pl.px1pl.abe"></td><td data-tags="pl.px2pl.abe"></td><td data-tags="pl.px3pl.abe"></td></tr>
                 </table>`
             }
           }

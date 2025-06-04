@@ -307,7 +307,7 @@ function blob2html(blob, depth, context) {
   }
   if (blob.hasOwnProperty('html')) {
     console.log(blob);
-    const mode = $('#Mode').val() || 'linguist';
+    const mode = $('#Mode').val() || 'Linguist';
     ret += blob.html[mode] || '';
   } else {
   if (blob.hasOwnProperty('tablist')) {
@@ -420,7 +420,7 @@ function set_lang() {
     $('#Mode').html(
       availableModes.map(m => `<option value="${m}">${m}</option>`).join('')
     );
-    let defaultMode = availableModes.includes('linguist') ? 'linguist' : availableModes[0];
+    let defaultMode = availableModes.includes('Linguist') ? 'Linguist' : availableModes[0];
     $('#Mode').val(defaultMode).change();
   }
 }
