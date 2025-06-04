@@ -16,6 +16,20 @@ let uum_labels = {
       "ins": "Instrumental",
       "term": "Terminative",
       "abe": "Abessive"
+    },
+    "labels": {
+      "non-personal": "Non-personal forms",
+      "pres": "Present",
+      "past": "Past",
+      "futs": "Future",
+      "fut": "Future indefinite",
+      "fdi": "Future definite",
+      "pres.cni": "Conditional",
+      "imp": "Imperative",
+      "noun-cases": "Cases",
+      "noun-poss": "Possession",
+      "noun-poss-sg": "Singular possessed object",
+      "noun-poss-pl": "Plural possessed object"
     }
   },
   "Linguist": {
@@ -34,6 +48,20 @@ let uum_labels = {
       "ins": "Instrumental",
       "term": "Terminative",
       "abe": "Abessive"
+    },
+    "labels": {
+      "non-personal": "Non-personal forms",
+      "pres": "Present",
+      "past": "Past",
+      "futs": "Future",
+      "fut": "Future indefinite",
+      "fdi": "Future definite",
+      "pres.cni": "Conditional",
+      "imp": "Imperative",
+      "noun-cases": "Cases",
+      "noun-poss": "Possession",
+      "noun-poss-sg": "Singular possessed object",
+      "noun-poss-pl": "Plural possessed object"
     }
   },
   "Russian": {
@@ -53,6 +81,20 @@ let uum_labels = {
       "ins": "Творительный",
       "term": "Предел",
       "abe": "Безналичный"
+    },
+    "labels": {
+      "non-personal": "Неличные формы",
+      "pres": "Настоящее время",
+      "past": "Прошедшее время",
+      "futs": "Будущее время",
+      "fut": "Будущее неопределенное",
+      "fdi": "Будущее определенное",
+      "pres.cni": "Условное",
+      "imp": "Повелительное",
+      "noun-cases": "Падежи",
+      "noun-poss": "Притяжательность",
+      "noun-poss-sg": "Единственное число",
+      "noun-poss-pl": "Множественное число"
     }
   },
   "Ukrainian": {
@@ -72,6 +114,20 @@ let uum_labels = {
       "ins": "Орудний",
       "term": "Кінцевий",
       "abe": "Безвідмінковий"
+    },
+    "labels": {
+      "non-personal": "Неперсональні форми",
+      "pres": "Теперішній час",
+      "past": "Минулий час",
+      "futs": "Майбутній час",
+      "fut": "Майбутній недоконаний",
+      "fdi": "Майбутній доконаний",
+      "pres.cni": "Умовний",
+      "imp": "Наказовий",
+      "noun-cases": "Відмінки",
+      "noun-poss": "Присвійність",
+      "noun-poss-sg": "Однина",
+      "noun-poss-pl": "Множина"
     }
   }
 }
@@ -79,7 +135,10 @@ let uum_labels = {
 function uum_fin_vb(tgs, lab) {
   return {
     id: tgs.replaceAll('.', '-'),
-    label: lab,
+    label: () => {
+      const mode = $('#Mode').val() || 'Linguist';
+      return (uum_labels[mode]?.labels?.[lab]) || lab;
+    },
     tabcols: ['Affirmative', 'Negative'],
     tabrows: ['1st person singular', '1st person plural',
               '2nd person singular', '2nd person plural',
@@ -149,7 +208,7 @@ function add_uum() {
     verb_iv: [
       {
         id: 'non-personal',
-        label: 'Non-personal forms',
+        label: () => uum_labels[$('#Mode').val()]?.labels?.['non-personal'],
         tabcols: ['Affirmative', 'Negative'],
         tabrows: ['Infinitive', 'Participle', 'Converb'],
         tabdata: [
@@ -188,20 +247,20 @@ function add_uum() {
             </table>`
         }
       },
-      uum_fin_vb('pres', 'Present'),
-      uum_fin_vb('past', 'Past'),
+      uum_fin_vb('pres', 'pres'),
+      uum_fin_vb('past', 'past'),
       {
         id: 'future',
-        label: 'Future',
+        label: () => uum_labels[$('#Mode').val()]?.labels?.['futs'],
         subcats: [
-          uum_fin_vb('fut', 'Future indefinite'),
-          uum_fin_vb('fdi', 'Future definite')
+          uum_fin_vb('fut', 'fut'),
+          uum_fin_vb('fdi', 'fdi')
         ]
       },
-      uum_fin_vb('pres.cni', 'Conditional'),
+      uum_fin_vb('pres.cni', 'pres.cni'),
       {
         id: 'imp',
-        label: 'Imperative',
+        label: () => uum_labels[$('#Mode').val()]?.labels?.['imp'],
         tabcols: ['Affirmative', 'Negative'],
         tabrows: [
           '1st person singular',
@@ -255,10 +314,10 @@ function add_uum() {
         }
       }
     ],
-    verb_tv: [
+    verb_iv: [
       {
         id: 'non-personal',
-        label: 'Non-personal forms',
+        label: () => uum_labels[$('#Mode').val()]?.labels?.['non-personal'],
         tabcols: ['Affirmative', 'Negative'],
         tabrows: ['Infinitive', 'Participle', 'Converb'],
         tabdata: [
@@ -297,14 +356,20 @@ function add_uum() {
             </table>`
         }
       },
-      uum_fin_vb('pres', 'Present'),
-      uum_fin_vb('past', 'Past'),
-      uum_fin_vb('fut', 'Future'),
-      uum_fin_vb('fdi', 'Future definite'),
-      uum_fin_vb('pres.cni', 'Conditional'),
+      uum_fin_vb('pres', 'pres'),
+      uum_fin_vb('past', 'past'),
+      {
+        id: 'future',
+        label: () => uum_labels[$('#Mode').val()]?.labels?.['futs'],
+        subcats: [
+          uum_fin_vb('fut', 'fut'),
+          uum_fin_vb('fdi', 'fdi')
+        ]
+      },
+      uum_fin_vb('pres.cni', 'pres.cni'),
       {
         id: 'imp',
-        label: 'Imperative',
+        label: () => uum_labels[$('#Mode').val()]?.labels?.['imp'],
         tabcols: ['Affirmative', 'Negative'],
         tabrows: [
           '1st person singular',
@@ -361,7 +426,7 @@ function add_uum() {
     noun: [
       {
         id: 'noun-cases',
-        label: 'Cases',
+        label: () => uum_labels[$('#Mode').val()]?.labels?.['noun-cases'],
         tabcols: ['Singular', 'Plural'],
         tabrows: ['Nominative', 'Accusative', 'Dative', 'Locative', 'Genitive', 'Ablative', 'Instrumental', 'Terminative', 'Abessive'],
         tabdata: [
@@ -432,11 +497,11 @@ function add_uum() {
       },
       {
         id: 'noun-poss',
-        label: 'Possession',
+        label: () => uum_labels[$('#Mode').val()]?.labels?.['noun-poss'],
         subcats: [
           {
             id: 'noun-poss-sg',
-            label: 'Singular possessed object',
+            label: () => uum_labels[$('#Mode').val()]?.labels?.['noun-poss-sg'],
             tabcols: ['1sg', '2sg', '3sg', '1pl', '2pl', '3pl'],
             tabrows: ['Nominative', 'Accusative', 'Dative', 'Locative', 'Genetive', 'Ablative', 'Instrumental', 'Terminative', 'Abessive'],
             tabdata: [
@@ -534,7 +599,7 @@ function add_uum() {
           },
           {
             id: 'noun-poss-pl',
-            label: 'Plural possessed object',
+            label: () => uum_labels[$('#Mode').val()]?.labels?.['noun-poss-pl'],
             tabcols: ['1sg', '2sg', '3sg', '1pl', '2pl', '3pl'],
             tabrows: ['Nominative', 'Accusative', 'Dative', 'Locative', 'Genetive', 'Ablative', 'Instrumental', 'Terminative', 'Abessive'],
             tabdata: [

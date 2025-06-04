@@ -255,10 +255,11 @@ function blob2html(blob, depth, context) {
     ret += '<div id="'+blob.id+'">';
   }
   if (blob.hasOwnProperty('label')) {
+    const label = typeof blob.label === 'function' ? blob.label() : blob.label;
     if (depth > 0) {
-      ret += '<h'+depth+'>'+blob.label+'</h'+depth+'>';
+      ret += '<h'+depth+'>'+label+'</h'+depth+'>';
     } else {
-      ret += '<th><b>'+blob.label+'</b></th>';
+      ret += '<th><b>'+label+'</b></th>';
     }
   }
   if (blob.hasOwnProperty('error')) {
@@ -368,15 +369,20 @@ function blob2nav(blob) {
     return '<ul>' + blob.map(blob2nav).join('') + '</ul>';
   } else if (blob.hasOwnProperty('id')) {
     let ret = '<li><a href="#' + blob.id + '">';
+    
     if (blob.hasOwnProperty('label')) {
-      ret += blob.label;
+      const label = typeof blob.label === 'function' ? blob.label() : blob.label;
+      ret += label;
     } else {
       ret += blob.id;
     }
+
     ret += '</a>';
+    
     if (blob.hasOwnProperty('subcats')) {
       ret += blob2nav(blob.subcats);
     }
+
     ret += '</li>';
     return ret;
   } else {
