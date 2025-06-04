@@ -199,7 +199,7 @@ function add_spa() {
               {
                 id: "fts",
                 label: "Simple future",
-                error: '<a class="alert-link" href="//github.com/apertium/apertium-apy">Apertium APY</a> does not currently support the generation of future subjunctive forms.<br>You can also manually generate them with the information given in the <a class="alert-link" href="//www.rae.es/diccionario-panhispanico-de-dudas/apendices/modelos-de-conjugacion-verbal">rae.es page listed above</a> (Spanish) or in <a class="alert-link" href="//www.Spanishdict.com/guide/Spanish-future-subjunctive">Spanishdict.com</a> (English).<br>We apologize for this inconvenience.'
+                error: '<a class="alert-link" href="//github.com/apertium/apertium-apy">Apertium APY</a> does not currently support the generation of future subjunctive forms.<br>You can also manually generate them with the information given in the <a class="alert-link" href="//www.rae.es/diccionario-panhispanico-de-dudas/apendices/modelos-de-conjugacion-verbal">rae.es page listed above</a> (Spanish) or in <a class="alert-link" href="//www.spanishdict.com/guide/spanish-future-subjunctive">spanishdict.com</a> (English).<br>We apologize for this inconvenience.'
               },
               spa_compound_tense(
                 "vbhaver-prs",
