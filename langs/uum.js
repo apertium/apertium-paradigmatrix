@@ -314,7 +314,7 @@ function add_uum() {
         }
       }
     ],
-    verb_iv: [
+    verb_tv: [
       {
         id: 'non-personal',
         label: () => uum_labels[$('#Mode').val()]?.labels?.['non-personal'],
