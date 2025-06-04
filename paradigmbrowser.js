@@ -422,6 +422,12 @@ function set_lang() {
     );
     let defaultMode = availableModes.includes('Linguist') ? 'Linguist' : availableModes[0];
     $('#Mode').val(defaultMode).change();
+  } else {
+      $('#POS').empty();
+      $('#Mode').empty();
+      $('#content').empty();
+      $('#nav').empty();
+      return;
   }
 }
 
@@ -454,7 +460,7 @@ function update_template(lang, pos) {
 
 $(document).ready(function() {
   $('#Language').html(
-    '<option value="null">---</option>'+
+    '<option value="null">Select a language</option>'+
     Object.keys(LANGS).sort().map(function(lg) {
       return '<option value="'+lg+'">'+LANGS[lg].name+'</option>';
     }).join('')
