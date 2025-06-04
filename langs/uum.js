@@ -190,8 +190,14 @@ function add_uum() {
       },
       uum_fin_vb('pres', 'Present'),
       uum_fin_vb('past', 'Past'),
-      uum_fin_vb('fut', 'Future'),
-      uum_fin_vb('fdi', 'Future definite'),
+      {
+        id: 'future',
+        label: 'Future',
+        subcats: [
+          uum_fin_vb('fut', 'Future indefinite'),
+          uum_fin_vb('fdi', 'Future definite')
+        ]
+      },
       uum_fin_vb('pres.cni', 'Conditional'),
       {
         id: 'imp',
