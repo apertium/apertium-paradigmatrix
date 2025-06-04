@@ -27,8 +27,8 @@ let uum_labels = {
       "imp": "Imperative",
       "noun-cases": "Cases",
       "noun-poss": "Possession",
-      "noun-poss-sg": "Singular possessed object",
-      "noun-poss-pl": "Plural possessed object"
+      "noun-poss-sg": "Singular possessed noun",
+      "noun-poss-pl": "Plural possessed noun"
     },
     "poss-sg": {
       "p1sg": "1sg", "p2sg": "2sg", "p3sg": "3sg",
@@ -70,8 +70,8 @@ let uum_labels = {
       "imp": "Imperative",
       "noun-cases": "Cases",
       "noun-poss": "Possession",
-      "noun-poss-sg": "Singular possessed object",
-      "noun-poss-pl": "Plural possessed object"
+      "noun-poss-sg": "Singular possessed noun",
+      "noun-poss-pl": "Plural possessed noun"
     },
     "poss-sg": {
       "p1sg": "my", "p2sg": "your", "p3sg": "his/her",
@@ -153,8 +153,8 @@ let uum_labels = {
       "imp": "Повелительное",
       "noun-cases": "Падежи",
       "noun-poss": "Притяжательность",
-      "noun-poss-sg": "Единственное число",
-      "noun-poss-pl": "Множественное число"
+      "noun-poss-sg": "Существительное в единственном числе",
+      "noun-poss-pl": "Существительное во множественном числе"
     },
     "poss-sg": {
       "p1sg": "мой", "p2sg": "твой", "p3sg": "его/её",
@@ -236,8 +236,8 @@ let uum_labels = {
       "imp": "Наказовий",
       "noun-cases": "Відмінки",
       "noun-poss": "Присвійність",
-      "noun-poss-sg": "Однина",
-      "noun-poss-pl": "Множина"
+      "noun-poss-sg": "Іменник в однині",
+      "noun-poss-pl": "Іменник у множині"
     },
     "poss-sg": {
       "p1sg": "мій", "p2sg": "твій", "p3sg": "його/її",
