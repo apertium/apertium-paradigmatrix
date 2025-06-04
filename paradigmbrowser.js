@@ -306,7 +306,7 @@ function blob2html(blob, depth, context) {
     }
   }
   if (blob.hasOwnProperty('html')) {
-    console.log(blob);
+    //console.log(blob);
     const mode = $('#Mode').val() || 'Linguist';
     ret += blob.html[mode] || '';
   } else {
