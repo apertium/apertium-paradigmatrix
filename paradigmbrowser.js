@@ -476,8 +476,26 @@ $(document).ready(function() {
   $('#Mode').change(function () {
     let lang = $('#Language').val();
     let pos = $('#POS').val();
+
     if (lang && pos) {
+      // cache current filled data
+      let cachedForms = {};
+      $('[data-tags]').each(function () {
+        let tags = $(this).data('tags');
+        let text = $(this).text().trim();
+        if (text.length > 0) {
+          cachedForms[tags] = text;
+        }
+      });
       set_pos();
+      setTimeout(function () {
+        $('[data-tags]').each(function () {
+          let tags = $(this).data('tags');
+          if (cachedForms[tags]) {
+            $(this).text(cachedForms[tags]);
+          }
+        });
+      }, 0);
     }
   });
 });
