@@ -611,6 +611,93 @@ function add_uum() {
           )
         }))
       }
+    ],
+    pnoun: [
+      {
+        id: 'noun-cases',
+        label: () => {
+          const mode = $('#Mode').val() || 'English-Linguist';
+          return uum_labels[mode]?.labels?.['noun-cases'] || 'Cases';
+        },
+        tabcols: (() => {
+          const mode = $('#Mode').val() || 'English-Linguist';
+          const lab = uum_labels[mode];
+          return [lab.sg || 'Singular', lab.pl || 'Plural'];
+        })(),
+        tabrows: ['Nominative', 'Accusative', 'Dative', 'Locative', 'Genitive', 'Ablative', 'Instrumental', 'Terminative', 'Abessive'],
+        tabdata: [
+          [{ tags: 'nom' }, { tags: 'pl.nom' }],
+          [{ tags: 'acc' }, { tags: 'pl.acc' }],
+          [{ tags: 'dat' }, { tags: 'pl.dat' }],
+          [{ tags: 'loc' }, { tags: 'pl.loc' }],
+          [{ tags: 'gen' }, { tags: 'pl.gen' }],
+          [{ tags: 'abl' }, { tags: 'pl.abl' }],
+          [{ tags: 'ins' }, { tags: 'pl.ins' }],
+          [{ tags: 'term' }, { tags: 'pl.term' }],
+          [{ tags: 'abe' }, { tags: 'pl.abe' }]
+        ],
+        html: Object.fromEntries(
+          Object.entries(uum_labels).map(([m, lab]) => [
+            m,
+            `<table class="paradigm-table">
+              <tr><th></th><th>${lab.sg || 'Singular'}</th><th>${lab.pl || 'Plural'}</th></tr>
+              ${Object.entries(lab.cases).map(([key, label]) =>
+                `<tr><th>${label}</th><td data-tags="${key}"></td><td data-tags="pl.${key}"></td></tr>`
+              ).join('\n')}
+            </table>`
+          ])
+        )
+      },
+      {
+        id: 'noun-poss',
+        label: () => {
+          const mode = $('#Mode').val() || 'English-Linguist';
+          return uum_labels[mode]?.labels?.['noun-poss'] || 'Possession';
+        },
+        subcats: ['sg', 'pl'].map(num => ({
+          id: `noun-poss-${num}`,
+          label: () => {
+            const mode = $('#Mode').val() || 'English-Linguist';
+            return uum_labels[mode]?.labels?.[`noun-poss-${num}`] || (num === 'sg' ? 'Singular possessed object' : 'Plural possessed object');
+          },
+          tabcols: (() => {
+            const mode = $('#Mode').val() || 'English-Linguist';
+            const poss = uum_labels[mode]?.poss || {};
+            return ['p1sg', 'p2sg', 'p3sg', 'p1pl', 'p2pl', 'p3pl'].map(k => poss[k] || k.toUpperCase());
+          })(),
+          tabrows: ['Nominative', 'Accusative', 'Dative', 'Locative', 'Genitive', 'Ablative', 'Instrumental', 'Terminative', 'Abessive'],
+          tabdata: [
+            ['nom', 'acc', 'dat', 'loc', 'gen', 'abl', 'ins', 'term', 'abe'].map(c =>
+              ['1sg', '2sg', '3sg', '1pl', '2pl', '3pl'].map(p => ({
+                tags: `${num === 'pl' ? 'pl.' : ''}px${p}.${c}`
+              }))
+            )
+          ],
+          html: Object.fromEntries(
+            Object.entries(uum_labels).map(([m, lab]) => {
+              const personKeys = ['p1sg', 'p2sg', 'p3sg', 'p1pl', 'p2pl', 'p3pl'];
+              const poss = lab[`poss-${num}`] || {};
+              const colHeaders = personKeys.map(k => poss[k] || k.toUpperCase())
+                .map(label => `<th>${label}</th>`).join('');
+
+              const rows = Object.entries(lab.cases).map(([caseTag, caseLabel]) => {
+                const cells = personKeys.map(p => {
+                  const short = p.replace('p', '');
+                  return `<td data-tags="${num === 'pl' ? 'pl.' : ''}px${short}.${caseTag}"></td>`;
+                }).join('');
+                return `<tr><th>${caseLabel}</th>${cells}</tr>`;
+              }).join('\n');
+
+              return [m, `
+                <table class="paradigm-table">
+                  <tr><th></th>${colHeaders}</tr>
+                  ${rows}
+                </table>
+              `];
+            })
+          )
+        }))
+      }
     ]
   }
 }

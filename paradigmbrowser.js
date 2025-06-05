@@ -157,6 +157,7 @@ function paradigm() {
 
         // make sure it's not already in the valid forms array
         var inArr = validForms.some((f) => text.every((t, i) => (t) === f[i]));
+
         // and that it's a form of the POS selected
         if (!inArr && isPOSCat(firstTag, posCat)) {
           // check whether we're dealing with a particular subcategory
@@ -307,7 +308,6 @@ function blob2html(blob, depth, context) {
     }
   }
   if (blob.hasOwnProperty('html')) {
-    //console.log(blob);
     const mode = $('#Mode').val() || 'English-Linguist';
     ret += blob.html[mode] || '';
   } else {
