@@ -7,8 +7,7 @@ const APY_URL = "https://beta.apertium.org/apy/";
 // POS Categories. Keys are according to Universal Dependencies
 const POS_CATS = {
   verb: ["vblex", "v", "vbmod", "vbser", "vbhaver", "vbdo", "vaux"],
-  noun: ["n"],
-  nounproper: ["np"],
+  noun: ["n", "np"],
   adj: ["adj"],
   adv: ["adv", "preadv", "postadv"],
   det: ["det"],
@@ -24,7 +23,7 @@ const POS_NAMES = {
   verb_ti: "Transitive Inanimate (TI) verbs",
   verb_ta: "Transitive Animate (TA) verbs",
   noun: "Nouns",
-  nounproper: "Proper nouns",
+  pnoun: "Proper nouns",
   adj: "Adjectives",
   adv: "Adverbs",
   det: "Determiners",
@@ -47,7 +46,7 @@ const POS_SUBCATS = {
     },
     noun: {
       noun: ["n"],
-      pnoun: ["np"]
+      pnoun: ["np.ant.m", "np.ant.f", "np.top", "np.ant.mf", "np.cog.mf"]
     }
   },
   unm: {
@@ -82,5 +81,5 @@ var LANGS = {
     spa: {name: "Spanish", data: null, keeptags: []},
     unm: {name: "Lënape (Unami)", data: null, keeptags: ['iv', 'tv', 'aa', 'nn']},
     haa: {name: "Hän", data: null, keeptags: ['iv', 'tv']},
-    uum: {name: "Urum", data: null, keeptags: ['tv', 'iv', '']}
+    uum: {name: "Urum", data: null, keeptags: ['tv', 'iv', 'ant', 'mf', 'm', 'f', 'cog', 'top']}
 };

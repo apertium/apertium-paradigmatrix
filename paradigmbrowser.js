@@ -157,6 +157,7 @@ function paradigm() {
 
         // make sure it's not already in the valid forms array
         var inArr = validForms.some((f) => text.every((t, i) => (t) === f[i]));
+
         // and that it's a form of the POS selected
         if (!inArr && isPOSCat(firstTag, posCat)) {
           // check whether we're dealing with a particular subcategory
@@ -255,10 +256,11 @@ function blob2html(blob, depth, context) {
     ret += '<div id="'+blob.id+'">';
   }
   if (blob.hasOwnProperty('label')) {
+    const label = typeof blob.label === 'function' ? blob.label() : blob.label;
     if (depth > 0) {
-      ret += '<h'+depth+'>'+blob.label+'</h'+depth+'>';
+      ret += '<h'+depth+'>'+label+'</h'+depth+'>';
     } else {
-      ret += '<th><b>'+blob.label+'</b></th>';
+      ret += '<th><b>'+label+'</b></th>';
     }
   }
   if (blob.hasOwnProperty('error')) {
@@ -306,8 +308,7 @@ function blob2html(blob, depth, context) {
     }
   }
   if (blob.hasOwnProperty('html')) {
-    console.log(blob);
-    const mode = $('#Mode').val() || 'linguist';
+    const mode = $('#Mode').val() || 'English-Linguist';
     ret += blob.html[mode] || '';
   } else {
   if (blob.hasOwnProperty('tablist')) {
@@ -368,15 +369,20 @@ function blob2nav(blob) {
     return '<ul>' + blob.map(blob2nav).join('') + '</ul>';
   } else if (blob.hasOwnProperty('id')) {
     let ret = '<li><a href="#' + blob.id + '">';
+    
     if (blob.hasOwnProperty('label')) {
-      ret += blob.label;
+      const label = typeof blob.label === 'function' ? blob.label() : blob.label;
+      ret += label;
     } else {
       ret += blob.id;
     }
+
     ret += '</a>';
+    
     if (blob.hasOwnProperty('subcats')) {
       ret += blob2nav(blob.subcats);
     }
+
     ret += '</li>';
     return ret;
   } else {
@@ -420,8 +426,14 @@ function set_lang() {
     $('#Mode').html(
       availableModes.map(m => `<option value="${m}">${m}</option>`).join('')
     );
-    let defaultMode = availableModes.includes('linguist') ? 'linguist' : availableModes[0];
+    let defaultMode = availableModes.includes('English-Linguist') ? 'English-Linguist' : availableModes[0];
     $('#Mode').val(defaultMode).change();
+  } else {
+      $('#POS').empty();
+      $('#Mode').empty();
+      $('#content').empty();
+      $('#nav').empty();
+      return;
   }
 }
 
@@ -454,7 +466,7 @@ function update_template(lang, pos) {
 
 $(document).ready(function() {
   $('#Language').html(
-    '<option value="null">---</option>'+
+    '<option value="null">Select a language</option>'+
     Object.keys(LANGS).sort().map(function(lg) {
       return '<option value="'+lg+'">'+LANGS[lg].name+'</option>';
     }).join('')
@@ -464,8 +476,26 @@ $(document).ready(function() {
   $('#Mode').change(function () {
     let lang = $('#Language').val();
     let pos = $('#POS').val();
+
     if (lang && pos) {
+      // cache current filled data
+      let cachedForms = {};
+      $('[data-tags]').each(function () {
+        let tags = $(this).data('tags');
+        let text = $(this).text().trim();
+        if (text.length > 0) {
+          cachedForms[tags] = text;
+        }
+      });
       set_pos();
+      setTimeout(function () {
+        $('[data-tags]').each(function () {
+          let tags = $(this).data('tags');
+          if (cachedForms[tags]) {
+            $(this).text(cachedForms[tags]);
+          }
+        });
+      }, 0);
     }
   });
 });

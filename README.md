@@ -13,3 +13,4 @@ This is a paradigm generator front-end for [Apertium APy](https://github.com/ape
 | `hyw` | Western Armenian | verbs, nouns |
 | `kaz` | Kazakh | verbs |
 | `spa` | Spanish | verbs |
+| `uum` | Urum | verbs, nouns |
