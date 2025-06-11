@@ -38,29 +38,30 @@ let unm_labels = {
 }
 
 function ti_table(lang, prefix_tags="") {
+   let labels = unm_labels[lang];
 	return `
         <div class="table-container">
           <div class="table"><h3>Affirmative</h3>
           <table class="paradigm-table">
-            <tr><th></th><th>${unm_labels[${lang}]['o_sg']}</th><th>${unm_labels[${lang}]['o_pl']}</th><th>${unm_labels[${lang}]['o_idf']}</th></tr>
-            <tr><th>${unm_labels[${lang}]['s_1sg']}</th><td data-tags="${prefix_tags}s_1sg.o_sg"></td><td data-tags="${prefix_tags}s_1sg.o_pl"></td><td data-tags="${prefix_tags}s_1sg"></td></tr>
-            <tr><th>${unm_labels[${lang}]['s_2sg']}</th><td data-tags="${prefix_tags}s_2sg.o_sg"></td><td data-tags="${prefix_tags}s_2sg.o_pl"></td><td data-tags="${prefix_tags}s_2sg"></td></tr>
-            <tr><th>${unm_labels[${lang}]['s_3sg']}</th><td data-tags="${prefix_tags}s_3sg.o_sg"></td><td data-tags="${prefix_tags}s_3sg.o_pl"></td><td data-tags="${prefix_tags}s_3sg"></td></tr>
-            <tr><th>${unm_labels[${lang}]['s_11pl']}</th><td data-tags="${prefix_tags}s_11pl.o_sg"></td><td data-tags="${prefix_tags}s_11pl.o_pl"></td><td data-tags="${prefix_tags}s_11pl"></td></tr>
-            <tr><th>${unm_labels[${lang}]['s_12pl']}</th><td data-tags="${prefix_tags}s_12pl.o_sg"></td><td data-tags="${prefix_tags}s_12pl.o_pl"></td><td data-tags="${prefix_tags}s_12pl"></td></tr>
-            <tr><th>${unm_labels[${lang}]['s_2pl']}</th><td data-tags="${prefix_tags}s_2pl.o_sg"></td><td data-tags="${prefix_tags}s_2pl.o_pl"></td><td data-tags="${prefix_tags}s_2pl"></td></tr>
-            <tr><th>${unm_labels[${lang}]['s_3pl']}</th><td data-tags="${prefix_tags}s_3pl.o_sg"></td><td data-tags="${prefix_tags}s_3pl.o_pl"></td><td data-tags="${prefix_tags}s_3pl"></td></tr>
+            <tr><th></th><th>${labels['o_sg']}</th><th>${labels['o_pl']}</th><th>${labels['o_idf']}</th></tr>
+            <tr><th>${labels['s_1sg']}</th><td data-tags="${prefix_tags}s_1sg.o_sg"></td><td data-tags="${prefix_tags}s_1sg.o_pl"></td><td data-tags="${prefix_tags}s_1sg"></td></tr>
+            <tr><th>${labels['s_2sg']}</th><td data-tags="${prefix_tags}s_2sg.o_sg"></td><td data-tags="${prefix_tags}s_2sg.o_pl"></td><td data-tags="${prefix_tags}s_2sg"></td></tr>
+            <tr><th>${labels['s_3sg']}</th><td data-tags="${prefix_tags}s_3sg.o_sg"></td><td data-tags="${prefix_tags}s_3sg.o_pl"></td><td data-tags="${prefix_tags}s_3sg"></td></tr>
+            <tr><th>${labels['s_11pl']}</th><td data-tags="${prefix_tags}s_11pl.o_sg"></td><td data-tags="${prefix_tags}s_11pl.o_pl"></td><td data-tags="${prefix_tags}s_11pl"></td></tr>
+            <tr><th>${labels['s_12pl']}</th><td data-tags="${prefix_tags}s_12pl.o_sg"></td><td data-tags="${prefix_tags}s_12pl.o_pl"></td><td data-tags="${prefix_tags}s_12pl"></td></tr>
+            <tr><th>${labels['s_2pl']}</th><td data-tags="${prefix_tags}s_2pl.o_sg"></td><td data-tags="${prefix_tags}s_2pl.o_pl"></td><td data-tags="${prefix_tags}s_2pl"></td></tr>
+            <tr><th>${labels['s_3pl']}</th><td data-tags="${prefix_tags}s_3pl.o_sg"></td><td data-tags="${prefix_tags}s_3pl.o_pl"></td><td data-tags="${prefix_tags}s_3pl"></td></tr>
           </table></div>
           <div class="table"><h3>Negative</h3>
           <table class="paradigm-table">
-            <tr><th></th><th>${unm_labels[${lang}]['o_sg']}</th><th>${unm_labels[${lang}]['o_pl']}</th><th>${unm_labels[${lang}]['o_idf']}</th></tr>
-            <tr><th>${unm_labels[${lang}]['s_1sg']}</th><td data-tags="${prefix_tags}neg.s_1sg.o_sg"></td><td data-tags="${prefix_tags}neg.s_1sg.o_pl"></td><td data-tags="${prefix_tags}neg.s_1sg"></td></tr>
-            <tr><th>${unm_labels[${lang}]['s_2sg']}</th><td data-tags="${prefix_tags}neg.s_2sg.o_sg"></td><td data-tags="${prefix_tags}neg.s_2sg.o_pl"></td><td data-tags="${prefix_tags}neg.s_2sg"></td></tr>
-            <tr><th>${unm_labels[${lang}]['s_3sg']}</th><td data-tags="${prefix_tags}neg.s_3sg.o_sg"></td><td data-tags="${prefix_tags}neg.s_3sg.o_pl"></td><td data-tags="${prefix_tags}neg.s_3sg"></td></tr>
-            <tr><th>${unm_labels[${lang}]['s_11pl']}</th><td data-tags="${prefix_tags}neg.s_11pl.o_sg"></td><td data-tags="${prefix_tags}neg.s_11pl.o_pl"></td><td data-tags="${prefix_tags}neg.s_11pl"></td></tr>
-            <tr><th>${unm_labels[${lang}]['s_12pl']}</th><td data-tags="${prefix_tags}neg.s_12pl.o_sg"></td><td data-tags="${prefix_tags}neg.s_12pl.o_pl"></td><td data-tags="${prefix_tags}neg.s_12pl"></td></tr>
-            <tr><th>${unm_labels[${lang}]['s_2pl']}</th><td data-tags="${prefix_tags}neg.s_2pl.o_sg"></td><td data-tags="${prefix_tags}neg.s_2pl.o_pl"></td><td data-tags="${prefix_tags}neg.s_2pl"></td></tr>
-            <tr><th>${unm_labels[${lang}]['s_3pl']}</th><td data-tags="${prefix_tags}neg.s_3pl.o_sg"></td><td data-tags="${prefix_tags}neg.s_3pl.o_pl"></td><td data-tags="${prefix_tags}neg.s_3pl"></td></tr>
+            <tr><th></th><th>${labels['o_sg']}</th><th>${labels['o_pl']}</th><th>${labels['o_idf']}</th></tr>
+            <tr><th>${labels['s_1sg']}</th><td data-tags="${prefix_tags}neg.s_1sg.o_sg"></td><td data-tags="${prefix_tags}neg.s_1sg.o_pl"></td><td data-tags="${prefix_tags}neg.s_1sg"></td></tr>
+            <tr><th>${labels['s_2sg']}</th><td data-tags="${prefix_tags}neg.s_2sg.o_sg"></td><td data-tags="${prefix_tags}neg.s_2sg.o_pl"></td><td data-tags="${prefix_tags}neg.s_2sg"></td></tr>
+            <tr><th>${labels['s_3sg']}</th><td data-tags="${prefix_tags}neg.s_3sg.o_sg"></td><td data-tags="${prefix_tags}neg.s_3sg.o_pl"></td><td data-tags="${prefix_tags}neg.s_3sg"></td></tr>
+            <tr><th>${labels['s_11pl']}</th><td data-tags="${prefix_tags}neg.s_11pl.o_sg"></td><td data-tags="${prefix_tags}neg.s_11pl.o_pl"></td><td data-tags="${prefix_tags}neg.s_11pl"></td></tr>
+            <tr><th>${labels['s_12pl']}</th><td data-tags="${prefix_tags}neg.s_12pl.o_sg"></td><td data-tags="${prefix_tags}neg.s_12pl.o_pl"></td><td data-tags="${prefix_tags}neg.s_12pl"></td></tr>
+            <tr><th>${labels['s_2pl']}</th><td data-tags="${prefix_tags}neg.s_2pl.o_sg"></td><td data-tags="${prefix_tags}neg.s_2pl.o_pl"></td><td data-tags="${prefix_tags}neg.s_2pl"></td></tr>
+            <tr><th>${labels['s_3pl']}</th><td data-tags="${prefix_tags}neg.s_3pl.o_sg"></td><td data-tags="${prefix_tags}neg.s_3pl.o_pl"></td><td data-tags="${prefix_tags}neg.s_3pl"></td></tr>
           </table></div>
         </div>`
 }
@@ -85,7 +86,7 @@ function add_unm() {
         html: {
           'English': ti_table('English'),
           'English (linguist)': ti_table('English (linguist)'),
-          'Lenape': ti_table('Lenape')
+          'Unami': ti_table('Unami')
         }
       },
 		/***
@@ -122,7 +123,7 @@ function add_unm() {
         html: {
           'English': ti_table('English', "subord."),
           'English (linguist)': ti_table('English (linguist)', "subord."),
-          'Lenape': ti_table('Lenape', "subord.")
+          'Unami': ti_table('Unami', "subord.")
         }
 
       },
