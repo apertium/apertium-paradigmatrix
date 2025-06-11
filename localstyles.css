@@ -63,3 +63,8 @@ button {
 #Language, #POS, #Mode {
   min-width: 125px;
 }
+
+.table-container {
+  display: flex;
+  flex-direction: row;
+}
