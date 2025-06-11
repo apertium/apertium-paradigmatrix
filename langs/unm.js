@@ -1,3 +1,42 @@
+let unm_labels = {
+	"English": {
+		"s_1sg": "I",
+		"s_2sg": "you",
+		"s_3sg": "s/he",
+		"s_11pl": "we (excluding you)",
+		"s_12pl": "we (including you)",
+		"s_2pl": "you all",
+		"s_3pl": "they",
+		"o_sg": "→ it",
+		"o_pl": "→ them",
+		"o_idf": "→ something"
+	},
+	"English (linguist)": {
+		"s_1sg": "1sg subj.",
+		"s_2sg": "2sg subj",
+		"s_3sg": "3sg subj",
+		"s_11pl": "11pl subj",
+		"s_12pl": "12pl subj",
+		"s_2pl": "2pl subj",
+		"s_3pl": "3pl subj",
+		"o_sg": "sg obj",
+		"o_pl": "pl obj",
+		"o_idf": "indef. obj"
+	},
+	"Unami": {
+		"s_1sg": "ni",
+		"s_2sg": "ki",
+		"s_3sg": "nàni",
+		"s_11pl": "nilina",
+		"s_12pl": "kiluna",
+		"s_2pl": "kiluwa",
+		"s_3pl": "nèk",
+		"o_sg": "→ nën",
+		"o_pl": "→ nèl",
+		"o_idf": "→ kèku"
+	}
+}
+
 function add_unm() {
   return {
     verb_ti: [
@@ -14,7 +53,45 @@ function add_unm() {
           [{tags: 's_12pl.o_sg'}, {tags: 's_12pl.o_pl'}, {tags: 's_12pl'}],
           [{tags: 's_2pl', width: 2}, {tags: 's_2pl'}],
           [{tags: 's_3pl', width: 2}, {tags: 's_3pl'}]
-        ]
+        ],
+        html: {
+          'English': `
+            <table class="paradigm-table">
+              <tr><th></th><th>${unm_labels['English']['o_sg']}</th><th>${unm_labels['English']['o_pl']}</th><th>${unm_labels['English']['o_idf']}</th></tr>
+              <tr><th>${unm_labels['English']['s_1sg']}</th><td data-tags="s_1sg.o_sg"></td><td data-tags="s_1sg.o_pl"></td><td data-tags="s_1sg"></td></tr>
+              <tr><th>${unm_labels['English']['s_2sg']}</th><td data-tags="s_2sg.o_sg"></td><td data-tags="s_2sg.o_pl"></td><td data-tags="s_2sg"></td></tr>
+              <tr><th>${unm_labels['English']['s_3sg']}</th><td data-tags="s_3sg.o_sg"></td><td data-tags="s_3sg.o_pl"></td><td data-tags="s_3sg"></td></tr>
+              <tr><th>${unm_labels['English']['s_11pl']}</th><td data-tags="s_11pl.o_sg"></td><td data-tags="s_11pl.o_pl"></td><td data-tags="s_11pl"></td></tr>
+              <tr><th>${unm_labels['English']['s_12pl']}</th><td data-tags="s_12pl.o_sg"></td><td data-tags="s_12pl.o_pl"></td><td data-tags="s_12pl"></td></tr>
+              <tr><th>${unm_labels['English']['s_2pl']}</th><td data-tags="s_2pl.o_sg"></td><td data-tags="s_2pl.o_pl"></td><td data-tags="s_2pl"></td></tr>
+              <tr><th>${unm_labels['English']['s_3pl']}</th><td data-tags="s_3pl.o_sg"></td><td data-tags="s_3pl.o_pl"></td><td data-tags="s_3pl"></td></tr>
+            </table>
+          `,
+          'English (linguist)': `
+            <table class="paradigm-table">
+              <tr><th></th><th>${unm_labels['English (linguist)']['o_sg']}</th><th>${unm_labels['English (linguist)']['o_pl']}</th><th>${unm_labels['English (linguist)']['o_idf']}</th></tr>
+              <tr><th>${unm_labels['English (linguist)']['s_1sg']}</th><td data-tags="s_1sg.o_sg"></td><td data-tags="s_1sg.o_pl"></td><td data-tags="s_1sg"></td></tr>
+              <tr><th>${unm_labels['English (linguist)']['s_2sg']}</th><td data-tags="s_2sg.o_sg"></td><td data-tags="s_2sg.o_pl"></td><td data-tags="s_2sg"></td></tr>
+              <tr><th>${unm_labels['English (linguist)']['s_3sg']}</th><td data-tags="s_3sg.o_sg"></td><td data-tags="s_3sg.o_pl"></td><td data-tags="s_3sg"></td></tr>
+              <tr><th>${unm_labels['English (linguist)']['s_11pl']}</th><td data-tags="s_11pl.o_sg"></td><td data-tags="s_11pl.o_pl"></td><td data-tags="s_11pl"></td></tr>
+              <tr><th>${unm_labels['English (linguist)']['s_12pl']}</th><td data-tags="s_12pl.o_sg"></td><td data-tags="s_12pl.o_pl"></td><td data-tags="s_12pl"></td></tr>
+              <tr><th>${unm_labels['English (linguist)']['s_2pl']}</th><td data-tags="s_2pl.o_sg"></td><td data-tags="s_2pl.o_pl"></td><td data-tags="s_2pl"></td></tr>
+              <tr><th>${unm_labels['English (linguist)']['s_3pl']}</th><td data-tags="s_3pl.o_sg"></td><td data-tags="s_3pl.o_pl"></td><td data-tags="s_3pl"></td></tr>
+            </table>
+          `,
+          'Lenape': `
+            <table class="paradigm-table">
+              <tr><th></th><th>${unm_labels['Lenape']['o_sg']}</th><th>${unm_labels['Lenape']['o_pl']}</th><th>${unm_labels['Lenape']['o_idf']}</th></tr>
+              <tr><th>${unm_labels['Lenape']['s_1sg']}</th><td data-tags="s_1sg.o_sg"></td><td data-tags="s_1sg.o_pl"></td><td data-tags="s_1sg"></td></tr>
+              <tr><th>${unm_labels['Lenape']['s_2sg']}</th><td data-tags="s_2sg.o_sg"></td><td data-tags="s_2sg.o_pl"></td><td data-tags="s_2sg"></td></tr>
+              <tr><th>${unm_labels['Lenape']['s_3sg']}</th><td data-tags="s_3sg.o_sg"></td><td data-tags="s_3sg.o_pl"></td><td data-tags="s_3sg"></td></tr>
+              <tr><th>${unm_labels['Lenape']['s_11pl']}</th><td data-tags="s_11pl.o_sg"></td><td data-tags="s_11pl.o_pl"></td><td data-tags="s_11pl"></td></tr>
+              <tr><th>${unm_labels['Lenape']['s_12pl']}</th><td data-tags="s_12pl.o_sg"></td><td data-tags="s_12pl.o_pl"></td><td data-tags="s_12pl"></td></tr>
+              <tr><th>${unm_labels['Lenape']['s_2pl']}</th><td data-tags="s_2pl.o_sg"></td><td data-tags="s_2pl.o_pl"></td><td data-tags="s_2pl"></td></tr>
+              <tr><th>${unm_labels['Lenape']['s_3pl']}</th><td data-tags="s_3pl.o_sg"></td><td data-tags="s_3pl.o_pl"></td><td data-tags="s_3pl"></td></tr>
+            </table>
+          `,
+
       },
       {
         id: 'ind.neg',
