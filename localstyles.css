@@ -65,6 +65,10 @@ button {
 }
 
 .table-container {
-  display: flex;
-  flex-direction: row;
+	display: flex;
+	flex-direction: row;
+}
+
+.table-container div.table:not(:last-child) {
+	margin-right: 1em;
 }

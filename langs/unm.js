@@ -49,8 +49,8 @@ function ti_table(lang, prefix_tags="") {
             <tr><th>${labels['s_3sg']}</th><td data-tags="${prefix_tags}s_3sg.o_sg"></td><td data-tags="${prefix_tags}s_3sg.o_pl"></td><td data-tags="${prefix_tags}s_3sg"></td></tr>
             <tr><th>${labels['s_11pl']}</th><td data-tags="${prefix_tags}s_11pl.o_sg"></td><td data-tags="${prefix_tags}s_11pl.o_pl"></td><td data-tags="${prefix_tags}s_11pl"></td></tr>
             <tr><th>${labels['s_12pl']}</th><td data-tags="${prefix_tags}s_12pl.o_sg"></td><td data-tags="${prefix_tags}s_12pl.o_pl"></td><td data-tags="${prefix_tags}s_12pl"></td></tr>
-            <tr><th>${labels['s_2pl']}</th><td data-tags="${prefix_tags}s_2pl.o_sg"></td><td data-tags="${prefix_tags}s_2pl.o_pl"></td><td data-tags="${prefix_tags}s_2pl"></td></tr>
-            <tr><th>${labels['s_3pl']}</th><td data-tags="${prefix_tags}s_3pl.o_sg"></td><td data-tags="${prefix_tags}s_3pl.o_pl"></td><td data-tags="${prefix_tags}s_3pl"></td></tr>
+            <tr><th>${labels['s_2pl']}</th><td data-tags="${prefix_tags}s_2pl" colspan="3"></td></tr>
+            <tr><th>${labels['s_3pl']}</th><td data-tags="${prefix_tags}s_3pl" colspan="3"></td></tr>
           </table></div>
           <div class="table"><h3>Negative</h3>
           <table class="paradigm-table">
@@ -60,8 +60,8 @@ function ti_table(lang, prefix_tags="") {
             <tr><th>${labels['s_3sg']}</th><td data-tags="${prefix_tags}neg.s_3sg.o_sg"></td><td data-tags="${prefix_tags}neg.s_3sg.o_pl"></td><td data-tags="${prefix_tags}neg.s_3sg"></td></tr>
             <tr><th>${labels['s_11pl']}</th><td data-tags="${prefix_tags}neg.s_11pl.o_sg"></td><td data-tags="${prefix_tags}neg.s_11pl.o_pl"></td><td data-tags="${prefix_tags}neg.s_11pl"></td></tr>
             <tr><th>${labels['s_12pl']}</th><td data-tags="${prefix_tags}neg.s_12pl.o_sg"></td><td data-tags="${prefix_tags}neg.s_12pl.o_pl"></td><td data-tags="${prefix_tags}neg.s_12pl"></td></tr>
-            <tr><th>${labels['s_2pl']}</th><td data-tags="${prefix_tags}neg.s_2pl.o_sg"></td><td data-tags="${prefix_tags}neg.s_2pl.o_pl"></td><td data-tags="${prefix_tags}neg.s_2pl"></td></tr>
-            <tr><th>${labels['s_3pl']}</th><td data-tags="${prefix_tags}neg.s_3pl.o_sg"></td><td data-tags="${prefix_tags}neg.s_3pl.o_pl"></td><td data-tags="${prefix_tags}neg.s_3pl"></td></tr>
+            <tr><th>${labels['s_2pl']}</th><td data-tags="${prefix_tags}neg.s_2pl" colspan="3"></td></tr>
+            <tr><th>${labels['s_3pl']}</th><td data-tags="${prefix_tags}neg.s_3pl" colspan="3"></td></tr>
           </table></div>
         </div>`
 }
@@ -200,3 +200,5 @@ function add_unm() {
     ]
   };
 }
+
+LANGS['unm'].labels = unm_labels;
