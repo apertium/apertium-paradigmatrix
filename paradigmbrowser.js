@@ -475,6 +475,12 @@ $(document).ready(function() {
     }).join('')
   );
   $('#Language').change(set_lang);
+  let searchParams = new URLSearchParams(window.location.search)
+  if (searchParams.has('lang')) {
+    $('#Language').val(searchParams.get('lang'));
+    set_lang();
+  };
+
   $('#POS').change(set_pos);
   $('#Mode').change(function () {
     let lang = $('#Language').val();
