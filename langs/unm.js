@@ -12,7 +12,7 @@ let unm_labels = {
 		"o_idf": "→ something"
 	},
 	"English (linguist)": {
-		"s_1sg": "1sg subj.",
+		"s_1sg": "1sg subj",
 		"s_2sg": "2sg subj",
 		"s_3sg": "3sg subj",
 		"s_11pl": "11pl subj",
@@ -21,7 +21,9 @@ let unm_labels = {
 		"s_3pl": "3pl subj",
 		"o_sg": "sg obj",
 		"o_pl": "pl obj",
-		"o_idf": "indef. obj"
+		"o_idf": "indef. obj",
+		"sg": "singular",
+		"pl": "plural"
 	},
 	"Unami": {
 		"s_1sg": "ni",
@@ -65,6 +67,25 @@ function ti_table(lang, prefix_tags="") {
           </table></div>
         </div>`
 }
+
+function ai_table(lang, prefix_tags="") {
+   let labels = unm_labels[lang];
+	if (lang=="English (linguist)") {
+		top_row = `<tr><th colspan="2">${labels['sg']}</th><th colspan="2">${labels['pl']}</th></tr>`;
+	} else {
+		top_row = "";
+	}
+	return `
+          <table class="paradigm-table altRow">
+			 	${top_row}
+            <tr><th rowspan="2">${labels['s_1sg']}</th><td rowspan="2" data-tags="${prefix_tags}s_1sg"></td><th>${labels['s_11pl']}</th><td data-tags="${prefix_tags}s_11pl"></td></tr>
+				<tr><th>${labels['s_12pl']}</th><td data-tags="${prefix_tags}s_12pl"></td></tr>
+            <tr><th>${labels['s_2sg']}</th><td data-tags="${prefix_tags}s_2sg"></td><th>${labels['s_2pl']}</th><td data-tags="${prefix_tags}s_2pl"></td></tr>
+            <tr><th>${labels['s_3sg']}</th><td data-tags="${prefix_tags}s_3sg"></td><th>${labels['s_3pl']}</th><td data-tags="${prefix_tags}s_3pl"></td></tr>
+          </table>
+	`;
+}
+
 
 function add_unm() {
   return {
@@ -139,9 +160,21 @@ function add_unm() {
           [{tags: ''}, {tags: 's_12pl'}],
           [{tags: 's_2sg'}, {tags: 's_2pl'}],
           [{tags: 's_3sg'}, {tags: 's_3pl'}]
-        ]
+        ],
+        html: Object.fromEntries(
+          Object.entries(unm_labels).map(([m, lab]) => [m,
+          `
+            <div class="table-container">
+              <div class="table"><h3>Affirmative</h3>
+                ${ai_table(m)}</div>
+              <div class="table"><h3>Negative</h3>
+                ${ai_table(m, "neg.")}
+              </div>
+            </div>
+          `
+        ]))
       },
-      {
+      /*** {
         id: 'ind.neg',
         label: 'Indicative (negative)',
         tabcols: ['Singular', 'Plural'],
@@ -152,7 +185,7 @@ function add_unm() {
           [{tags: 'neg.s_2sg'}, {tags: 'neg.s_2pl'}],
           [{tags: 'neg.s_3sg'}, {tags: 'neg.s_3pl'}]
         ]
-      },
+      }, ***/
       {
         id: 'subord',
         label: 'Subordinative',
@@ -163,8 +196,52 @@ function add_unm() {
           [{tags: ''}, {tags: 'subord.s_12pl'}],
           [{tags: 'subord.s_2sg'}, {tags: 'subord.s_2pl'}],
           [{tags: 'subord.s_3sg'}, {tags: 'subord.s_3pl'}]
-        ]
+        ],
+        html: Object.fromEntries(
+          Object.entries(unm_labels).map(([m, lab]) => [m,
+          `
+            <div class="table-container">
+              <div class="table"><h3>Affirmative</h3>
+                ${ai_table(m, "subord.")}</div>
+              <div class="table"><h3>Negative</h3>
+                ${ai_table(m, "subord.neg.")}
+              </div>
+            </div>
+          `
+          ]))
       },
+      {
+        id: 'conjunct',
+        label: 'Conjunct',
+        html: Object.fromEntries(
+          Object.entries(unm_labels).map(([m, lab]) => [m,
+          `
+            <div class="table-container">
+              <div class="table"><h3>Affirmative</h3>
+                ${ai_table(m, "cnj.")}</div>
+              <div class="table"><h3>Negative</h3>
+                ${ai_table(m, "cnj.neg.")}
+              </div>
+            </div>
+          `
+          ]))
+      },
+      {
+        id: 'subjunctive',
+        label: 'Subjunctive',
+        html: Object.fromEntries(
+          Object.entries(unm_labels).map(([m, lab]) => [m,
+          `
+            <div class="table-container">
+              <div class="table"><h3>Affirmative</h3>
+                ${ai_table(m, "sbj.")}</div>
+              <div class="table"><h3>Negative</h3>
+                ${ai_table(m, "sbj.neg.")}
+              </div>
+            </div>
+          `
+          ]))
+      }
     ],
     verb_ta: [
       {
