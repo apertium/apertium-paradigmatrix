@@ -5,6 +5,10 @@
 }
 
 th {
+	font-weight: normal;
+}
+
+td {
 	font-weight: bold;
 }
 
@@ -16,13 +20,14 @@ table {
 }
 
 td, th {
-	border: 1px solid black;
+	border-top: 1px solid silver;
+	border-bottom: 1px solid silver;
 	text-align: left;
 	padding: 8px;
 }
 
-tr:nth-child(even) {
-	background-color: #dddddd;
+tr:nth-child(odd) {
+	background-color: silver;
 }
 
 .column {

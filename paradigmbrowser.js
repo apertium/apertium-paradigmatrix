@@ -462,6 +462,9 @@ function update_template(lang, pos) {
     }).join('<hr>')
   );
   $('#nav').html('<h2 style="font-family: Ubuntu, sans-serif;">Quick navigation</h2>' + blob2nav(LANGS[lang].data[pos]));
+
+  //$('tr:not(:has(td[rowspan])):even').addClass('oddrow');
+  $( "<tr style='display:none'></tr>" ).insertAfter('tbody tr:has(td[rowspan])');
 }
 
 $(document).ready(function() {
