@@ -6,19 +6,33 @@
 
 th {
 	font-weight: normal;
+	background: #f2f2f2;
+	border: 1px #aaa solid;
 }
 
 td {
 	font-weight: bold;
+	border: 1px #aaa solid;
+	padding: 0.2em;
 }
 
 table {
 	font-family: arial, sans-serif;
-	border-collapse: collapse;
 	width: 100%;
 	table-layout: fixed;
+
+	margin: 1em 1em 1em 0;
+	background: #f9f9f9;
+	border: 1px #aaa solid;
+	border-collapse: collapse;
 }
 
+td, th {
+	text-align: left;
+	padding: 8px;
+}
+
+/*
 td, th {
 	border-top: 1px solid silver;
 	border-bottom: 1px solid silver;
@@ -28,6 +42,11 @@ td, th {
 
 tr:nth-child(odd) {
 	background-color: silver;
+}
+*/
+
+tr:nth-child(even) {
+	background-color: white;
 }
 
 .column {
