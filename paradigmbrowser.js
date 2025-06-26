@@ -1,4 +1,6 @@
 var selectionPrompt;
+var currentPos = null; // track current POS/subcategory
+
 //Allows for Paradigm after you have typed the space bar
 $(document).ready(function () {
   $(window).keypress(function (e) {
@@ -163,11 +165,13 @@ function paradigm() {
           // check whether we're dealing with a particular subcategory
           if (POS_SUBCATS[language] !== undefined && POS_SUBCATS[language][posCat] !== undefined) {
             subCat = getSubCat(language, posCat, keptTags);
+            currentPos = subCat;
             // update paradigms
             update_template(language, subCat);
             isCorrectPOS = true;
             validForms.push(text); //already split for convenience
           } else {
+            currentPos = posCat;
             isCorrectPOS = true;
             validForms.push(text); //already split for convenience
           }
@@ -311,53 +315,54 @@ function blob2html(blob, depth, context) {
     const mode = $('#Mode').val() || 'English-Linguist';
     ret += blob.html[mode] || '';
   } else {
-  if (blob.hasOwnProperty('tablist')) {
-    ret += '<table>';
-    blob.tablist.forEach(function(l) {
-      ret += '<tr>'+blob2html(l, 0, 'tr')+'</tr>';
-    });
-    ret += '</table><br>';
-  }
-  if (blob.hasOwnProperty('tabdata')) {
-    ret += '<table>';
-    let rows = [];
-    if (blob.hasOwnProperty('tabrows')) {
-      rows = blob.tabrows;
-    }
-    if (blob.hasOwnProperty('tabcolgroups')) {
-      ret += '<tr>';
-      if (rows.length > 0) {
-        ret += '<th></th>';
-      }
-      blob.tabcolgroups.forEach(function(c) {
-        ret += '<th colspan="'+c.width+'"><b>'+c.label+'</b></th>';
+    if (blob.hasOwnProperty('tablist')) {
+      ret += '<table>';
+      blob.tablist.forEach(function(l) {
+        ret += '<tr>'+blob2html(l, 0, 'tr')+'</tr>';
       });
+      ret += '</table><br>';
     }
-    if (blob.hasOwnProperty('tabcols')) {
-      ret += '<tr>';
-      if (rows.length > 0) {
-        ret += '<th></th>';
+    if (blob.hasOwnProperty('tabdata')) {
+      ret += '<table>';
+      let rows = [];
+      if (blob.hasOwnProperty('tabrows')) {
+        rows = blob.tabrows;
       }
-      blob.tabcols.forEach(function(c) {
-        ret += '<th><b>'+c+'</b></th>';
-      });
-    }
-    for (let i = 0; i < blob.tabdata.length; i++) {
-      ret += '<tr>';
-      if (rows.length > 0) {
-        ret += '<th>';
-        if (i < rows.length) {
-          ret += '<b>'+rows[i]+'</b>';
+      if (blob.hasOwnProperty('tabcolgroups')) {
+        ret += '<tr>';
+        if (rows.length > 0) {
+          ret += '<th></th>';
         }
-        ret += '</th>';
+        blob.tabcolgroups.forEach(function(c) {
+          ret += '<th colspan="'+c.width+'"><b>'+c.label+'</b></th>';
+        });
       }
-      blob.tabdata[i].forEach(function(r) {
-        ret += blob2html(r, 0, 'tr');
-      });
-      ret += '</tr>';
+      if (blob.hasOwnProperty('tabcols')) {
+        ret += '<tr>';
+        if (rows.length > 0) {
+          ret += '<th></th>';
+        }
+        blob.tabcols.forEach(function(c) {
+          ret += '<th><b>'+c+'</b></th>';
+        });
+      }
+      for (let i = 0; i < blob.tabdata.length; i++) {
+        ret += '<tr>';
+        if (rows.length > 0) {
+          ret += '<th>';
+          if (i < rows.length) {
+            ret += '<b>'+rows[i]+'</b>';
+          }
+          ret += '</th>';
+        }
+        blob.tabdata[i].forEach(function(r) {
+          ret += blob2html(r, 0, 'tr');
+        });
+        ret += '</tr>';
+      }
+      ret += '</table><br>';
     }
-    ret += '</table><br>';
-  } }
+  }
   if (blob.hasOwnProperty('id')) {
     ret += '</div>';
   }
@@ -452,6 +457,7 @@ function set_pos() {
     console.warn('No POS selected');
   } else {
     update_template(lang,pos);
+    currentPos = pos;
   }
 }
 
@@ -484,9 +490,7 @@ $(document).ready(function() {
   $('#POS').change(set_pos);
   $('#Mode').change(function () {
     let lang = $('#Language').val();
-    let pos = $('#POS').val();
-
-    if (lang && pos) {
+    if (lang && currentPos) {
       // cache current filled data
       let cachedForms = {};
       $('[data-tags]').each(function () {
@@ -496,7 +500,7 @@ $(document).ready(function() {
           cachedForms[tags] = text;
         }
       });
-      set_pos();
+      update_template(lang, currentPos);
       setTimeout(function () {
         $('[data-tags]').each(function () {
           let tags = $(this).data('tags');
