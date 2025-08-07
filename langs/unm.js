@@ -68,6 +68,35 @@ function ti_table(lang, prefix_tags="") {
         </div>`
 }
 
+function ti_simple_table(lang, prefix_tags="") {
+   let labels = unm_labels[lang];
+	return `
+        <div class="table-container">
+          <div class="table"><h3>Affirmative</h3>
+          <table class="paradigm-table">
+            <tr><th></th><th>${labels['o_sg']} / ${labels['o_pl']} / ${labels['o_idf']}</th></tr>
+            <tr><th>${labels['s_1sg']}</th><td data-tags="${prefix_tags}s_1sg"></td></tr>
+            <tr><th>${labels['s_2sg']}</th><td data-tags="${prefix_tags}s_2sg"></td></tr>
+            <tr><th>${labels['s_3sg']}</th><td data-tags="${prefix_tags}s_3sg"></td></tr>
+            <tr><th>${labels['s_11pl']}</th><td data-tags="${prefix_tags}s_11pl"></td></tr>
+            <tr><th>${labels['s_12pl']}</th><td data-tags="${prefix_tags}s_12pl"></td></tr>
+            <tr><th>${labels['s_2pl']}</th><td data-tags="${prefix_tags}s_2pl"></td></tr>
+            <tr><th>${labels['s_3pl']}</th><td data-tags="${prefix_tags}s_3pl"></td></tr>
+          </table></div>
+          <div class="table"><h3>Negative</h3>
+          <table class="paradigm-table">
+            <tr><th></th><th>${labels['o_sg']} / ${labels['o_pl']} / ${labels['o_idf']}</th></tr>
+            <tr><th>${labels['s_1sg']}</th><td data-tags="${prefix_tags}neg.s_1sg"></td></tr>
+            <tr><th>${labels['s_2sg']}</th><td data-tags="${prefix_tags}neg.s_2sg"></td></tr>
+            <tr><th>${labels['s_3sg']}</th><td data-tags="${prefix_tags}neg.s_3sg"></td></tr>
+            <tr><th>${labels['s_11pl']}</th><td data-tags="${prefix_tags}neg.s_11pl"></td></tr>
+            <tr><th>${labels['s_12pl']}</th><td data-tags="${prefix_tags}neg.s_12pl"></td></tr>
+            <tr><th>${labels['s_2pl']}</th><td data-tags="${prefix_tags}neg.s_2pl"></td></tr>
+            <tr><th>${labels['s_3pl']}</th><td data-tags="${prefix_tags}neg.s_3pl"></td></tr>
+          </table></div>
+        </div>`
+}
+
 function ai_table(lang, prefix_tags="") {
    let labels = unm_labels[lang];
 	if (lang=="English (linguist)") {
@@ -142,9 +171,9 @@ function add_unm() {
           [{tags: 'subord.s_3pl', width: 2}, {tags: 'subord.s_3pl'}]
         ],
         html: {
-          'English': ti_table('English', "subord."),
-          'English (linguist)': ti_table('English (linguist)', "subord."),
-          'Unami': ti_table('Unami', "subord.")
+          'English': ti_simple_table('English', "subord."),
+          'English (linguist)': ti_simple_table('English (linguist)', "subord."),
+          'Unami': ti_simple_table('Unami', "subord.")
         }
       },
       {
@@ -153,9 +182,9 @@ function add_unm() {
         tabcols: ['Singular Object', 'Plural Object', 'Indefinite Object'],
         tabrows: ['First person sg subj', 'Second person sg subj', 'Third person sg subj', 'First person pl (excl) subj', 'First person pl (incl) subj', 'Second person pl subj', 'Third person pl subj' ],
         html: {
-          'English': ti_table('English', "cnj."),
-          'English (linguist)': ti_table('English (linguist)', "cnj."),
-          'Unami': ti_table('Unami', "cnj.")
+          'English': ti_simple_table('English', "cnj."),
+          'English (linguist)': ti_simple_table('English (linguist)', "cnj."),
+          'Unami': ti_simple_table('Unami', "cnj.")
         }
       },
       {
@@ -164,9 +193,9 @@ function add_unm() {
         tabcols: ['Singular Object', 'Plural Object', 'Indefinite Object'],
         tabrows: ['First person sg subj', 'Second person sg subj', 'Third person sg subj', 'First person pl (excl) subj', 'First person pl (incl) subj', 'Second person pl subj', 'Third person pl subj' ],
         html: {
-          'English': ti_table('English', "sbj."),
-          'English (linguist)': ti_table('English (linguist)', "sbj."),
-          'Unami': ti_table('Unami', "sbj.")
+          'English': ti_simple_table('English', "sbj."),
+          'English (linguist)': ti_simple_table('English (linguist)', "sbj."),
+          'Unami': ti_simple_table('Unami', "sbj.")
         }
       }
     ],
