@@ -13,13 +13,25 @@ let haa_labels = {
      "p1pl": "we",
      "p2pl": "you all",
      "p3pl": "they"
-   }
+   },
+	"hän": {
+     "p1sg": "shan",
+     "p2sg": "nann",
+     "p3sg": "he/she/they",
+     "p1pl": "we",
+     "p2pl": "you all",
+     "p3pl": "they"
+	}
 }
 
 function haa_p123_sg_pl_table(label, prefix) {
   return {
     id: prefix,
-    "label": label,
+    //"label": label,
+    label: () => {
+      const mode = $('#Mode').val() || 'linguist';
+      return (haa_labels[mode]?.labels?.[lab]) || lab;
+    },
     tabcols: ["Singular", "Plural"],
     tabrows: ["First Person", "Second Person", "Third Person"],
     tabdata: [
