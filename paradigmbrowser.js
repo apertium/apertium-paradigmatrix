@@ -428,6 +428,8 @@ function set_lang() {
     set_pos();
     // Add available modes to mode dropdown
     const availableModes = Object.keys(LANGS[lang].labels || {});
+
+	 console.log(LANGS[lang]);
     $('#Mode').html(
       availableModes.map(m => `<option value="${m}">${m}</option>`).join('')
     );

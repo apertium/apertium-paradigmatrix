@@ -1,12 +1,12 @@
 let haa_labels = {
-   "linguist": {
+   "English-Linguist": {
      "sg": "Singular",
      "pl": "Plural",
      "p1": "1st",
      "p2": "2nd",
      "p3": "3rd"
    },
-   "english": {
+   "English-Learner": {
      "p1sg": "I",
      "p2sg": "you",
      "p3sg": "he/she/they",
@@ -14,7 +14,7 @@ let haa_labels = {
      "p2pl": "you all",
      "p3pl": "they"
    },
-	"hän": {
+	"Hän": {
      "p1sg": "shan",
      "p2sg": "nann",
      "p3sg": "he/she/they",
@@ -27,11 +27,7 @@ let haa_labels = {
 function haa_p123_sg_pl_table(label, prefix) {
   return {
     id: prefix,
-    //"label": label,
-    label: () => {
-      const mode = $('#Mode').val() || 'linguist';
-      return (haa_labels[mode]?.labels?.[lab]) || lab;
-    },
+    "label": label,
     tabcols: ["Singular", "Plural"],
     tabrows: ["First Person", "Second Person", "Third Person"],
     tabdata: [
@@ -79,6 +75,9 @@ function haa_p123_sg_pl_table(label, prefix) {
 }
 
 function add_haa() {
+  const mode = $('#Mode').val() || 'English-Linguist';
+  const labels = haa_labels[mode];
+
   return {
     verb_iv: [
       {
@@ -270,3 +269,5 @@ function add_haa() {
     ]
   }
 }
+
+LANGS['haa'].labels = haa_labels;
