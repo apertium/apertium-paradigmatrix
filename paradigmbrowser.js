@@ -264,7 +264,7 @@ function blob2html(blob, depth, context) {
     if (depth > 0) {
       ret += '<h'+depth+'>'+label+'</h'+depth+'>';
     } else {
-      ret += '<th><b>'+label+'</b></th>';
+      ret += '<th>'+label+'</th>';
     }
   }
   if (blob.hasOwnProperty('error')) {
@@ -316,14 +316,14 @@ function blob2html(blob, depth, context) {
     ret += blob.html[mode] || '';
   } else {
     if (blob.hasOwnProperty('tablist')) {
-      ret += '<table>';
+      ret += '<table class="paradigm-table">';
       blob.tablist.forEach(function(l) {
         ret += '<tr>'+blob2html(l, 0, 'tr')+'</tr>';
       });
       ret += '</table><br>';
     }
     if (blob.hasOwnProperty('tabdata')) {
-      ret += '<table>';
+      ret += '<table class="paradigm-table">';
       let rows = [];
       if (blob.hasOwnProperty('tabrows')) {
         rows = blob.tabrows;
@@ -334,7 +334,7 @@ function blob2html(blob, depth, context) {
           ret += '<th></th>';
         }
         blob.tabcolgroups.forEach(function(c) {
-          ret += '<th colspan="'+c.width+'"><b>'+c.label+'</b></th>';
+          ret += '<th colspan="'+c.width+'">'+c.label+'</th>';
         });
       }
       if (blob.hasOwnProperty('tabcols')) {
@@ -343,7 +343,7 @@ function blob2html(blob, depth, context) {
           ret += '<th></th>';
         }
         blob.tabcols.forEach(function(c) {
-          ret += '<th><b>'+c+'</b></th>';
+          ret += '<th>'+c+'</th>';
         });
       }
       for (let i = 0; i < blob.tabdata.length; i++) {
@@ -351,7 +351,7 @@ function blob2html(blob, depth, context) {
         if (rows.length > 0) {
           ret += '<th>';
           if (i < rows.length) {
-            ret += '<b>'+rows[i]+'</b>';
+            ret += rows[i];
           }
           ret += '</th>';
         }
@@ -429,7 +429,6 @@ function set_lang() {
     // Add available modes to mode dropdown
     const availableModes = Object.keys(LANGS[lang].labels || {});
 
-	 console.log(LANGS[lang]);
     $('#Mode').html(
       availableModes.map(m => `<option value="${m}">${m}</option>`).join('')
     );
