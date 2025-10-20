@@ -166,7 +166,7 @@ function haa_p123_sg_pl_table(label, prefix) {
 }
 
 function add_haa() {
-  const mode = $('#Mode').val() || 'English (linguist)';
+  const mode = $('#Mode').val() || 'English';
   const labels = haa_labels[mode];
 
   return {
