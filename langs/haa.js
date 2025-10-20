@@ -340,6 +340,7 @@ function add_haa() {
       {
         id: 'incp',
         label: 'Inceptive',
+		  info: "If forms for a particular aspect are missing, it is because the verb stem for that aspect is not yet available in the transducer",
         html: {
           'English (linguist)': haa_tv_table('English (linguist)', 'Inceptive', 'incp'),
 			 'English': haa_tv_table('English', 'Inceptive', 'incp'),
